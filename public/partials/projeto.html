@@ -1,0 +1,109 @@
+<div class="menu-space"></div>
+<div class="container">
+    
+<div class="page-header text-center">
+	<h1>{{projeto.titulo}}</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Título</label>
+			<input name="titulo" class="form-control" ng-model="projeto.titulo" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
+				class="form-control alert-danger">
+				Título obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 20 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Thumbnail</label>
+			<input name="thumbnail" class="form-control" ng-model="projeto.thumbnail" required>
+
+			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
+				class="form-control alert-danger">
+				URL obrigatória
+			</span> 
+		</div>
+        
+        <div class="form-group">
+			<label>Cover</label>
+			<input name="cover" class="form-control" ng-model="projeto.cover" required>
+
+			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
+				class="form-control alert-danger">
+				URL obrigatória
+			</span> 
+		</div>
+        
+        <div class="form-group">
+			<label>Testimonial</label>
+			<textarea name="testimonial" class="form-control" ng-model="projeto.testimonial">
+			</textarea>
+		</div>
+		<div class="form-group">
+			<label>Descrição</label>
+			<textarea name="descricao" class="form-control" ng-model="projeto.descricao">
+			</textarea>
+            <span ng-show = "formulario.$submitted && formulario.url.$error.required" 
+				class="form-control alert-danger">
+				URL obrigatória
+			</span> 
+		</div>
+        
+        <div class="form-group">
+			<label>Foto 1</label>
+			<input name="foto1" class="form-control" ng-model="projeto.foto1">
+		</div>
+        
+        <div class="form-group">
+			<label>Foto 2</label>
+			<input name="foto2" class="form-control" ng-model="projeto.foto2">
+ 
+		</div>
+        
+        <div class="form-group">
+			<label>Foto 3</label>
+			<input name="foto3" class="form-control" ng-model="projeto.foto3">
+		</div>
+        
+        <div class="form-group">
+			<label>Foto 4</label>
+			<input name="foto4" class="form-control" ng-model="projeto.foto4">
+		</div>
+        
+        <div class="form-group">
+			<label>Foto 5</label>
+			<input name="foto5" class="form-control" ng-model="projeto.foto5">
+		</div>
+
+		<div class="form-group">
+			<label>Categoria</label>
+			<select name="categoria" ng-model="projeto.categoria" class="form-control" 
+					required ng-controller="CategoriasController" 
+					ng-options="categoria.nome as (categoria.nome | uppercase) for categoria in categorias">
+				<option value="">Escolha uma categoria</option>
+			</select>
+			<span ng-show="formulario.$submitted && formulario.categoria.$error.required" 
+				class="form-control alert-danger">
+				Categoria obrigatória
+			</span>
+		</div>
+
+		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+			Salvar
+		</button>
+		<a href="/#/projetos" class="btn btn-primary">Voltar</a>
+		<hr>
+	</div>
+	<div class="col-md-6">
+		<meu-projeto url="{{projeto.thumbnail}}" titulo="{{projeto.titulo}}"></meu-projeto>
+	</div>
+</form>
+</div>

@@ -1,0 +1,37 @@
+{
+  "name": "opamobi",
+  "version": "0.1.0",
+  "description": "ferramenta de cupom de descontos e promoções",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauriciomsouza/opamobi.git"
+  },
+  "keywords": [
+    "marketing",
+    "app",
+    "coupon",
+    "promote"
+  ],
+  "author": "mauricio melo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mauriciomsouza/opamobi/issues"
+  },
+  "homepage": "https://github.com/mauriciomsouza/opamobi#readme",
+  "dependencies": {
+    "angular-ui-bootstrap": "^2.5.0",
+    "body-parser": "^1.14.1",
+    "bootstrap": "^3.3.7",
+    "consign": "^0.1.2",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.4.1",
+    "mongoose": "^4.3.1"
+  }
+}

@@ -1,0 +1,38 @@
+<div class="menu-space"></div>
+<div class="container">
+    
+
+<p ng-show="mensagem.length" class="alert alert-info">
+	{{mensagem}}
+</p>
+
+<div class="row">
+	<div class="col-md-12" style="margin-bottom: 30px">
+		<form>
+			<div class="input-group">
+				<span class="input-group-btn">
+					<a href="#/projetos/new" class="btn btn-primary" type="button">
+						Novo projeto
+					</a>
+				</span>
+				<input class="form-control" placeholder="filtrar pelo nome do cliente" 
+					ng-model="filtro" ng-model-options="{ debounce: 500 }">
+            </div>
+		</form>
+	</div> <!-- fim col-md-12 -->
+</div> <!-- fim row -->
+
+<div class="row">
+    <meu-painel class="col-md-2 painel-animado" ng-repeat="projeto in projetos | filter: filtro" titulo="{{projeto.titulo}}">
+        <meu-projeto url="{{projeto.thumbnail}}" alt="{{projeto.titulo}}"></meu-projeto>
+        <p class="text-center" style="margin-top: 10px;text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;">{{projeto.categoria}}</p>
+		<a class="btn btn-primary btn-block" href="/#/projetos/edit/{{projeto._id}}">
+			Editar
+		</a>
+		<meu-botao-perigo nome="Remover" acao="remover(projeto)">Remover</meu-botao-perigo>
+    </meu-painel>
+</div>
+    </div>
