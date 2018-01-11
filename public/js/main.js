@@ -7,26 +7,6 @@ angular.module('opa', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', '
 			templateUrl: 'partials/home.html',
 			controller: 'PrincipalController'
 		});
-    
-        $routeProvider.when('/portfolio/:projetoId', {
-			templateUrl: 'partials/ficha.html',
-			controller: 'PortfolioController'
-		});
-    
-		$routeProvider.when('/projetos', {
-			templateUrl: 'partials/projetos.html',
-			controller: 'ProjetosController'
-		});
-
-		$routeProvider.when('/projetos/new', {
-			templateUrl: 'partials/projeto.html',
-			controller: 'ProjetoController'
-		});
-
-		$routeProvider.when('/projetos/edit/:projetoId', {
-			templateUrl: 'partials/projeto.html',
-			controller: 'ProjetoController'
-		});
 
 		$routeProvider.when('/login', {
             templateUrl: 'partials/login.html',
