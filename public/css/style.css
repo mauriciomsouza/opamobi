@@ -3,6 +3,7 @@ body {
     font-family: Roboto, sans-serif;
 }
 
+/*--------------------meuMenu-----------------------*/
 #topbar {
     height: 50px;
     width: 100%;
@@ -32,3 +33,18 @@ body {
     color: #FFF;
     padding-top: 65px;
 }
+/*--------------------meuMenu-----------------------*/
+
+/*--------------------meuFiltro-----------------------*/
+#filtros {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+#order-options {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+/*--------------------meuFiltro-----------------------*/

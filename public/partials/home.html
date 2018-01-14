@@ -1,3 +1,22 @@
-<div id="message">
-Servidor Opa! [ON]
+<div id="filtros">
+    <input type="text" name="filtro" id="search-field" placeholder="Pesquisar">
+    <select>
+        <option value="regiao">Por Cidade</option>
+        <option value="palavrachave">Por Palavra-Chave</option>
+    </select>
+</div>
+<form id="order-options">
+    <input type="radio" name="order" value="recentes">
+    <label for="recentes">Recentes</label>
+    <input type="radio" name="order" value="destaques">
+    <label for="destaques">Destaques</label>
+</form>
+
+<div class="row" ng-init="limit = 8">
+     <a ng-repeat="projeto in projetos">
+            <div>
+                <img src="{{projeto.foto1}}">
+                <p>{{projeto.titulo}}</p>
+            </div>
+    </a>
 </div>

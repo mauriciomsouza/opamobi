@@ -23,7 +23,6 @@ angular.module('opa')
         },
 
         interceptor.responseError = function(rejection) {
-
             if (rejection != null && rejection.status === 401) {
                 console.log('Removendo token da sessão')
                 delete $window.sessionStorage.token;

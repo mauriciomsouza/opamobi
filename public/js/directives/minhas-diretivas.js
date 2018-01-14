@@ -15,21 +15,6 @@ angular.module('minhasDiretivas', [])
 
 		return ddo;
 	})
-    .directive('meuProjeto', function() {
-
-        var ddo = {};
-
-        ddo.restrict = "AE";
-
-        ddo.scope = {
-            titulo: '@',
-            url: '@'
-        };
-
-        ddo.template = '<img class="img-responsive center-block" src="{{url}}" alt="{{titulo}}">';           
-        
-        return ddo;
-    })
     .directive('meuMenu', function() {
 
 		var ddo = {};
