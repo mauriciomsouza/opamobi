@@ -6,6 +6,13 @@ angular.module('meusServicos', ['ngResource'])
 				method: 'PUT'
 			}
 		});
+	}).factory('recursoCupom', function($resource) {
+
+		return $resource('/v1/cupoms/:cupomId', null, {
+			'update' : { 
+				method: 'PUT'
+			}
+		});
 	})
 	.factory("cadastroDeProjetos", function(recursoProjeto, $q) {
 		var service = {};

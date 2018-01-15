@@ -14,9 +14,18 @@
 
 <div class="row" ng-init="limit = 8">
      <a ng-repeat="projeto in projetos">
-            <div>
-                <img src="{{projeto.foto1}}">
-                <p>{{projeto.titulo}}</p>
-            </div>
+        <div>
+            <img src="{{projeto.foto1}}">
+            <p>{{projeto.titulo}}</p>
+        </div>
+    </a>
+</div>
+
+<div class="row" ng-init="limit = 8">
+     <a ng-repeat="cupom in cupoms">
+        <div>
+            <img src="{{cupom.foto1}}">
+            <p>{{cupom.titulo}}</p>
+        </div>
     </a>
 </div>
