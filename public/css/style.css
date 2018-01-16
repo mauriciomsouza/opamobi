@@ -33,13 +33,6 @@ body {
     text-align: center;
 }
 
-#search-field {
-
-}
-
-#filter-field {
-
-}
 /*--------------------meuFiltro-----------------------*/
 /*--------------------Cupom-----------------------*/
 .cupom-container {
@@ -50,7 +43,6 @@ body {
 .top-buffer { 
     margin-top:20px; 
 }
-
 
 .cupom-body {
     border-radius: 10px 10px 10px 0px;
