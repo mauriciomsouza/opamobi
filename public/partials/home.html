@@ -1,31 +1,51 @@
-<div id="filtros">
-    <input type="text" name="filtro" id="search-field" placeholder="Pesquisar">
-    <select>
-        <option value="regiao">Por Cidade</option>
-        <option value="palavrachave">Por Palavra-Chave</option>
-    </select>
-</div>
-<form id="order-options">
-    <input type="radio" name="order" value="recentes">
-    <label for="recentes">Recentes</label>
-    <input type="radio" name="order" value="destaques">
-    <label for="destaques">Destaques</label>
-</form>
-
-<div class="row" ng-init="limit = 8">
-     <a ng-repeat="projeto in projetos">
-        <div>
-            <img src="{{projeto.foto1}}">
-            <p>{{projeto.titulo}}</p>
+<div class="container">
+    <div id="filtros">
+        <input type="text" name="filtro" id="search-field" placeholder="Pesquisar">
+        <select id="filter-field">
+            <option value="regiao">Por Cidade</option>
+            <option value="palavrachave">Por Palavra-Chave</option>
+        </select>
+    </div>
+    <form id="order-options">
+        <input type="radio" name="order" value="recentes">
+        <label for="recentes">Recentes</label>
+        <input type="radio" name="order" value="destaques">
+        <label for="destaques">Destaques</label>
+    </form>
+    <div class="row" ng-init="limit = 8">
+         <div ng-repeat="cupom in cupoms">
+            <div class="cupom-container col-md-3 col-12 col-sm-4">
+                <div class="cupom-body front">
+                    <img class="cupom-thumb img-responsive" src="{{cupom.foto}}">
+        
+                    <p class="cupom-descricao">{{cupom.descricao}}</p>
+                    <p class="{{cupom.categoria}}" title="{{cupom.categoria}}"></p>
+                    
+                    <div>
+                        <p class="cupom-label">Item em promoção </p>
+                        <p class="cupom-titulo">{{cupom.titulo}}</p>
+                    </div>
+                    
+                    <div>
+                        <p class="cupom-label">Válido até </p>
+                        <p class="cupom-validade">{{cupom.validade | date:'MM/dd/yyyy'}}</p>
+                    </div>
+                    
+                    <div>
+                        <p class="cupom-label">Oferecido por</p>
+                        <p class="cupom-empresa">{{cupom.empresa}}</p>
+                    </div>
+                </div>
+                
+                <div class="code-cover" ng-hide="showcode">
+                    <button type="button" class="btn btn-info show-code-button" ng-click="showcode=true">Pegar Cupom</button>
+                </div>
+                <div ng-show="showcode" class="code-data">
+                    <p class="cupom-message">APRESENTE AO CAIXA</p>
+                    <p class="cupom-label">Nº DO CUPOM:</p>
+                    <p class="cupom-code">{{cupom.code}}</p>
+                </div>
+            </div>
         </div>
-    </a>
-</div>
-
-<div class="row" ng-init="limit = 8">
-     <a ng-repeat="cupom in cupoms">
-        <div>
-            <img src="{{cupom.foto1}}">
-            <p>{{cupom.titulo}}</p>
-        </div>
-    </a>
+    </div>
 </div>

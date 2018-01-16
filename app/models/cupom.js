@@ -6,15 +6,15 @@ var schema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	thumbnail: {
+	foto: {
 		type: String,
 		required: true
 	},
-    cover: {
+    empresa: {
 		type: String,
 		required: true
 	},
-    testimonial: {
+    validade: {
 		type: String,
         required: false
 	},
@@ -22,23 +22,7 @@ var schema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-    foto1: {
-		type: String,
-		required: false
-	},
-    foto2: {
-		type: String,
-		required: false
-	},
-    foto3: {
-		type: String,
-		required: false
-	},
-    foto4: {
-		type: String,
-		required: false
-	},
-    foto5: {
+    code: {
 		type: String,
 		required: false
 	},
