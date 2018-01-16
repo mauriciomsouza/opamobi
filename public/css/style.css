@@ -47,6 +47,10 @@ body {
     font-family: 'Rubik', sans-serif;
 }
 
+.top-buffer { 
+    margin-top:20px; 
+}
+
 
 .cupom-body {
     border-radius: 10px 10px 10px 0px;
@@ -54,15 +58,28 @@ body {
     background-color: #fff;
     padding: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+    transition: max-height 0.5s ease;
+}
+
+.cupom-field {
+    margin-bottom: 5px;
 }
 
 .cupom-body p {
     margin: 0;
 }
 
-.code-cover {
+.code-container {
     position: relative;
     top: 0px;
+    left: 0px;
+    height: 100px;
+}
+
+.code-cover {
+    position: absolute;
+    top: 0px;
+    width: 100%;
     left: 0;
     border-top: 2px solid #ccc;
     border-style: dashed;
@@ -87,7 +104,7 @@ body {
 
 .code-data {
     text-align: center;
-    position: relative;
+    position: absolute;
     top: 0px;
     left: 0;
     border: 2px solid #ddd;
@@ -96,6 +113,7 @@ body {
     height: 100px;
     background-color: #eee;
     border-radius: 0px 10px 10px 10px;
+    width: 100%;
     z-index: -1;
     padding: 10px;
     
@@ -125,11 +143,9 @@ body {
 @keyframes codeShow {
     0% {
         opacity: 0;
-        top: -100px;
     }
     100% {
         opacity: 1;
-        top: -100px;
     }
 }
 
@@ -188,6 +204,28 @@ body {
     text-transform: uppercase;
 }
 
+.showdata-button {
+    font-size: 1.8em;
+    position: absolute;
+    top:  40px;
+    right: 25px;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: chartreuse;
+    text-align: center;
+    padding-top: 3px;
+    transition: 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+}
+
+.showdata-button:hover {
+    color: #fff;
+    transform: scale(1.2);
+    transition: 0.3s ease;
+}
+
 .alimentacao:before {
     position: absolute;
     right: 25px;
@@ -202,5 +240,6 @@ body {
     text-align: center;
     padding: 4px;
     font-size: 1.6em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
 }
 /*--------------------Cupom-----------------------*/
