@@ -1,16 +1,17 @@
 <div class="container">
-    <div id="filtros">
-        <input type="text" name="filtro" id="search-field" placeholder="Pesquisar">
-        <select id="filter-field">
-            <option value="regiao">Por Cidade</option>
-            <option value="palavrachave">Por Palavra-Chave</option>
-        </select>
+    <div class="filter-order" id="order-options">
+        <span id="filter-label">ORDENAR POR</span>
+        
+        <input selected ng-show="propertyName === 'pego'" type="radio" id="destaques"
+         name="order" value="Recentes">
+        <label class="sort-label" ng-click="sortBy('pego')" for="recentes" ng-class="{reverse: reverse}">Destaques </label>
+        
+        
+        <input ng-show="propertyName === 'data'" type="radio" id="recentes"
+         name="order" value="Recentes">
+        <label class="sort-label" ng-click="sortBy('data')" for="recentes" ng-class="{reverse: reverse}">Recentes </label>
+        
+        
     </div>
-    <form id="order-options">
-        <input type="radio" name="order" value="recentes">
-        <label for="recentes">Recentes</label>
-        <input type="radio" name="order" value="destaques">
-        <label for="destaques">Destaques</label>
-    </form>
 </div>
 <meu-cupom></meu-cupom>

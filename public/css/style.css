@@ -1,37 +1,96 @@
 body {
     background-color: #F5F5F5;
-    font-family: Roboto, sans-serif;
+    font-family: Rubik, sans-serif;
 }
 
 /*--------------------meuMenu-----------------------*/
 #topbar {
     display: block;
+    height: 50px;
     background-color: #FFF;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
 }
 
 #logo {
-    height: 35px; 
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 10px;
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    height: 35px;
+    margin-top: 8px;
 }
+
+#filtros {
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    margin-top: 8px;
+}
+
+#search-field {
+    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+    -moz-appearance: none; /* Remove estilo padrão do FireFox */
+    appearance: none; /* Remove estilo padrão do FireFox*/
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    transition: 0.3s ease;
+}
+
+#search-field:focus {
+    border-color: #008ECA;
+    width: 200px;
+    transition: 0.3s ease;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+#filter-field {
+    padding: 5px;
+    background-color: #008ECA;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
 
 /*--------------------meuMenu-----------------------*/
 
 /*--------------------meuFiltro-----------------------*/
-#filtros {
-    display:block;
-    padding: 10px;
-    text-align: center;
-}
+
 
 #order-options {
     display: block;
     padding: 10px;
     text-align: center;
 }
+
+.sort-label:after {
+  content: '\25b2';
+}
+.sort-label.reverse:after {
+  content: '\25bc';
+}
+
+.filter-order input[type=radio]{
+    display: none;
+}
+ 
+.filter-order input[type=radio] + label{
+    background-color: #fff;
+    padding: 5px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+.filter-order input[type=radio]:checked + label{
+    background-color: #008ECA;
+    color: #fff;
+}
+ 
 
 /*--------------------meuFiltro-----------------------*/
 /*--------------------Cupom-----------------------*/
@@ -167,7 +226,7 @@ body {
     padding: 10px;
     top: -5px;
     left: 25px;
-    background-color: dodgerblue;
+    background-color: #008ECA;
     color: #fff;
     font-weight: bold;
     border-radius: 10px;
@@ -218,7 +277,7 @@ body {
     transition: 0.3s ease;
 }
 
-.alimentacao:before {
+.category-label:before {
     position: absolute;
     right: 25px;
     top: -5px;
@@ -227,11 +286,18 @@ body {
     background-color: coral;
     color: #fff;
     font-family: FontAwesome;
-    content: "\f0f5";
     border-radius: 50%;
     text-align: center;
     padding: 4px;
     font-size: 1.6em;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+}
+
+#alimentacao:before {
+    content: "\f0f5";
+}
+
+#vestuario:before {
+    content: "\f02b";
 }
 /*--------------------Cupom-----------------------*/

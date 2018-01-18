@@ -16,7 +16,12 @@ angular.module('opa').controller('PrincipalController', function($scope, recurso
     
     $scope.cupoms = [];
    
-   
+   $scope.reverse = true;
+
+   $scope.sortBy = function(propertyName) {
+   $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : true;
+    $scope.propertyName = propertyName;
+  };
 });
 
 

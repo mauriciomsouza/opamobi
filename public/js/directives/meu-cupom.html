@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row">
-        <div ng-repeat-start="cupom in cupoms">
-            <div class="cupom-container clearfix col-md-3 col-12 col-sm-4 top-buffer">
+        <div ng-repeat-start="cupom in cupoms | orderBy:propertyName:reverse">
+            <div class="cupom-container clearfix col-md-3 col-sm-4 top-buffer">
                 <div class="cupom-body">
                     <img class="cupom-thumb img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
                     <p class="cupom-descricao">{{cupom.descricao}}</p>
-                    <p class="{{cupom.categoria}}" title="{{cupom.categoria}}"></p>
+                    <p class="category-label" id="{{cupom.categoria}} "title="{{cupom.categoria}}"></p>
                     <div class="cupom-data" ng-hide="showdata">
                         <div class="cupom-field">
                             <p class="cupom-label">Item em promoção </p>
@@ -13,7 +13,7 @@
                         </div>
                         <div  class="cupom-field">
                             <p class="cupom-label">Válido até </p>
-                            <p class="cupom-validade">{{cupom.validade | date:'MM/dd/yyyy'}}</p>
+                            <p class="cupom-validade">{{cupom.validade | date:'dd/MM/yyyy'}}</p>
                         </div>
                         <div  class="cupom-field">
                             <p class="cupom-label">Oferecido por</p>
@@ -37,6 +37,7 @@
                 <div class="code-container">
                     <div class="code-cover" ng-hide="showcode">
                         <button type="button" class="btn btn-info show-code-button" ng-click="showcode=true">Pegar Cupom</button>
+                        <p>{{cupom.pego}}</p>
                     </div>
                     <div class="code-data" ng-show="showcode">
                         <p class="cupom-message">APRESENTE AO CAIXA</p>
