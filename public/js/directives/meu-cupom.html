@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
-        <div ng-repeat-start="cupom in cupoms | orderBy:propertyName:reverse">
-            <div class="cupom-container clearfix col-md-3 col-sm-4 top-buffer">
+        <div ng-repeat-start="cupom in cupoms | orderBy:propertyName:reverse | filter:search:strict | filter:city:strict">
+            <div class="cupom-container clearfix col-sm-6 col-md-3 top-buffer">
                 <div class="cupom-body">
                     <img class="cupom-thumb img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
                     <p class="cupom-descricao">{{cupom.descricao}}</p>
@@ -24,7 +24,11 @@
                     <div class="company-data" ng-show="showdata">
                         <div class="cupom-field">
                             <p class="cupom-label">Endereço</p>
-                            <p class="cupom-titulo">Rua Real Grandeza, 183 - Botafogo / RJ</p>
+                            <p class="cupom-titulo">{{cupom.endereco}}</p>
+                        </div>
+                        <div class="cupom-field">
+                            <p class="cupom-label">Cidade</p>
+                            <p class="cupom-titulo">{{cupom.cidade}}</p>
                         </div>
                         <div  class="cupom-field">
                             <p class="cupom-label">Funcionamento</p>

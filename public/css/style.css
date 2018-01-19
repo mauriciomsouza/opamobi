@@ -14,83 +14,117 @@ body {
 #logo {
     position: absolute;
     top: 0px;
-    left: 25px;
+    left: 50%;
+    transform: translateX(-50%);
     height: 35px;
     margin-top: 8px;
 }
 
-#filtros {
-    position: absolute;
-    top: 0px;
-    right: 25px;
-    margin-top: 8px;
-}
 
-#search-field {
-    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
-    -moz-appearance: none; /* Remove estilo padrão do FireFox */
-    appearance: none; /* Remove estilo padrão do FireFox*/
-    width: 80px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 2px solid #ccc;
-    transition: 0.3s ease;
-}
-
-#search-field:focus {
-    border-color: #008ECA;
-    width: 200px;
-    transition: 0.3s ease;
-}
-
-textarea:focus, input:focus{
-    outline: none;
-}
-
-#filter-field {
-    padding: 5px;
-    background-color: #008ECA;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    color: #fff;
-}
 
 
 /*--------------------meuMenu-----------------------*/
 
 /*--------------------meuFiltro-----------------------*/
 
-
-#order-options {
-    display: block;
-    padding: 10px;
-    text-align: center;
-}
-
 .sort-label:after {
-  content: '\25b2';
+  color: #fff;
+  content: '\f062';
+  font-family: 'FontAwesome', sans-serif;
 }
 .sort-label.reverse:after {
-  content: '\25bc';
+  
+    content: '\f063';
+  color: #fff;
+    font-family: 'FontAwesome', sans-serif;
 }
 
-.filter-order input[type=radio]{
-    display: none;
+.filter-label {
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.8em;
 }
- 
-.filter-order input[type=radio] + label{
-    background-color: #fff;
+
+#search-field {
+    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+    -moz-appearance: none; /* Remove estilo padrão do FireFox */
+    appearance: none; /* Remove estilo padrão do FireFox*/
     padding: 5px;
-    margin: 0px;
+    height: 37px;
     border-radius: 5px;
+    border: 2px solid #fff;
+    transition: 0.3s ease;
+    width: 100%;
+    color: #fff;
+    background-color: #008ECA;
 }
 
-.filter-order input[type=radio]:checked + label{
-    background-color: #008ECA;
+#search-field::placeholder {
     color: #fff;
 }
- 
+
+#search-field:focus::placeholder {
+    color: #008ECA;
+}
+
+#search-field:focus {
+    background-color: #fff;
+    transition: 0.3s ease;
+    color:  #008ECA;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+#city-options {
+    width: 100%;
+    padding: 8px;
+    background-color: #008ECA;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.filter-boxes{
+    padding: 15px;
+}
+
+#word-filter {
+    height: 90px;
+}
+
+#city-filter {
+    height: 90px;
+}
+
+#sort-options {
+    height: 90px;
+}
+
+
+#order-options {
+    display:flex;
+}
+
+.sort-button {
+    padding: 7px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#filter-container{
+    padding: 0px;
+    border-radius: 0px 0px 10px 10px;
+    background-color:  #008ECA;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+}
+
 
 /*--------------------meuFiltro-----------------------*/
 /*--------------------Cupom-----------------------*/
@@ -295,6 +329,10 @@ textarea:focus, input:focus{
 
 #alimentacao:before {
     content: "\f0f5";
+}
+
+#viagem:before {
+    content: "\f072";
 }
 
 #vestuario:before {

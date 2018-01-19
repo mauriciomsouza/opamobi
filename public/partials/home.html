@@ -1,17 +1,35 @@
-<div class="container">
-    <div class="filter-order" id="order-options">
-        <span id="filter-label">ORDENAR POR</span>
-        
-        <input selected ng-show="propertyName === 'pego'" type="radio" id="destaques"
-         name="order" value="Recentes">
-        <label class="sort-label" ng-click="sortBy('pego')" for="recentes" ng-class="{reverse: reverse}">Destaques </label>
-        
-        
-        <input ng-show="propertyName === 'data'" type="radio" id="recentes"
-         name="order" value="Recentes">
-        <label class="sort-label" ng-click="sortBy('data')" for="recentes" ng-class="{reverse: reverse}">Recentes </label>
-        
-        
+<div id="filter-container" class="container">
+    <div id="word-filter" class="filter-boxes col-md-4">
+        <p class="filter-label">PESQUISAR POR PALAVRA-CHAVE</p>
+        <input type="text" name="filtro" id="search-field" placeholder="Digite aqui..."  ng-model="search.titulo">
     </div>
+    <div id="city-filter" class="filter-boxes col-md-4">
+        <p class="filter-label">ESCOLHA A CIDADE</p>
+        <select id="city-options" ng-model="city.cidade">
+            <option value="">TODAS</option>
+            <option value="Duque de Caxias">DUQUE DE CAXIAS</option>
+            <option value="Rio de Janeiro">RIO DE JANEIRO</option>
+        </select>
+    </div>
+    <div id="sort-options" class="filter-boxes col-md-4">
+        <p class="filter-label">ORDENAR POR</p>
+        <div class="filter-order" id="order-options">
+           
+            <div class="sort-button" ng-click="sortBy('pego')">
+                <i class="fa fa-star" aria-hidden="true" title="Destaques"></i><span class="sort-label" ng-show="propertyName === 'pego'" ng-class="{reverse: reverse}"> &nbspDestaques&nbsp</span>
+            </div>
+
+            <div class="sort-button" ng-click="sortBy('data')">
+                <i class="fa fa-calendar" aria-hidden="true" title="Recentes"></i>
+                <span class="sort-label" ng-show="propertyName === 'data'" ng-class="{reverse: reverse}">&nbspRecentes&nbsp</span>
+            </div>
+            
+            <div class="sort-button" ng-click="sortBy('validade')">
+                <i class="fa fa-hourglass-end" aria-hidden="true" title="expirando"></i>
+                <span class="sort-label" ng-show="propertyName === 'validade'" ng-class="{reverse: reverse}">&nbspExpirando&nbsp</span>
+            </div>
+        </div>
+    </div>    
 </div>
+
 <meu-cupom></meu-cupom>
