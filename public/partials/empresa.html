@@ -1,0 +1,35 @@
+<div class="container">    
+<p ng-show="mensagem.length" class="alert alert-info">
+	{{mensagem}}
+</p>
+
+<div class="row">
+	<div class="col-md-12" style="margin-bottom: 30px">
+		<form>
+			<div class="input-group">
+				<span class="input-group-btn">
+					<a href="#/cupoms/new" class="btn btn-primary" type="button">
+						Novo Cupom
+					</a>
+				</span>
+				<input class="form-control" placeholder="filtrar pelo titulo" 
+					ng-model="filtro" ng-model-options="{ debounce: 500 }">
+            </div>
+		</form>
+	</div> <!-- fim col-md-12 -->
+</div> <!-- fim row -->
+
+<div class="row">
+    <meu-painel class="col-md-2" ng-repeat="cupom in cupoms | filter: filtro" titulo="{{cupom.titulo}}">
+        <img class="img-responsive" ng-src="{{cupom.foto}}">
+        <p class="text-center" style="margin-top: 10px;text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;">{{cupom.categoria}}</p>
+		<a class="btn btn-primary btn-block" href="/#/cupoms/edit/{{cupom._id}}">
+			Editar
+		</a>
+		<button class="btn btn-danger" nome="Remover" acao="remover(cupom)">Remover</button>
+    </meu-painel>
+</div>
+</div>

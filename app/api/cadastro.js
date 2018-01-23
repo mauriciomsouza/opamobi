@@ -4,13 +4,13 @@ module.exports = function(app) {
 
 	var api = {};
 
-	var model = mongoose.model('Projeto');
+	var model = mongoose.model('Empresa');
 
 	api.lista = function(req, res) {
 
 		model.find()
-		.then(function(projetos) {
-			res.json(projetos);
+		.then(function(empresas) {
+			res.json(empresas);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
@@ -21,9 +21,9 @@ module.exports = function(app) {
 	api.buscaPorId = function(req, res) {
 
 		model.findById(req.params.id)
-		.then(function(projeto) {
-			if (!projeto) throw new Error('Projeto não encontrado');
-			res.json(projeto);
+		.then(function(empresa) {
+			if (!empresa) throw new Error('empresa não encontrado');
+			res.json(empresa);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
@@ -45,8 +45,8 @@ module.exports = function(app) {
 	api.adiciona = function(req, res) {
 
 		model.create(req.body)
-		.then(function(projeto) {
-			res.json(projeto);
+		.then(function(empresa) {
+			res.json(empresa);
 		}, function(error) {
 			console.log('não conseguiu');
 			console.log(error);
@@ -57,8 +57,8 @@ module.exports = function(app) {
 	api.atualiza = function(req, res) {
 
 		model.findByIdAndUpdate(req.params.id, req.body)
-		.then(function(projeto) {
-			res.json(projeto);
+		.then(function(empresa) {
+			res.json(empresa);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
@@ -67,4 +67,3 @@ module.exports = function(app) {
 
 	return api;
 };
-

@@ -1,13 +1,12 @@
 module.exports = function(app) {
 	
-	var api = app.api.projeto;
+	var api = app.api.cadastro;
 
-	app.route('/v1/projetos')
+	app.route('/v1/empresas')
 		.get(api.lista)
 		.post(api.adiciona);
 
-	app.route('/v1/projetos/:id')
+	app.route('/v1/empresas/:id')
 		.get(api.buscaPorId)
-		.delete(api.removePorId)
 		.put(api.atualiza);
 };

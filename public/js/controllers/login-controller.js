@@ -9,7 +9,7 @@ angular.module('opa').controller('LoginController', function($scope, $http, $loc
 
         $http.post('/autenticar', {login: usuario.login, senha: usuario.senha})
         .then(function() {
-            $location.path('projetos');
+            $location.path('empresa');
         }, function(erro) {
             $scope.usuario = {};
             $scope.mensagem = 'Login/Senha incorretos';

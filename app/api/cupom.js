@@ -21,9 +21,9 @@ module.exports = function(app) {
 	api.buscaPorId = function(req, res) {
 
 		model.findById(req.params.id)
-		.then(function(projeto) {
-			if (!projeto) throw new Error('Projeto não encontrado');
-			res.json(projeto);
+		.then(function(cupom) {
+			if (!cupom) throw new Error('Projeto não encontrado');
+			res.json(cupom);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
@@ -45,8 +45,8 @@ module.exports = function(app) {
 	api.adiciona = function(req, res) {
 
 		model.create(req.body)
-		.then(function(projeto) {
-			res.json(projeto);
+		.then(function(cupom) {
+			res.json(cupom);
 		}, function(error) {
 			console.log('não conseguiu');
 			console.log(error);
@@ -57,8 +57,8 @@ module.exports = function(app) {
 	api.atualiza = function(req, res) {
 
 		model.findByIdAndUpdate(req.params.id, req.body)
-		.then(function(projeto) {
-			res.json(projeto);
+		.then(function(cupom) {
+			res.json(cupom);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
@@ -67,4 +67,3 @@ module.exports = function(app) {
 
 	return api;
 };
-

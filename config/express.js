@@ -5,7 +5,7 @@ var path = require('path');
 
 var app = express();
 
-app.set('secret', 'perigor'); 
+app.set('secret', 'homemavestruz'); 
 app.use(express.static('./public'));
 app.use(bodyParser.json({limit: '50mb'}) );
 app.use(bodyParser.urlencoded({
@@ -18,7 +18,7 @@ consign({cwd: 'app'})
     .include('models')
     .then('api')
     .then('routes/cupom.js')
-    .then('routes/home.js')
+    .then('routes/cadastro.js')
     .then('routes/auth.js')
     .then('routes')
     .into(app);
