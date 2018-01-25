@@ -7,18 +7,17 @@ module.exports = function(app) {
      var model = mongoose.model('Usuario');
 
      api.autentica = function(req, res) {
-
          model.findOne({
-             login: req.body.login,
+             cnpj: req.body.cnpj,
              senha: req.body.senha
          })
          .then(function(usuario) {
              if (!usuario) {
-                 console.log('Login/senha inválidos');
+                 console.log('cnpj/senha inválidos');
                  res.sendStatus(401);
              } else {
-                console.log(usuario.login)
-                 var token = jwt.sign({login: usuario.login}, app.get('secret'), {
+                console.log(usuario.cnpj)
+                 var token = jwt.sign({cnpj: usuario.cnpj}, app.get('secret'), {
                      expiresIn: 84600
                  });
                  console.log('Autenticado: token adicionado na resposta');
@@ -40,13 +39,38 @@ module.exports = function(app) {
                      return res.sendStatus(401);
                  } else {
                      console.log('Token aceito')
-                     req.usuario = decoded;    
+                     req.usuario = decoded;
                      next();
                   }
             });
         } else {
             console.log('Nenhum token enviado');
             return res.sendStatus(401);
+          }
+    }
+    
+    api.verificaUser = function(req, res) {
+
+         var token = req.headers['x-access-token'];
+
+         if (token) {
+             console.log('Token recebido, decodificando');
+             jwt.verify(token, app.get('secret'), function(err, decoded) {
+                 if (err) {
+                     console.log('Token rejeitado');
+                     return res.sendStatus(401);
+                 } else {
+                     console.log('Token aceito')
+                     req.usuario = decoded;
+                     var usuario = req.usuario;
+                     res.json(usuario);
+                     res.end();
+                  }
+            });
+          } else {
+            console.log('Nenhum token enviado');
+            return res.sendStatus(401);
+            res.json(usuario);
           }
     }
 

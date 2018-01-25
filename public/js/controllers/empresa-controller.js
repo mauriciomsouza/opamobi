@@ -1,6 +1,22 @@
-angular.module('opa').controller('EmpresaController', function($scope, recursoCupom) {
-	
-	$scope.cupoms = [];
+angular.module('opa').controller('EmpresaController', function($scope, recursoCupom, $http, $resource) {
+    
+    $http.get('/usuario')
+        .success(function(usuario) {
+            $scope.usuario = usuario;
+            $http.get('v1/empresas/'+usuario.cnpj)
+                .success(function(usuario) {
+                    $scope.usuario = usuario;
+                    console.log(usuario);
+                })
+                .error(function(erro) {
+                    console.log(erro);
+            });
+        })
+        .error(function(erro) {
+			console.log(erro);
+    });
+    
+    $scope.cupoms = [];
 	$scope.filtro = '';
 	$scope.mensagem = '';
 
@@ -9,9 +25,8 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
 	}, function(erro) {
 		console.log(erro);
 	});
-
+    
 	$scope.remover = function(cupom) {
-
 		recursoCupom.delete({cupomId: cupom._id}, function() {
 			var indiceDoCupom = $scope.cupoms.indexOf(cupom);
 			$scope.cupoms.splice(indiceDoCupom, 1);

@@ -3,8 +3,8 @@ var api = {}
 api.lista = function(req, res) {
 
     var categorias = [
-    	{ _id: 1, nome: 'site institucional' }, 
-        { _id: 2, nome: 'ecommerce' }, 
+    	{ _id: 1, nome: 'alimentacao' }, 
+        { _id: 2, nome: 'viagem' }, 
         { _id: 3, nome: 'design de interface' }, 
         { _id: 4, nome: 'pitch deck' }, 
         { _id: 5, nome: 'email marketing' }, 

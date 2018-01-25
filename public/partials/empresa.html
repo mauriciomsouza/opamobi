@@ -20,7 +20,7 @@
 </div> <!-- fim row -->
 
 <div class="row">
-    <meu-painel class="col-md-2" ng-repeat="cupom in cupoms | filter: filtro" titulo="{{cupom.titulo}}">
+    <meu-painel class="col-md-2" ng-repeat="cupom in cupoms  | filter : {empresa_cnpj: usuario.cnpj}" titulo="{{cupom.titulo}}">
         <img class="img-responsive" ng-src="{{cupom.foto}}">
         <p class="text-center" style="margin-top: 10px;text-transform: uppercase;
   white-space: nowrap;
@@ -29,7 +29,8 @@
 		<a class="btn btn-primary btn-block" href="/#/cupoms/edit/{{cupom._id}}">
 			Editar
 		</a>
-		<button class="btn btn-danger" nome="Remover" acao="remover(cupom)">Remover</button>
+		<button class="btn btn-danger" nome="Remover" ng-click="remover(cupom)">Remover</button>
     </meu-painel>
+    <p ng-model="usuario.cnpj">{{usuario.cnpj}}</p>
 </div>
 </div>

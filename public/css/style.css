@@ -3,6 +3,16 @@ body {
     font-family: Rubik, sans-serif;
 }
 
+.opa-button {
+    background-color: white;
+    padding: 5px 15px 5px 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: #666;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+}
+
 /*--------------------meuMenu-----------------------*/
 #topbar {
     display: block;
@@ -339,3 +349,12 @@ textarea:focus, input:focus{
     content: "\f02b";
 }
 /*--------------------Cupom-----------------------*/
+/*--------------------Login-----------------------*/
+.login-box {
+    padding: 25px;
+    background-color: #008ECA;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+}
+/*--------------------Login-----------------------*/

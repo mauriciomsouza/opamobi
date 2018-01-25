@@ -29,7 +29,11 @@ var schema = mongoose.Schema({
 	categoria: {
 		type: String,
 		required: true
-	}
+	},
+    empresa_cnpj: {
+        type: String,
+        required: true
+    }
 });
 
 mongoose.model('Cupom', schema);

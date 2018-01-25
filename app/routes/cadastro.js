@@ -6,7 +6,6 @@ module.exports = function(app) {
 		.get(api.lista)
 		.post(api.adiciona);
 
-	app.route('/v1/empresas/:id')
-		.get(api.buscaPorId)
-		.put(api.atualiza);
+	app.route('/v1/empresas/:cnpj')
+		.get(api.buscaPorCNPJ)
 };

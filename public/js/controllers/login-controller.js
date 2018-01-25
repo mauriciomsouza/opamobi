@@ -7,7 +7,7 @@ angular.module('opa').controller('LoginController', function($scope, $http, $loc
 
         var usuario = $scope.usuario;
 
-        $http.post('/autenticar', {login: usuario.login, senha: usuario.senha})
+        $http.post('/autenticar', {cnpj: usuario.cnpj, senha: usuario.senha})
         .then(function() {
             $location.path('empresa');
         }, function(erro) {

@@ -1,6 +1,22 @@
 angular.module('opa')
-	.controller('cupomController', function($scope, recursoCupom, $routeParams, cadastroDeCupoms) {
+	.controller('cupomController', function($scope, recursoCupom, $routeParams, cadastroDeCupoms, $http) {
     
+         $http.get('/usuario')
+            .success(function(usuario) {
+                $scope.usuario = usuario;
+                $http.get('v1/empresas/'+usuario.cnpj)
+                    .success(function(usuario) {
+                        $scope.usuario = usuario;
+                        console.log(usuario);
+                    })
+                    .error(function(erro) {
+                        console.log(erro);
+                });
+            })
+            .error(function(erro) {
+                console.log(erro);
+        });
+
 		$scope.cupom = {};
 		$scope.mensagem = '';
 
@@ -15,7 +31,7 @@ angular.module('opa')
 
 		$scope.submeter = function() {
 			if ($scope.formulario.$valid) {
-				cadastroDeCupom.cadastrar($scope.cupom)
+				cadastroDeCupoms.cadastrar($scope.cupom)
 				.then(function(dados) {
 					$scope.mensagem = dados.mensagem;
 					if (dados.inclusao) $scope.cupom = {};

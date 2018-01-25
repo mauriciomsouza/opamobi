@@ -4,13 +4,13 @@ module.exports = function(app) {
 
 	var api = {};
 
-	var model = mongoose.model('Empresa');
+	var model = mongoose.model('Usuario');
 
 	api.lista = function(req, res) {
 
 		model.find()
-		.then(function(empresas) {
-			res.json(empresas);
+		.then(function(usuarios) {
+			res.json(usuarios);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
@@ -18,12 +18,11 @@ module.exports = function(app) {
 
 	};
 
-	api.buscaPorId = function(req, res) {
-
-		model.findById(req.params.id)
-		.then(function(empresa) {
-			if (!empresa) throw new Error('empresa não encontrado');
-			res.json(empresa);
+	api.buscaPorCNPJ = function(req, res) {
+		model.findOne({'cnpj' : req.params.cnpj})
+		.then(function(usuario) {
+			if (!usuario) throw new Error('usuario não encontrado');
+			res.json(usuario);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
@@ -45,8 +44,8 @@ module.exports = function(app) {
 	api.adiciona = function(req, res) {
 
 		model.create(req.body)
-		.then(function(empresa) {
-			res.json(empresa);
+		.then(function(usuario) {
+			res.json(usuario);
 		}, function(error) {
 			console.log('não conseguiu');
 			console.log(error);
@@ -57,8 +56,8 @@ module.exports = function(app) {
 	api.atualiza = function(req, res) {
 
 		model.findByIdAndUpdate(req.params.id, req.body)
-		.then(function(empresa) {
-			res.json(empresa);
+		.then(function(usuario) {
+			res.json(usuario);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);

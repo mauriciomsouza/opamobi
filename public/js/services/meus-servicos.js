@@ -6,13 +6,6 @@ angular.module('meusServicos', ['ngResource'])
 			}
 		});
 	})
-    .factory('recursoEmpresa', function($resource) {
-		return $resource('/v1/empresas/:empresaId', null, {
-			'update' : { 
-				method: 'PUT'
-			}
-		});
-	})
 	.factory("cadastroDeCupoms", function(recursoCupom, $q) {
 		var service = {};
 		service.cadastrar = function(cupom) {
