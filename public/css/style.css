@@ -18,6 +18,9 @@ body.login-page {
    background-color:  #007db3; 
 }
 
+body.cadastro-page {
+   background-color:  #007db3; 
+}
 /*--------------------meuMenu-----------------------*/
 #topbar {
     display: block;
@@ -419,6 +422,8 @@ textarea:focus, input:focus{
 }
 
 .opa-button {
+    text-align: center;
+    display:block;
     background-color: #ff9999;
     width: 100%;
     padding-top: 15px;
@@ -433,8 +438,18 @@ textarea:focus, input:focus{
     transition: 0.2s ease;
 }
 
+.opa-button:disabled {
+    background-color:  #aaa;
+}
+
+.opa-button:disabled:hover {
+    background-color:  #aaa;
+}
+
 .opa-button:hover {
     background-color:  #ff6666;
+    text-decoration: none;
+    color: #fff;
 }
 
 .forgot-pass {
@@ -458,25 +473,40 @@ textarea:focus, input:focus{
 
 }
 
-.signup {
-    display:block;
-}
-
-.signup:hover {
-    text-decoration: none;
-    color: #fff;
-}
-
-
 .signup-wrapper{
     border-top: 1px solid #ccf0ff;
     padding-top: 20px;
 }
 
 .mensagem {
+    display: block;
     text-align: center;
     border-radius: 5px;
     background-color:crimson;
     color: #fff;
 }
 /*--------------------Login-----------------------*/
+/*--------------------Cadastro-----------------------*/
+.signup-box {
+    color: #fff;
+    animation: appear 0.8s ease;
+}
+
+.submit
+
+.signup-box .input-group {
+    margin-bottom: 10px;
+}
+
+.form-help {
+    color: #fff;
+}
+
+.form-control {
+   border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+
+}
+
+/*--------------------Cadastro-----------------------*/
+

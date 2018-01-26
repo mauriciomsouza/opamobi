@@ -1,6 +1,7 @@
 angular.module('opa')
 	.controller('cadastroController', function($scope, recursoEmpresa, $routeParams, cadastroDeEmpresas) {
-
+        
+        $scope.pw1 = '';
 		$scope.usuario = {};
 		$scope.mensagem = '';
 
@@ -25,4 +26,6 @@ angular.module('opa')
 				});
 			}
 		};
+    
+    
 	});

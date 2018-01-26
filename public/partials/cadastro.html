@@ -1,76 +1,228 @@
-<div class="menu-space"></div>
-<div class="container">
+<div id="signup" class="container signup-box top-buffer">
+        <h4 class="login-title text-center">Cadastrar-se</h4>
+        <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+        <form novalidate name="formulario" ng-submit="submeterEmpresa()">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-briefcase fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">CNPJ</label>
+                    <input name="cnpj" class="form-control login-field" ng-model="usuario.cnpj" required placeholder="CNPJ" minlength="19" maxlength="19" mask="99.999.999/9999-99">
+                </div>
+                <span ng-show = "formulario.$submitted && formulario.cnpj.$error.required"
+                        class="mensagem">
+                        CNPJ obrigatório
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+              <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-briefcase fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">RAZÃO SOCIAL</label>
+                    <input name="razao" class="form-control login-field" ng-model="usuario.razao" required placeholder="RAZÃO SOCIAL">  
 
-<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+                    
+                </div>
+                <span ng-show = "formulario.$submitted && formulario.razao.$error.required"
+                        class="mensagem">
+                        Razão Social obrigatório
+                </span>
+            </div>
+          </div>
+        <div class="form-row">
+          <div class="form-group col-md-7">
+            <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-map-marker fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">LOGRADOURO</label>
+                    <input name="logradouro" class="form-control login-field" ng-model="usuario.logradouro" required placeholder="LOGRADOURO">
 
-<form novalidate name="formulario" class="row" ng-submit="submeterEmpresa()">
-	<div class="col-md-6">
-        
-		<div class="form-group">
-			<label>cnpj</label>
-			<input name="cnpj" class="form-control" ng-model="usuario.cnpj" required>  
+                     
+                </div>
+              
+              <small class="form-text text-muted form-help">Ex. Rua Real Grandeza</small>
+              <span ng-show = "formulario.$submitted && formulario.logradouro.$error.required" 
+                        class="mensagem">
+                        Endereço obrigatório
+                    </span>
+          </div>
+            <div class="form-group col-md-2">
+            <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">NÚMERO</label>
+                    <input name="numero" class="form-control login-field" ng-model="usuario.numero" placeholder="Nº">
+                </div>
+          </div>
+          <div class="form-group col-md-3">
+            <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">COMPLEMENTO</label>
+                    <input name="complemento" class="form-control login-field" ng-model="usuario.complemento" placeholder="COMPLEMENTO">
+                    
+                </div>
+              <small class="form-text text-muted form-help">Ex. Quadra, Lote, Casa</small>
+          </div>
+        </div>
+          <div class="form-row">
+            
+            
+            <div class="form-group col-md-4">
+              <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">BAIRRO</label>
+                    <input name="bairro" class="form-control login-field" ng-model="usuario.bairro" required placeholder="BAIRRO">
 
-			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
-				class="form-control alert-danger">
-				CNPJ obrigatório
-			</span>
-		</div>
-        
-        <div class="form-group">
-			<label>razão social</label>
-			<input name="razao" class="form-control" ng-model="usuario.razao" required>  
+                    
+                </div>
+                <span ng-show = "formulario.$submitted && formulario.bairro.$error.required" 
+                        class="mensagem">
+                        Bairro Obrigatório
+                    </span> 
+            </div>
+              <div class="form-group col-md-4">
+              <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">CIDADE</label>
+                    <input name="cidade" class="form-control login-field" ng-model="usuario.cidade" required placeholder="CIDADE">
 
-			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
-				class="form-control alert-danger">
-				Razão Social obrigatório
-			</span>
-		</div>
-        
-		<div class="form-group">
-			<label>senha</label>
-			<input name="senha" class="form-control" ng-model="usuario.senha" required>
+                    
+                </div>
+                  <span ng-show = "formulario.$submitted && formulario.cidade.$error.required" 
+                        class="mensagem">
+                        Cidade Obrigatória
+                    </span> 
+            </div>
+              <div class="form-group col-md-2">
+              <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-briefcase fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">ESTADO</label>
+                    <select name="estado" ng-model="usuario.estado" class="form-control login-field" required>
+                      <option value="" disabled selected>ESTADO</option>
+                      <option value="1">RJ</option>
+                      <option value="2">SP</option>
+                      <option value="3">ES</option>
+                    </select>
+                    
+                </div>
+                  <span ng-show = "formulario.$submitted && formulario.estado.$error.required"
+                        class="mensagem">
+                        Estado obrigatório
+                    </span>
+            </div>
+              <div class="form-group col-md-2">
+              <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">CEP</label>
+                    <input name="cep" class="form-control login-field" ng-model="usuario.cep" required placeholder="CEP" mask="99999-999">
 
-			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
-				class="form-control alert-danger">
-				Senha obrigatória
-			</span> 
-		</div>
-        
-        <div class="form-group">
-			<label>endereco</label>
-			<input name="endereco" class="form-control" ng-model="usuario.endereco" required>
+                    
+                </div>
+                  <span ng-show = "formulario.$submitted && formulario.cep.$error.required" 
+                        class="mensagem">
+                        CEP Obrigatório
+                    </span> 
+            </div>
+          </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-phone fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">TELEFONE</label>
+                    <input name="telefone" class="form-control login-field" ng-model="usuario.telefone" required placeholder="TELEFONE" mask="(99) 9?9999-9999">
 
-			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
-				class="form-control alert-danger">
-				Endereço obrigatório
-			</span> 
-		</div>
-        
-        <div class="form-group">
-			<label>cidade</label>
-			<input name="cidade" class="form-control" ng-model="usuario.cidade" required>
+                    
+                </div>
+                    <span ng-show = "formulario.$submitted && formulario.telefone.$error.required" 
+                        class="mensagem">
+                        Telefone Obrigatório
+                    </span> 
+                </div> 
+                <div class="form-group col-md-6">
+                    
+                    <div class="input-group">
+                     <span class="input-group-addon">
+                        <i class='fa fa-envelope fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">EMAIL</label>
+                    <input type="email" name="email" class="form-control login-field" ng-model="usuario.email" required placeholder="EMAIL">
 
-			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
-				class="form-control alert-danger">
-				Cidade Obrigatória
-			</span> 
-		</div>
-        
-        <div class="form-group">
-			<label>telefone</label>
-			<input name="telefone" class="form-control" ng-model="usuario.telefone" required>
+                    
+            </div>
+                    <span ng-show = "formulario.$submitted && formulario.email.$error.required" 
+                        class="mensagem">
+                        Email Obrigatório
+                    </span> 
+                </div> 
+            </div>
+             <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-lock fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">SENHA</label>
+                    <input type="password" name="senha" class="form-control login-field" ng-model="usuario.senha" required placeholder="DIGITE A SENHA">
 
-			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
-				class="form-control alert-danger">
-				Cidade Obrigatória
-			</span> 
-		</div>
-        
-		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
-			Salvar
-		</button>
-		<a href="/#/login" class="btn btn-primary">Voltar</a>
-		<hr>
-	</div>
-</form>
+                    
+                </div>
+                    <span ng-show = "formulario.$submitted && formulario.senha.$error.required" 
+                        class="mensagem">
+                        Senha obrigatória
+                    </span> 
+                </div> 
+                <div class="form-group col-md-6">
+                    <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class='fa fa-lock fa-lg' aria-hidden='true'></i>
+                    </span>
+                    <label class="sr-only">CONFIRME A SENHA</label>
+                    <input type="password" name="senha2" class="form-control login-field" ng-model="value2" required placeholder="CONFIRME A SENHA" >
+                    
+                    
+                </div>
+                    <span ng-show="formulario.$submitted && formulario.url.$error.required" 
+                        class="mensagem">
+                        Senha obrigatória
+                    </span> 
+                 </div>
+                 
+                </div> 
+                <div class="form-row">
+                    <div id="terms" class="form-group col-md-9">
+                       <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" name="check" required>
+                          <label class="form-check-label" for="invalidCheck">
+                            Eu declaro ter lido e aceito os termos e condições.
+                          </label>
+                        </div>
+                        <span ng-show="formulario.$submitted && formulario.check.$error.required" 
+                        class="mensagem">
+                        Você precisa aceitar os termos antes de se cadastrar.
+                    </span> 
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button type="submit" class="opa-button submit">
+                            ENVIAR
+                        </button>
+                    </div>
+                </div>
+        </form>
 </div>
