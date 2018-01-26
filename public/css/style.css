@@ -1,16 +1,6 @@
 body {
-    background-color: #F5F5F5;
+    background-color: #eee;
     font-family: Rubik, sans-serif;
-}
-
-.opa-button {
-    background-color: white;
-    padding: 5px 15px 5px 15px;
-    border-radius: 5px;
-    font-size: 1.2em;
-    color: #666;
-    border: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
 }
 
 /*--------------------meuMenu-----------------------*/
@@ -351,10 +341,129 @@ textarea:focus, input:focus{
 /*--------------------Cupom-----------------------*/
 /*--------------------Login-----------------------*/
 .login-box {
-    padding: 25px;
+    padding: 20px 35px 35px 35px;
+    background-color:  #007db3;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+    animation: appear 0.8s ease;
+}
+
+.login-title {
+    margin-bottom: 25px;
+}
+
+.input-group-addon {
+    border: none;
     background-color: #008ECA;
     color: #fff;
-    border-radius: 10px;
+    width: 50px;
+}
+
+.input-group {
+    margin: 0 auto;
+    width:100%;
+}
+
+.login-box .input-group {
+    margin-bottom: 10px;
+}
+
+.login-field {
+    border: none;
+    height: 50px;
+    background-color: #00a1e6;
+    outline: none;
+    color: #fff;
+    transition: 0.2s ease;
+    
+}
+
+.login-field:hover {
+    background-color: #00b3ff;
+    transition: 0.2s ease;
+}
+
+.login-field:focus {
+    color: #fff;
+    background-color: #1abaff;
+    transition: 0.2s ease;
+}
+
+.login-field::placeholder {
+    color: #ccf0ff;
+    transition: 0.2s ease;
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(30px) scale(0.8);
+        opacity: 0;
+    } to {
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
+}
+
+.opa-button {
+    background-color: #ff9999;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #fff;
+    border: none;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.opa-button:hover {
+    background-color:  #ff6666;
+}
+
+.forgot-pass {
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: 0.2s ease;
+}
+
+.forgot-label {
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+
+.forgot-pass:hover {
+    border: 1px solid white;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s ease;
+
+}
+
+.signup {
+    display:block;
+}
+
+.signup:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.signup-wrapper{
+    border-top: 1px solid #ccf0ff;
+    padding-top: 20px;
+}
+
+.mensagem {
+    text-align: center;
+    border-radius: 5px;
+    background-color:crimson;
+    color: #fff;
 }
 /*--------------------Login-----------------------*/

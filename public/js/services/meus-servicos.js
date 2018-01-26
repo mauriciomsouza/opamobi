@@ -6,6 +6,13 @@ angular.module('meusServicos', ['ngResource'])
 			}
 		});
 	})
+    .factory('recursoEmpresa', function($resource) {
+		return $resource('/v1/usuarios/:cnpj', null, {
+			'update' : { 
+				method: 'PUT'
+			}
+		});
+	})
 	.factory("cadastroDeCupoms", function(recursoCupom, $q) {
 		var service = {};
 		service.cadastrar = function(cupom) {
@@ -42,32 +49,32 @@ angular.module('meusServicos', ['ngResource'])
 		return service;
 }).factory("cadastroDeEmpresas", function(recursoEmpresa, $q) {
 		var service = {};
-		service.cadastrar = function(empresa) {
+		service.cadastrar = function(usuario) {
 			return $q(function(resolve, reject) {
 
-				if(empresa._id) {
-					recursoEmpresa.update({empresaId: empresa._id}, empresa, function() {
+				if(usuario._id) {
+					recursoEmpresa.update({usuarioId: usuario._id}, usuario, function() {
 						resolve({
-							mensagem: 'Projeto ' + empresa.razao + ' atualizado com sucesso',
+							mensagem: 'Projeto ' + usuario.razao + ' atualizado com sucesso',
 							inclusao: false
 						});
 					}, function(erro) {
 						console.log(erro);
 						reject({
-							mensagem: 'Não foi possível atualizar o projeto ' + empresa.razao
+							mensagem: 'Não foi possível atualizar o projeto ' + usuario.razao
 						});
 					});
 
 				} else {
 					recursoEmpresa.save(empresa, function() {
 						resolve({
-							mensagem: 'Projeto ' + empresa.razao + ' incluída com sucesso',
+							mensagem: 'Projeto ' + usuario.razao + ' incluída com sucesso',
 							inclusao: true
 						});
 					}, function(erro) {
 						alert('Não Resolveu');
 						reject({
-							mensagem: 'Não foi possível incluir o projeto ' + empresa.razao
+							mensagem: 'Não foi possível incluir o projeto ' + usuario.razao
 						});
 					});
 				}

@@ -12,7 +12,7 @@ angular.module('opa').controller('LoginController', function($scope, $http, $loc
             $location.path('empresa');
         }, function(erro) {
             $scope.usuario = {};
-            $scope.mensagem = 'Login/Senha incorretos';
+            $scope.mensagem = 'CNPJ ou Senha incorretos';
         });
     };
 });

@@ -1,7 +1,7 @@
 angular.module('opa', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos'])
 	.config(function($routeProvider, $locationProvider, $httpProvider) {
-    
-        $httpProvider.interceptors.push('tokenInterceptor');
+
+$httpProvider.interceptors.push('tokenInterceptor');
 
         $routeProvider.when('/home', {
 			templateUrl: 'partials/home.html',
@@ -31,11 +31,8 @@ angular.module('opa', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', '
 		$routeProvider.when('/cupoms/edit/:cupomId', {
 			templateUrl: 'partials/cupom.html',
 			controller: 'cupomController'
-});
+        });
         
-    
-    
+        $routeProvider.otherwise({redirectTo: '/home'});
 
-		$routeProvider.otherwise({redirectTo: '/home'});
-
-	});
+});

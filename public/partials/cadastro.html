@@ -8,7 +8,7 @@
         
 		<div class="form-group">
 			<label>cnpj</label>
-			<input name="cnpj" class="form-control" ng-model="empresa.cnpj" required>  
+			<input name="cnpj" class="form-control" ng-model="usuario.cnpj" required>  
 
 			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
 				class="form-control alert-danger">
@@ -18,7 +18,7 @@
         
         <div class="form-group">
 			<label>razão social</label>
-			<input name="razao" class="form-control" ng-model="empresa.razao" required>  
+			<input name="razao" class="form-control" ng-model="usuario.razao" required>  
 
 			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
 				class="form-control alert-danger">
@@ -28,7 +28,7 @@
         
 		<div class="form-group">
 			<label>senha</label>
-			<input name="senha" class="form-control" ng-model="empresa.senha" required>
+			<input name="senha" class="form-control" ng-model="usuario.senha" required>
 
 			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
 				class="form-control alert-danger">
@@ -38,7 +38,7 @@
         
         <div class="form-group">
 			<label>endereco</label>
-			<input name="endereco" class="form-control" ng-model="empresa.endereco" required>
+			<input name="endereco" class="form-control" ng-model="usuario.endereco" required>
 
 			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
 				class="form-control alert-danger">
@@ -48,7 +48,7 @@
         
         <div class="form-group">
 			<label>cidade</label>
-			<input name="cidade" class="form-control" ng-model="empresa.cidade" required>
+			<input name="cidade" class="form-control" ng-model="usuario.cidade" required>
 
 			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
 				class="form-control alert-danger">
@@ -58,7 +58,7 @@
         
         <div class="form-group">
 			<label>telefone</label>
-			<input name="telefone" class="form-control" ng-model="empresa.telefone" required>
+			<input name="telefone" class="form-control" ng-model="usuario.telefone" required>
 
 			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
 				class="form-control alert-danger">
@@ -69,7 +69,7 @@
 		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
 			Salvar
 		</button>
-		<a href="/#/projetos" class="btn btn-primary">Voltar</a>
+		<a href="/#/login" class="btn btn-primary">Voltar</a>
 		<hr>
 	</div>
 </form>
