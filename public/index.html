@@ -22,6 +22,7 @@ onde estiver, quando quiser!"/>
         <script src="js/lib/angular-route.min.js"></script>
         <script src="js/lib/angular-resource.min.js"></script>
 		<script src="js/main.js"></script>
+         <script src="js/controllers/global-controller.js"></script>
         <script src="js/controllers/principal-controller.js"></script>
 		<script src="js/controllers/empresa-controller.js"></script>
         <script src="js/controllers/cupom-controller.js"></script>
@@ -33,7 +34,7 @@ onde estiver, quando quiser!"/>
         </script>
         <script src="js/services/token-interceptor.js"></script>
 	</head>
-	<body>
+	<body class="{{bodyClass}} foo bar" ng-controller="GlobalCtrl">
         <meu-menu></meu-menu>
         <ng-view></ng-view>
 	</body>

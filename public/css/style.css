@@ -1,6 +1,21 @@
 body {
-    background-color: #eee;
+    
     font-family: Rubik, sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body.home-page {
+    background-color: #eee;
+}
+
+body.login-page {
+   background-color:  #007db3; 
 }
 
 /*--------------------meuMenu-----------------------*/
@@ -342,10 +357,8 @@ textarea:focus, input:focus{
 /*--------------------Login-----------------------*/
 .login-box {
     padding: 20px 35px 35px 35px;
-    background-color:  #007db3;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
     animation: appear 0.8s ease;
 }
 
