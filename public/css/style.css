@@ -21,126 +21,122 @@ body.login-page {
 body.cadastro-page {
    background-color:  #007db3; 
 }
+
+.opa-field {
+    border: none;
+    height: 50px;
+    background-color: #00a1e6;
+    outline: none;
+    color: #fff;
+    transition: 0.2s ease;
+    font-size: 0.8em;
+    
+}
+
+.opa-field:hover {
+    background-color: #00b3ff;
+    transition: 0.2s ease;
+}
+
+.opa-field:focus {
+    color: #fff;
+    background-color: #1abaff;
+    transition: 0.2s ease;
+}
+
+.opa-field::placeholder {
+    color: #ccf0ff;
+    transition: 0.2s ease;
+}
+
+.opa-button {
+    text-align: center;
+    display:block;
+    background-color: #ff9999;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #fff;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.opa-button:disabled {
+    background-color:  #aaa;
+}
+
+.opa-button:disabled:hover {
+    background-color:  #aaa;
+}
+
+.opa-button:hover {
+    background-color:  #ff6666;
+    text-decoration: none;
+    color: #fff;
+}
 /*--------------------meuMenu-----------------------*/
 #topbar {
-    display: block;
-    height: 50px;
     background-color: #FFF;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
 }
 
 #logo {
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 35px;
-    margin-top: 8px;
+    height: 40px;
+    margin: 15px;
 }
-
-
-
-
 /*--------------------meuMenu-----------------------*/
 
 /*--------------------meuFiltro-----------------------*/
 
 .sort-label:after {
   color: #fff;
-  content: '\f062';
+  font-size: 1em;
+  content: ' \f0d8';
   font-family: 'FontAwesome', sans-serif;
 }
 .sort-label.reverse:after {
-  
-    content: '\f063';
+  content: ' \f0d7';
   color: #fff;
-    font-family: 'FontAwesome', sans-serif;
-}
-
-.filter-label {
-    font-weight: bold;
-    color: #fff;
-    font-size: 0.8em;
-}
-
-#search-field {
-    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
-    -moz-appearance: none; /* Remove estilo padrão do FireFox */
-    appearance: none; /* Remove estilo padrão do FireFox*/
-    padding: 5px;
-    height: 37px;
-    border-radius: 5px;
-    border: 2px solid #fff;
-    transition: 0.3s ease;
-    width: 100%;
-    color: #fff;
-    background-color: #008ECA;
-}
-
-#search-field::placeholder {
-    color: #fff;
-}
-
-#search-field:focus::placeholder {
-    color: #008ECA;
-}
-
-#search-field:focus {
-    background-color: #fff;
-    transition: 0.3s ease;
-    color:  #008ECA;
+  font-family: 'FontAwesome', sans-serif;
+    font-size: 1em;
 }
 
 textarea:focus, input:focus{
     outline: none;
 }
 
-#city-options {
-    width: 100%;
-    padding: 8px;
-    background-color: #008ECA;
-    border: 2px solid white;
-    border-radius: 5px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.filter-boxes{
-    padding: 15px;
-}
-
-#word-filter {
-    height: 90px;
-}
-
-#city-filter {
-    height: 90px;
-}
-
-#sort-options {
-    height: 90px;
-}
-
-
 #order-options {
     display:flex;
 }
 
 .sort-button {
-    padding: 7px;
+    height: 50px;
+    padding: 15px;
     text-transform: uppercase;
     color: #fff;
-    font-weight: bold;
-    border: 2px solid white;
+    border: none;
     border-radius: 5px;
     margin-right: 10px;
+    background-color: #00a1e6;
+    font-size: 0.8em;
+    margin-bottom: 20px;
 }
 
-#filter-container{
-    padding: 0px;
-    border-radius: 0px 0px 10px 10px;
-    background-color:  #008ECA;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+.sort-button:hover {
+    background-color: #00b3ff;
+}
+
+.filter-bar {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #007db3;
+    padding-top: 20px;
+    transition: all 0.2s ease;
 }
 
 
@@ -308,11 +304,10 @@ textarea:focus, input:focus{
 }
 
 .showdata-button {
-    font-size: 1.8em;
+    font-size: 1.4em;
     position: absolute;
     top:  40px;
     right: 25px;
-    color: #fff;
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -321,6 +316,10 @@ textarea:focus, input:focus{
     padding-top: 3px;
     transition: 0.3s ease;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+}
+
+.showdata-button i {
+    color: #fff;
 }
 
 .showdata-button:hover {
@@ -341,7 +340,7 @@ textarea:focus, input:focus{
     border-radius: 50%;
     text-align: center;
     padding: 4px;
-    font-size: 1.6em;
+    font-size: 1.3em;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
 }
 
@@ -367,48 +366,24 @@ textarea:focus, input:focus{
 
 .login-title {
     margin-bottom: 25px;
+    color: white;
 }
 
-.input-group-addon {
+.input-group-text {
+    text-align: center;
     border: none;
     background-color: #008ECA;
     color: #fff;
+    padding: 0px;
     width: 50px;
 }
 
-.input-group {
+.input-group-text i{
     margin: 0 auto;
-    width:100%;
 }
 
 .login-box .input-group {
     margin-bottom: 10px;
-}
-
-.login-field {
-    border: none;
-    height: 50px;
-    background-color: #00a1e6;
-    outline: none;
-    color: #fff;
-    transition: 0.2s ease;
-    
-}
-
-.login-field:hover {
-    background-color: #00b3ff;
-    transition: 0.2s ease;
-}
-
-.login-field:focus {
-    color: #fff;
-    background-color: #1abaff;
-    transition: 0.2s ease;
-}
-
-.login-field::placeholder {
-    color: #ccf0ff;
-    transition: 0.2s ease;
 }
 
 @keyframes appear {
@@ -419,37 +394,6 @@ textarea:focus, input:focus{
         transform: translateY(0px) scale(1);
         opacity: 1;
     }
-}
-
-.opa-button {
-    text-align: center;
-    display:block;
-    background-color: #ff9999;
-    width: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-radius: 5px;
-    font-size: 1em;
-    color: #fff;
-    border: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: 0.2s ease;
-}
-
-.opa-button:disabled {
-    background-color:  #aaa;
-}
-
-.opa-button:disabled:hover {
-    background-color:  #aaa;
-}
-
-.opa-button:hover {
-    background-color:  #ff6666;
-    text-decoration: none;
-    color: #fff;
 }
 
 .forgot-pass {
@@ -492,20 +436,28 @@ textarea:focus, input:focus{
     animation: appear 0.8s ease;
 }
 
-.submit
-
 .signup-box .input-group {
     margin-bottom: 10px;
 }
 
-.form-help {
-    color: #fff;
+#estado {
+    height: 50px;
+}
+
+.text-muted {
+    color: #fff !important;
 }
 
 .form-control {
    border-top-right-radius: 5px !important;
     border-bottom-right-radius: 5px !important;
+}
 
+.custom-control-label:before{
+  background-color:white;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color:darkslategrey;
 }
 
 /*--------------------Cadastro-----------------------*/

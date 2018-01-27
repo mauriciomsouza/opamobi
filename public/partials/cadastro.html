@@ -1,15 +1,17 @@
-<div id="signup" class="container signup-box top-buffer">
+<div class="container top-buffer">
+    <div class="row justify-content-center">
+        <div class="col-10">
         <h4 class="login-title text-center">Cadastrar-se</h4>
-        <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+        <p ng-show="mensagem.length" class="mensagem">{{mensagem}}</p>
         <form novalidate name="formulario" ng-submit="submeterEmpresa()">
           <div class="form-row">
             <div class="form-group col-md-6">
                 <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-briefcase fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">CNPJ</label>
-                    <input name="cnpj" class="form-control login-field" ng-model="usuario.cnpj" required placeholder="CNPJ" minlength="19" maxlength="19" mask="99.999.999/9999-99">
+                    <input name="cnpj" class="form-control opa-field" ng-model="usuario.cnpj" required placeholder="CNPJ" minlength="19" maxlength="19" mask="99.999.999/9999-99">
                 </div>
                 <span ng-show = "formulario.$submitted && formulario.cnpj.$error.required"
                         class="mensagem">
@@ -18,11 +20,11 @@
             </div>
             <div class="form-group col-md-6">
               <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-briefcase fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">RAZÃO SOCIAL</label>
-                    <input name="razao" class="form-control login-field" ng-model="usuario.razao" required placeholder="RAZÃO SOCIAL">  
+                    <input name="razao" class="form-control opa-field" ng-model="usuario.razao" required placeholder="RAZÃO SOCIAL">  
 
                     
                 </div>
@@ -35,37 +37,36 @@
         <div class="form-row">
           <div class="form-group col-md-7">
             <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-map-marker fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">LOGRADOURO</label>
-                    <input name="logradouro" class="form-control login-field" ng-model="usuario.logradouro" required placeholder="LOGRADOURO">
+                    <input name="logradouro" class="form-control opa-field" ng-model="usuario.logradouro" required placeholder="LOGRADOURO">
 
                      
                 </div>
               
               <small class="form-text text-muted form-help">Ex. Rua Real Grandeza</small>
-              <span ng-show = "formulario.$submitted && formulario.logradouro.$error.required" 
-                        class="mensagem">
-                        Endereço obrigatório
-                    </span>
+              <div class="input-group-prepend">
+            
+                    </div>
           </div>
             <div class="form-group col-md-2">
             <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">NÚMERO</label>
-                    <input name="numero" class="form-control login-field" ng-model="usuario.numero" placeholder="Nº">
+                    <input name="numero" class="form-control opa-field" ng-model="usuario.numero" placeholder="Nº">
                 </div>
           </div>
           <div class="form-group col-md-3">
             <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">COMPLEMENTO</label>
-                    <input name="complemento" class="form-control login-field" ng-model="usuario.complemento" placeholder="COMPLEMENTO">
+                    <input name="complemento" class="form-control opa-field" ng-model="usuario.complemento" placeholder="COMPLEMENTO">
                     
                 </div>
               <small class="form-text text-muted form-help">Ex. Quadra, Lote, Casa</small>
@@ -74,13 +75,13 @@
           <div class="form-row">
             
             
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
               <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">BAIRRO</label>
-                    <input name="bairro" class="form-control login-field" ng-model="usuario.bairro" required placeholder="BAIRRO">
+                    <input name="bairro" class="form-control opa-field" ng-model="usuario.bairro" required placeholder="BAIRRO">
 
                     
                 </div>
@@ -91,11 +92,11 @@
             </div>
               <div class="form-group col-md-4">
               <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">CIDADE</label>
-                    <input name="cidade" class="form-control login-field" ng-model="usuario.cidade" required placeholder="CIDADE">
+                    <input name="cidade" class="form-control opa-field" ng-model="usuario.cidade" required placeholder="CIDADE">
 
                     
                 </div>
@@ -106,12 +107,12 @@
             </div>
               <div class="form-group col-md-2">
               <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-briefcase fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">ESTADO</label>
-                    <select name="estado" ng-model="usuario.estado" class="form-control login-field" required>
-                      <option value="" disabled selected>ESTADO</option>
+                    <select id="estado" name="estado" ng-model="usuario.estado" class="form-control opa-field" required>
+                      <option value="" disabled selected>UF</option>
                       <option value="1">RJ</option>
                       <option value="2">SP</option>
                       <option value="3">ES</option>
@@ -123,13 +124,13 @@
                         Estado obrigatório
                     </span>
             </div>
-              <div class="form-group col-md-2">
+              <div class="form-group col-md-3">
               <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-map fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">CEP</label>
-                    <input name="cep" class="form-control login-field" ng-model="usuario.cep" required placeholder="CEP" mask="99999-999">
+                    <input name="cep" class="form-control opa-field" ng-model="usuario.cep" required placeholder="CEP" mask="99999-999">
 
                     
                 </div>
@@ -142,11 +143,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-phone fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">TELEFONE</label>
-                    <input name="telefone" class="form-control login-field" ng-model="usuario.telefone" required placeholder="TELEFONE" mask="(99) 9?9999-9999">
+                    <input name="telefone" class="form-control opa-field" ng-model="usuario.telefone" required placeholder="TELEFONE" mask="(99) 9?9999-9999">
 
                     
                 </div>
@@ -158,11 +159,11 @@
                 <div class="form-group col-md-6">
                     
                     <div class="input-group">
-                     <span class="input-group-addon">
-                        <i class='fa fa-envelope fa-lg' aria-hidden='true'></i>
-                    </span>
+                     <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">EMAIL</label>
-                    <input type="email" name="email" class="form-control login-field" ng-model="usuario.email" required placeholder="EMAIL">
+                    <input type="email" name="email" class="form-control opa-field" ng-model="usuario.email" required placeholder="EMAIL">
 
                     
             </div>
@@ -175,11 +176,11 @@
              <div class="form-row">
                 <div class="form-group col-md-6">
                     <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-lock fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">SENHA</label>
-                    <input type="password" name="senha" class="form-control login-field" ng-model="usuario.senha" required placeholder="DIGITE A SENHA">
+                    <input type="password" name="senha" class="form-control opa-field" ng-model="usuario.senha" required placeholder="DIGITE A SENHA">
 
                     
                 </div>
@@ -190,11 +191,11 @@
                 </div> 
                 <div class="form-group col-md-6">
                     <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class='fa fa-lock fa-lg' aria-hidden='true'></i>
-                    </span>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
                     <label class="sr-only">CONFIRME A SENHA</label>
-                    <input type="password" name="senha2" class="form-control login-field" ng-model="value2" required placeholder="CONFIRME A SENHA" >
+                    <input type="password" name="senha2" class="form-control opa-field" ng-model="value2" required placeholder="CONFIRME A SENHA" >
                     
                     
                 </div>
@@ -207,16 +208,15 @@
                 </div> 
                 <div class="form-row">
                     <div id="terms" class="form-group col-md-9">
-                       <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" name="check" required>
-                          <label class="form-check-label" for="invalidCheck">
+                       <div class="custom-control custom-checkbox">
+                          <input id="customCheck1" class="custom-control-input" type="checkbox" value="" ng-model="check" id="invalidCheck" name="check" checked required>
+                        <span class="custom-control-indicator"></span>
+                          <label class="custom-control-label" for="invalidCheck" >
                             Eu declaro ter lido e aceito os termos e condições.
                           </label>
+                           <span class="form-text text-muted" ng-show="formulario.$submitted && formulario.url.$error.required" >Ex. Quadra, Lote, Casa</span>
                         </div>
-                        <span ng-show="formulario.$submitted && formulario.check.$error.required" 
-                        class="mensagem">
-                        Você precisa aceitar os termos antes de se cadastrar.
-                    </span> 
+                       
                     </div>
                     <div class="form-group col-md-3">
                         <button type="submit" class="opa-button submit">
@@ -225,4 +225,6 @@
                     </div>
                 </div>
         </form>
+        </div>
+    </div>
 </div>

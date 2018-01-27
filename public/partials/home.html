@@ -1,35 +1,47 @@
-<div id="filter-container" class="container">
-    <div id="word-filter" class="filter-boxes col-md-4">
-        <p class="filter-label">PESQUISAR POR PALAVRA-CHAVE</p>
-        <input type="text" name="filtro" id="search-field" placeholder="Digite aqui..."  ng-model="search.titulo">
-    </div>
-    <div id="city-filter" class="filter-boxes col-md-4">
-        <p class="filter-label">ESCOLHA A CIDADE</p>
-        <select id="city-options" ng-model="city.cidade">
-            <option value="">TODAS</option>
-            <option value="Duque de Caxias">DUQUE DE CAXIAS</option>
-            <option value="Rio de Janeiro">RIO DE JANEIRO</option>
-        </select>
-    </div>
-    <div id="sort-options" class="filter-boxes col-md-4">
-        <p class="filter-label">ORDENAR POR</p>
+<div class="container">
+    <div class="filter-bar row justify-content-center">
+        <div class="form-group col-auto">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text opa-prepend"><i class='fa fa-search fa-lg' aria-hidden='true'></i></span>
+                </div>
+                <label class="sr-only">PESQUISAR POR PALAVRA-CHAVE</label>
+                <input size="35" class="form-control opa-field" id="filtro" name="filtro" id="search-field" placeholder="PESQUISAR POR PALAVRA-CHAVE"  ng-model="search.titulo">
+            </div>
+        </div>
+        <div class="form-group col-auto">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text opa-prepend"><i class='fa fa-map fa-lg' aria-hidden='true'></i></span>
+                </div>
+                <label class="sr-only">CIDADE</label>
+                <select id="estado" name="estado" ng-model="city.cidade" class="form-control opa-field" required>
+                    <option value="" disabled selected>ESCOLHA A CIDADE</option>
+                    <option value="RIO DE JANEIRO">RIO DE JANEIRO</option>
+                    <option value="DUQUE DE CAXIAS">DUQUE DE CAXIAS</option>
+                </select>
+            </div>
+        </div>
+    <div id="sort-options" class="col-auto">
+        <label class="sr-only">ORDENAR POR</label>
         <div class="filter-order" id="order-options">
            
             <div class="sort-button" ng-click="sortBy('pego')">
-                <i class="fa fa-star" aria-hidden="true" title="Destaques"></i><span class="sort-label" ng-show="propertyName === 'pego'" ng-class="{reverse: reverse}"> &nbspDestaques&nbsp</span>
+                <i class="fa fa-star fa-lg" aria-hidden="true" title="Destaques"></i><span class="sort-label" ng-show="propertyName === 'pego'" ng-class="{reverse: reverse}"> &nbspDestaques&nbsp</span>
             </div>
 
             <div class="sort-button" ng-click="sortBy('data')">
-                <i class="fa fa-calendar" aria-hidden="true" title="Recentes"></i>
+                <i class="fa fa-calendar fa-lg" aria-hidden="true" title="Recentes"></i>
                 <span class="sort-label" ng-show="propertyName === 'data'" ng-class="{reverse: reverse}">&nbspRecentes&nbsp</span>
             </div>
             
             <div class="sort-button" ng-click="sortBy('validade')">
-                <i class="fa fa-hourglass-end" aria-hidden="true" title="expirando"></i>
+                <i class="fa fa-hourglass-end fa-lg" aria-hidden="true" title="expirando"></i>
                 <span class="sort-label" ng-show="propertyName === 'validade'" ng-class="{reverse: reverse}">&nbspExpirando&nbsp</span>
             </div>
         </div>
-    </div>    
+    </div>
 </div>
 
 <meu-cupom></meu-cupom>
+</div>
