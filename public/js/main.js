@@ -1,7 +1,7 @@
 angular.module('opa', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos', 'ui.bootstrap', 'ngMask'])
 	.config(function($routeProvider, $locationProvider, $httpProvider) {
-
-$httpProvider.interceptors.push('tokenInterceptor');
+    
+     $httpProvider.interceptors.push('tokenInterceptor');
 
         $routeProvider.when('/home', {
 			templateUrl: 'partials/home.html',
@@ -17,7 +17,7 @@ $httpProvider.interceptors.push('tokenInterceptor');
             templateUrl: 'partials/login.html',
             controller: 'LoginController'
         });
-    
+        
         $routeProvider.when('/empresa', {
             templateUrl: 'partials/empresa.html',
             controller: 'EmpresaController'

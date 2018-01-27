@@ -28,9 +28,7 @@ module.exports = function(app) {
      };
 
     api.verificaToken = function(req, res, next) {
-
          var token = req.headers['x-access-token'];
-
          if (token) {
              console.log('Token recebido, decodificando');
              jwt.verify(token, app.get('secret'), function(err, decoded) {

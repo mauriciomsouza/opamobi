@@ -59,7 +59,31 @@
 		</div>
 
 		<div class="form-group">
-			<label>Categoria</label>
+			<label>CNPJ</label>
+			<select name="categoria" ng-model="cupom.empresa" class="form-control" 
+					required>
+				<option selected value="{{usuario.cnpj}}">{{usuario.cnpj}}</option>
+			</select>
+			<span ng-show="formulario.$submitted && formulario.categoria.$error.required" 
+				class="form-control alert-danger">
+				Categoria obrigatória
+			</span>
+		</div>
+        
+        <div class="form-group">
+			<label>CNPJ</label>
+			<select name="categoria" ng-model="cupom.empresa_cnpj" class="form-control" 
+					required>
+				<option selected value="{{usuario.cnpj}}">{{usuario.cnpj}}</option>
+			</select>
+			<span ng-show="formulario.$submitted && formulario.categoria.$error.required" 
+				class="form-control alert-danger">
+				Categoria obrigatória
+			</span>
+		</div>
+        
+        <div class="form-group">
+			<label>Empresa</label>
 			<select name="categoria" ng-model="cupom.categoria" class="form-control" 
 					required ng-controller="CategoriasController" 
 					ng-options="categoria.nome as (categoria.nome | uppercase) for categoria in categorias">
@@ -70,9 +94,6 @@
 				Categoria obrigatória
 			</span>
 		</div>
-        
-        <p ng-model="usuario.cnpj">{{usuario.cnpj}}</p>
-          <p ng-model="usuario.razao">{{usuario.razao}}</p>
 
 		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
 			Salvar

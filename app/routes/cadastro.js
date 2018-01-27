@@ -8,4 +8,6 @@ module.exports = function(app) {
 
 	app.route('/v1/usuarios/:cnpj')
 		.get(api.buscaPorCNPJ)
+        .post(api.adiciona);
+        
 };

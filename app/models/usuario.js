@@ -2,33 +2,57 @@ var mongoose = require('mongoose');
 
 var schema = mongoose.Schema({
 
-    senha: {
-        type: String,
-        required: true
-    },
     cnpj: {
-        type: String, 
-        required: true
+        type: String,
+        required: false
     },
     razao: {
-        type: String,
-        required: true
+        type: String, 
+        required: false
     },
-    senha: {
+    logradouro: {
         type: String,
-        required: true
+        required: false
     },
-    endereco: {
+    numero: {
         type: String,
-        required: true
+        required: false
+    },
+    complemento: {
+        type: String,
+        required: false
+    },
+    bairro: {
+        type: String,
+        required: false
     },
     cidade: {
         type: String,
-        required: true
+        required: false
+    },
+    estado: {
+        type: String,
+        required: false
+    },
+    cep: {
+        type: String,
+        required: false
     },
     telefone: {
         type: String,
-        required: true
+        required: false
+    },
+    email: {
+        type: String,
+        required: false
+    },
+    senha: {
+        type: String,
+        required: false
+    },
+    confirm: {
+        type: String,
+        required: false
     }
 });
 

@@ -1,9 +1,9 @@
-<div class="container top-buffer">
+<div class="container signup-box top-buffer">
     <div class="row justify-content-center">
         <div class="col-10">
         <h4 class="login-title text-center">Cadastrar-se</h4>
         <p ng-show="mensagem.length" class="mensagem">{{mensagem}}</p>
-        <form novalidate name="formulario" ng-submit="submeterEmpresa()">
+        <form novalidate name="formulario" ng-submit="submeter()">
           <div class="form-row">
             <div class="form-group col-md-6">
                 <div class="input-group">
@@ -11,11 +11,11 @@
                          <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">CNPJ</label>
-                    <input name="cnpj" class="form-control opa-field" ng-model="usuario.cnpj" required placeholder="CNPJ" minlength="19" maxlength="19" mask="99.999.999/9999-99">
+                    <input name="cnpj" class="form-control opa-field" ng-model="usuario.cnpj" placeholder="CNPJ" required mask="99.999.999/9999-99" mask-clean='true'>
                 </div>
                 <span ng-show = "formulario.$submitted && formulario.cnpj.$error.required"
                         class="mensagem">
-                        CNPJ obrigatório
+                        DIGITE O CNPJ
                 </span>
             </div>
             <div class="form-group col-md-6">
@@ -23,14 +23,14 @@
                     <div class="input-group-prepend">
                          <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
                     </div>
-                    <label class="sr-only">RAZÃO SOCIAL</label>
-                    <input name="razao" class="form-control opa-field" ng-model="usuario.razao" required placeholder="RAZÃO SOCIAL">  
+                    <label class="sr-only">RAZÃO SOCIAL OU NOME FANTASIA</label>
+                    <input name="razao" class="form-control opa-field" ng-model="usuario.razao" required placeholder="NOME DA EMPRESA">  
 
                     
                 </div>
-                <span ng-show = "formulario.$submitted && formulario.razao.$error.required"
+               <span ng-show = "formulario.$submitted && formulario.razao.$error.required"
                         class="mensagem">
-                        Razão Social obrigatório
+                        DIGITE A RAZÃO SOCIAL OU NOME FANTASIA
                 </span>
             </div>
           </div>
@@ -41,8 +41,7 @@
                          <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">LOGRADOURO</label>
-                    <input name="logradouro" class="form-control opa-field" ng-model="usuario.logradouro" required placeholder="LOGRADOURO">
-
+                    <input name="logradouro" class="form-control opa-field" ng-model="usuario.logradouro" placeholder="LOGRADOURO">
                      
                 </div>
               
@@ -85,10 +84,10 @@
 
                     
                 </div>
-                <span ng-show = "formulario.$submitted && formulario.bairro.$error.required" 
+               <span ng-show = "formulario.$submitted && formulario.bairro.$error.required"
                         class="mensagem">
-                        Bairro Obrigatório
-                    </span> 
+                        DIGITE O BAIRRO
+                </span>
             </div>
               <div class="form-group col-md-4">
               <div class="input-group">
@@ -100,10 +99,10 @@
 
                     
                 </div>
-                  <span ng-show = "formulario.$submitted && formulario.cidade.$error.required" 
+                  <span ng-show = "formulario.$submitted && formulario.cidade.$error.required"
                         class="mensagem">
-                        Cidade Obrigatória
-                    </span> 
+                        DIGITE A CIDADE
+                </span>
             </div>
               <div class="form-group col-md-2">
               <div class="input-group">
@@ -111,18 +110,42 @@
                          <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">ESTADO</label>
-                    <select id="estado" name="estado" ng-model="usuario.estado" class="form-control opa-field" required>
-                      <option value="" disabled selected>UF</option>
-                      <option value="1">RJ</option>
-                      <option value="2">SP</option>
-                      <option value="3">ES</option>
+                    <select id="estado" name="estado" ng-model="usuario.estado" required class="form-control opa-field">
+                        <option value="" disabled selected>UF</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
                     </select>
                     
                 </div>
-                  <span ng-show = "formulario.$submitted && formulario.estado.$error.required"
+                 <span ng-show = "formulario.$submitted && formulario.estado.$error.required"
                         class="mensagem">
-                        Estado obrigatório
-                    </span>
+                        ESCOLHA UM ESTADO
+                </span>
             </div>
               <div class="form-group col-md-3">
               <div class="input-group">
@@ -134,10 +157,10 @@
 
                     
                 </div>
-                  <span ng-show = "formulario.$submitted && formulario.cep.$error.required" 
+                  <span ng-show = "formulario.$submitted && formulario.cep.$error.required"
                         class="mensagem">
-                        CEP Obrigatório
-                    </span> 
+                        DIGITE O CEP
+                    </span>
             </div>
           </div>
             <div class="form-row">
@@ -151,10 +174,10 @@
 
                     
                 </div>
-                    <span ng-show = "formulario.$submitted && formulario.telefone.$error.required" 
+                    <span ng-show = "formulario.$submitted && formulario.telefone.$error.required"
                         class="mensagem">
-                        Telefone Obrigatório
-                    </span> 
+                        DIGITE UM TELEFONE
+                </span>
                 </div> 
                 <div class="form-group col-md-6">
                     
@@ -167,27 +190,26 @@
 
                     
             </div>
-                    <span ng-show = "formulario.$submitted && formulario.email.$error.required" 
+                    <span ng-show = "formulario.$submitted && formulario.cnpj.$error.required"
                         class="mensagem">
-                        Email Obrigatório
-                    </span> 
+                        DIGITE UM EMAIL VÁLIDO
+                </span>
                 </div> 
             </div>
              <div class="form-row">
                 <div class="form-group col-md-6">
                     <div class="input-group">
-                    <div class="input-group-prepend">
-                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                        <div class="input-group-prepend">
+                             <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                        </div>
+                        <label class="sr-only">SENHA</label>
+                        <input type="password" name="senha" class="form-control opa-field" ng-model="usuario.senha" required placeholder="DIGITE A SENHA" minlength="6">
                     </div>
-                    <label class="sr-only">SENHA</label>
-                    <input type="password" name="senha" class="form-control opa-field" ng-model="usuario.senha" required placeholder="DIGITE A SENHA">
-
-                    
-                </div>
-                    <span ng-show = "formulario.$submitted && formulario.senha.$error.required" 
+                   <span ng-show = "formulario.$submitted && formulario.cnpj.$error.required"
                         class="mensagem">
-                        Senha obrigatória
-                    </span> 
+                        CNPJ obrigatório
+                    </span>
+                    <small class="form-text text-muted form-help">No mínimo 6 caracteres</small>
                 </div> 
                 <div class="form-group col-md-6">
                     <div class="input-group">
@@ -195,26 +217,25 @@
                          <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">CONFIRME A SENHA</label>
-                    <input type="password" name="senha2" class="form-control opa-field" ng-model="value2" required placeholder="CONFIRME A SENHA" >
+                    <input type="password" class="form-control opa-field" ng-model="usuario.confirm" placeholder="CONFIRME A SENHA" >
                     
                     
                 </div>
-                    <span ng-show="formulario.$submitted && formulario.url.$error.required" 
-                        class="mensagem">
-                        Senha obrigatória
+                    <span ng-show="usuario.senha != usuario.confirm" class="mensagem">
+                        As senhas não conferem
                     </span> 
                  </div>
                  
                 </div> 
                 <div class="form-row">
                     <div id="terms" class="form-group col-md-9">
-                       <div class="custom-control custom-checkbox">
-                          <input id="customCheck1" class="custom-control-input" type="checkbox" value="" ng-model="check" id="invalidCheck" name="check" checked required>
+                       <div>
+                          <input id="check" type="checkbox" value="" ng-model="usuario.check" id="check" name="check" required>
                         <span class="custom-control-indicator"></span>
-                          <label class="custom-control-label" for="invalidCheck" >
+                          <label for="check" >
                             Eu declaro ter lido e aceito os termos e condições.
                           </label>
-                           <span class="form-text text-muted" ng-show="formulario.$submitted && formulario.url.$error.required" >Ex. Quadra, Lote, Casa</span>
+                           <small class="form-text text-muted" ng-show="formulario.$submitted && formulario.check.$error.required" >Você precisa aceitar os termos e condições antes de se cadastrar.</small>
                         </div>
                        
                     </div>

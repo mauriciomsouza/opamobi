@@ -4,7 +4,7 @@ angular.module('opa')
          $http.get('/usuario')
             .success(function(usuario) {
                 $scope.usuario = usuario;
-                $http.get('v1/empresas/'+usuario.cnpj)
+                $http.get('v1/usuarios/'+usuario.cnpj)
                     .success(function(usuario) {
                         $scope.usuario = usuario;
                         console.log(usuario);

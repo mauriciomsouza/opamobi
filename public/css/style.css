@@ -436,10 +436,6 @@ textarea:focus, input:focus{
     animation: appear 0.8s ease;
 }
 
-.signup-box .input-group {
-    margin-bottom: 10px;
-}
-
 #estado {
     height: 50px;
 }
