@@ -3,6 +3,8 @@
         <div class="col-10">
         <h4 class="login-title text-center">Cadastrar-se</h4>
         <p ng-show="mensagem.length" class="mensagem">{{mensagem}}</p>
+            
+        <div ng-show="signupsuccess.length" class="signup-success text-center"><p class="text-center">{{signupsuccess}}</p></div>
         <form novalidate name="formulario" ng-submit="submeter()">
           <div class="form-row">
             <div class="form-group col-md-6">

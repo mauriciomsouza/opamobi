@@ -19,12 +19,12 @@ angular.module('meusServicos', ['ngResource'])
 			return $q(function(resolve, reject) {
 					recursoEmpresa.save(usuario, function() {
 						resolve({
-							mensagem: 'Projeto ' + usuario.razao + ' incluída com sucesso',
+							signupsuccess: 'CADASTRO REALIZADO COM SUCESSO. Retornando ao Login.',
 							inclusao: true
 						});
 					}, function(erro) {
 						reject({
-							mensagem: 'Não foi possível incluir o projeto ' + usuario.razao
+							mensagem: 'NÃO FOI POSSÍVEL REALIZAR O CADASTRO.'
 						});
 					});
 			});
