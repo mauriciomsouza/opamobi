@@ -1,36 +1,51 @@
-<div class="container">    
-<p ng-show="mensagem.length" class="alert alert-info">
-	{{mensagem}}
-</p>
+<div class="container cupom-manager" ng-hide="manager">   
+    
+    <p ng-show="mensagem.length" class="alert alert-info">
+        {{mensagem}}
+    </p>
 
-<div class="row">
-	<div class="col-md-12" style="margin-bottom: 30px">
-		<form>
-			<div class="input-group">
-				<span class="input-group-btn">
-					<a href="#/cupoms/new" class="btn btn-primary" type="button">
-						Novo Cupom
-					</a>
-				</span>
-				<input class="form-control" placeholder="filtrar pelo titulo" 
-					ng-model="filtro" ng-model-options="{ debounce: 500 }">
-            </div>
-		</form>
-	</div> <!-- fim col-md-12 -->
-</div> <!-- fim row -->
-
-<div class="row">
-    <meu-painel class="col-md-2" ng-repeat="cupom in cupoms  | filter : {empresa_cnpj: usuario.cnpj}" titulo="{{cupom.titulo}}">
-        <img class="img-responsive" ng-src="{{cupom.foto}}">
-        <p class="text-center" style="margin-top: 10px;text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;">{{cupom.categoria}}</p>
-		<a class="btn btn-primary btn-block" href="/#/cupoms/edit/{{cupom._id}}">
-			Editar
-		</a>
-		<button class="btn btn-danger" nome="Remover" ng-click="remover(cupom)">Remover</button>
-    </meu-painel>
-    <p ng-model="usuario.cnpj">{{usuario.cnpj}}</p>
+    <div class="row top-buffer">
+        <h2 class="col-md-12 text-center">Bem-vindo, <span>{{usuario.razao}}</span></h2>
+    </div>
+    
+    <div class="row top-buffer">
+        <h4 class="col-md-12 text-center">O que você deseja hoje?</h4>
+    </div>
+    
+    <div class="row top-buffer justify-content-center">
+        <input type="button" class="opa-button col-md-6" value="GERENCIAR MEUS CUPONS" ng-click="manager=true">
+        <input type="button" class="opa-button col-md-6" value="EDITAR MEUS DADOS">
+        <input type="button" class="opa-button col-md-6" value="MUDAR MINHA SENHA">
+        <input type="button" ng-click="logout()" class="opa-button col-md-6" value="SAIR">
+    </div>
 </div>
+
+<div ng-show="manager" class="cupom-manager container">
+        <div class="row justify-content-center top-buffer">
+            <h2>Seus Cupons</h2>
+        </div>
+        <div class="row justify-content-center top-buffer">
+            <div class="cupom-adm col-sm-6 col-md-4 col-lg-3" ng-repeat="cupom in cupoms  | filter : {empresa_cnpj: usuario.cnpj}">
+                <img class="img-fluid rounded" ng-src="{{cupom.foto}}">
+                <p class="text-center top-buffer">{{cupom.titulo}}</p>
+                <div class="button-adm-wrapper row no-gutters">
+                    <div class="col-md-6">
+                        <a id="edit" class="opa-button-adm col-md-12" href="/#/cupoms/edit/{{cupom._id}}"><i class="fa fa-pencil" aria-hidden="true"></i>
+                        Editar
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="delete" class="opa-button-adm col-md-12" ng-click="remover(cupom)"><i class="fa fa-trash" aria-hidden="true"></i>
+                        Excluir</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+       <div class="row justify-content-center">
+           <a href="#/cupoms/new" class="opa-button col-md-6" type="button">
+                CRIAR CUPOM
+            </a>
+    <input type="button" class="opa-button col-md-6" value="VOLTAR" ng-click="manager=false">
+    </div> 
 </div>

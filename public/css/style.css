@@ -22,6 +22,10 @@ body.cadastro-page {
    background-color:  #007db3; 
 }
 
+body.empresa-page {
+    background-color: #007db3;
+}
+
 .opa-field {
     border: none;
     height: 50px;
@@ -50,6 +54,7 @@ body.cadastro-page {
 }
 
 .opa-button {
+    margin: 5px;
     text-align: center;
     display:block;
     background-color: #ff9999;
@@ -75,6 +80,34 @@ body.cadastro-page {
 }
 
 .opa-button:hover {
+    background-color:  #ff6666;
+    text-decoration: none;
+    color: #fff;
+}
+
+.opa-button-adm {
+    text-align: center;
+    display:block;
+    width: 100%;
+    background-color: #ff9999;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.7em;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+}
+
+.opa-button-adm:disabled {
+    background-color:  #aaa;
+}
+
+.opa-button-adm:disabled:hover {
+    background-color:  #aaa;
+}
+
+.opa-button-adm:hover {
     background-color:  #ff6666;
     text-decoration: none;
     color: #fff;
@@ -479,4 +512,40 @@ textarea:focus, input:focus{
 }
 
 /*--------------------Cadastro-----------------------*/
+/*--------------------Dashboard-----------------------*/
+.cupom-adm {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    color: #000;
+    background-color: #fff;
+}  
+
+.cupom-manager {
+    color: #fff;
+}
+
+.button-adm-wrapper {
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+#edit {
+    background-color: #008ECA;
+}
+
+#edit:hover {
+    background-color: #007db3;
+}
+
+#delete {
+    background-color: crimson;
+}
+
+#delete:hover {
+    background-color: darkred;
+}
+
+
+/*--------------------Dashboard-----------------------*/
 

@@ -1,4 +1,4 @@
-angular.module('opa').controller('EmpresaController', function($scope, recursoCupom, $http, $resource) {
+angular.module('opa').controller('EmpresaController', function($scope, recursoCupom, $http, $resource, $window, $sessionStorage, $localStorage, $location) {
     
     $http.get('/usuario')
         .success(function(usuario) {
@@ -6,7 +6,6 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
             $http.get('v1/usuarios/'+usuario.cnpj)
                 .success(function(usuario) {
                     $scope.usuario = usuario;
-                    console.log(usuario);
                 })
                 .error(function(erro) {
                     console.log(erro);
@@ -25,6 +24,11 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
 	}, function(erro) {
 		console.log(erro);
 	});
+    
+    $scope.logout = function($scope){
+        delete $window.sessionStorage.token; 
+        $location.path('/login');
+    };
     
 	$scope.remover = function(cupom) {
 		recursoCupom.delete({cupomId: cupom._id}, function() {
