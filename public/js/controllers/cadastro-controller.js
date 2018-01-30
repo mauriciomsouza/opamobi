@@ -12,8 +12,9 @@ angular.module('opa')
         }, 3000);
     }
     
+    $scope.usuario.situacao = 'irregular';
+    
     $scope.submeter = function() {
-            
 			if ($scope.formulario.$valid) {        
             cadastroDeEmpresas.cadastrar($scope.usuario)
 				.then(function(dados) {

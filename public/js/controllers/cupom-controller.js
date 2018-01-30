@@ -1,5 +1,8 @@
 angular.module('opa')
 	.controller('cupomController', function($scope, recursoCupom, $routeParams, cadastroDeCupoms, $http) {
+         $scope.cupom = {};
+         $scope.cupom.code = '';
+         $scope.usuario = {};
     
          $http.get('/usuario')
             .success(function(usuario) {
@@ -7,11 +10,21 @@ angular.module('opa')
                 $http.get('v1/usuarios/'+usuario.cnpj)
                     .success(function(usuario) {
                         $scope.usuario = usuario;
-                        console.log(usuario);
+                         $scope.cupom.endereco = $scope.usuario.logradouro + ', ' + $scope.usuario.numero + ' ' + $scope.usuario.complemento + ' ' + $scope.usuario.bairro + ' - ' + $scope.usuario.cidade + ' / ' + $scope.usuario.estado;
+                        $scope.cupom.telefone = $scope.usuario.telefone;
+                        $scope.cupom.razao = $scope.usuario.razao;
+                        $scope.cupom.empresa_cnpj = $scope.usuario.cnpj;
+                        var text = "";
+                        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+                        for (var i = 0; i < 8; i++)
+                        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+                        $scope.cupom.code = text;
                     })
                     .error(function(erro) {
-                        console.log(erro);
-                });
+                                    console.log(erro);
+                            });
             })
             .error(function(erro) {
                 console.log(erro);
@@ -41,4 +54,5 @@ angular.module('opa')
 				});
 			}
 		};
+    
 	});

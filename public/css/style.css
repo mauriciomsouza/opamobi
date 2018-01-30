@@ -1,9 +1,23 @@
 body {
-    
+    background-color: #007db3;
     font-family: Rubik, sans-serif;
     width: 100%;
     height: 100%;
 }
+
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 html {
     width: 100%;
@@ -12,18 +26,6 @@ html {
 
 body.home-page {
     background-color: #eee;
-}
-
-body.login-page {
-   background-color:  #007db3; 
-}
-
-body.cadastro-page {
-   background-color:  #007db3; 
-}
-
-body.empresa-page {
-    background-color: #007db3;
 }
 
 .opa-field {
@@ -53,8 +55,38 @@ body.empresa-page {
     transition: 0.2s ease;
 }
 
+.opa-ghost-button {
+    text-align: center;
+    display:block;
+    background-color: transparent;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #fff;
+    border: 2px solid white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.opa-ghost-button:disabled {
+    background-color:  #aaa;
+}
+
+.opa-ghost-button:disabled:hover {
+    background-color:  #aaa;
+}
+
+.opa-ghost-button:hover {
+    background-color:  #fff;
+    text-decoration: none;
+    color: #007db3;
+}
+
 .opa-button {
-    margin: 5px;
     text-align: center;
     display:block;
     background-color: #ff9999;
@@ -277,7 +309,6 @@ textarea:focus, input:focus{
     border-radius: 0px 10px 10px 10px;
     width: 100%;
     z-index: -1;
-    padding: 10px;
     
 }
 
@@ -288,7 +319,6 @@ textarea:focus, input:focus{
 .cupom-code {
     font-size: 1.5em;
     font-weight: bold;
-    margin: 0;
 }
 
 @keyframes catchCode {
@@ -492,6 +522,10 @@ textarea:focus, input:focus{
 }
 
 #estado {
+    height: 50px;
+}
+
+#categoria {
     height: 50px;
 }
 

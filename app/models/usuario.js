@@ -4,11 +4,11 @@ var schema = mongoose.Schema({
 
     cnpj: {
         type: String,
-        required: false
+        required: true
     },
     razao: {
         type: String, 
-        required: false
+        required: true
     },
     logradouro: {
         type: String,
@@ -24,33 +24,37 @@ var schema = mongoose.Schema({
     },
     bairro: {
         type: String,
-        required: false
+        required: true
     },
     cidade: {
         type: String,
-        required: false
+        required: true
     },
     estado: {
         type: String,
-        required: false
+        required: true
     },
     cep: {
         type: String,
-        required: false
+        required: true
     },
     telefone: {
         type: String,
-        required: false
+        required: true
     },
     email: {
         type: String,
-        required: false
+        required: true
     },
     senha: {
         type: String,
-        required: false
+        required: true
     },
     confirm: {
+        type: String,
+        required: false
+    },
+    situacao: {
         type: String,
         required: false
     }

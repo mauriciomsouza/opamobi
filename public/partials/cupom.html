@@ -1,104 +1,142 @@
-<div class="menu-space"></div>
-<div class="container">
-    
-<div class="page-header text-center">
-	<h1>{{cupom.titulo}}</h1>
-    <h3>{{usuario.razao}}</h3>
+<div class="container top-buffer">
+    <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+    <div class="row top-buffer">
+        <form novalidate name="formulario" class="col-md-6" ng-submit="submeter()">
+            <div >
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">NOME DO CUPOM</label>
+                    <input name="titulo" class="form-control opa-field" ng-model="cupom.titulo" required maxlength="20" placeholder="NOME DO CUPOM">  
+
+                    <span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
+                        class="form-control alert-danger">
+                        NOME DO CUPOM OBRIGATÓRIO
+                    </span>
+                    <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" 
+                        class="form-control alert-danger">
+                        NO MÁXIMO 20 CARACTERES
+                    </span>
+                        </div>
+                    <small class="form-text text-muted form-help">Ex. Copo Promocional, Refrigerente 2L, Estojo de Maquiagem, etc.</small>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                    <label class="sr-only">Foto</label>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <input name="thumbnail" class="form-control opa-field" ng-model="cupom.foto" required placeholder="LINK DA IMAGEM">
+
+                    <span ng-show = "formulario.$submitted && formulario.url.$error.required" 
+                        class="form-control alert-danger">
+                        LINK DA FOTO OBRIGATÓRIO
+                    </span> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">TIPO DE PROMOÇÃO</label>
+                    <input type="text" name="descricao" class="form-control opa-field" ng-model="cupom.descricao" placeholder="TIPO DE PROMOÇÃO">
+                    <span ng-show = "formulario.$submitted && formulario.url.$error.required" 
+                        class="form-control alert-danger">
+                        DESCRIÇÃO OBRIGATÓRIA
+                    </span>
+                    
+                    </div>
+                    <small class="form-text text-muted form-help">Ex. Pague 1 leve 2, 25% off, Ganhe nas compras acima de R$ 150,00, etc.</small>
+                </div>
+                
+                <div class="form-group" ng-controller="validadeController">
+                    <div class="input-group">
+                    <label class="sr-only">VALIDADE</label>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                      <input type="text" class="form-control opa-field" uib-datepicker-popup="{{format}}" ng-model="cupom.validade" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" placeholder="DATA DE VALIDADE"/>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default calendar-button" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i>
+                        </button>
+                      </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                    <label class="sr-only">CATEGORIA</label>
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <select id="categoria" name="categoria" ng-model="cupom.categoria" class="form-control opa-field" 
+                            required ng-controller="CategoriasController" 
+                            ng-options="categoria.nome as (categoria.nome | uppercase) for categoria in categorias">
+                        <option value="">CATEGORIA</option>
+                    </select>
+                    <span ng-show="formulario.$submitted && formulario.categoria.$error.required" 
+                        class="form-control alert-danger">
+                        Categoria obrigatória
+                    </span>
+                        </div>
+                </div>
+                    
+                <button type="submit" class="opa-button" ng-disabled="formulario.$invalid">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    SALVAR
+                </button>
+                
+                <a href="/#/empresa" class="opa-ghost-button top-buffer"><i class="fa fa-arrow-left" aria-hidden="true"></i> VOLTAR</a>
+            </div>
+        </form>
+        
+        <div class="col-md-6">
+            <div class="cupom-body top-buffer">
+            <img class="cupom-thumb img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
+                <p class="cupom-descricao">{{cupom.descricao}}</p>
+                <p class="category-label" id="{{cupom.categoria}}"title="{{cupom.categoria}}"></p>
+                <div class="cupom-data" ng-hide="showdata">
+                    <div class="cupom-field">
+                        <p class="cupom-label">Item em promoção </p>
+                        <p class="cupom-titulo">{{cupom.titulo}}</p>
+                    </div>
+                    <div  class="cupom-field">
+                        <p class="cupom-label">Válido até </p>
+                        <p class="cupom-validade">{{cupom.validade | date:'dd/MM/yyyy'}}</p>
+                    </div>
+                    <div  class="cupom-field">
+                        <p class="cupom-label">Oferecido por</p>
+                        <p class="cupom-empresa">{{cupom.razao}}</p>
+                    </div>    
+                    <a type="button" class="showdata-button" ng-click="showdata=true">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </a>        
+                </div>
+            <div class="company-data" ng-show="showdata">
+                <div class="cupom-field">
+                    <p class="cupom-label">Endereço</p>
+                    <p class="cupom-titulo">{{cupom.endereco}}</p>
+                </div>
+                <div  class="cupom-field">
+                    <p class="cupom-label">TELEFONE</p>
+                    <p class="cupom-validade">{{usuario.telefone}}</p>
+                </div>
+                <a type="button" class="showdata-button" ng-click="showdata=false">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </a>
+            </div>    
+        </div>
+        <div class="code-container">
+            <div class="code-data">
+                <p class="cupom-message">APRESENTE AO CAIXA</p>
+                <p class="cupom-label">Nº DO CUPOM:</p>
+                <input type="text" class="cupom-code text-center" disabled ng-model="cupom.code">
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
-
-<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
-
-<form novalidate name="formulario" class="row" ng-submit="submeter()">
-	<div class="col-md-6">
-		<div class="form-group">
-			<label>Título</label>
-			<input name="titulo" class="form-control" ng-model="cupom.titulo" required>  
-
-			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
-				class="form-control alert-danger">
-				Título obrigatório
-			</span>
-			<span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" 
-				class="form-control alert-danger">
-				No máximo 20 caracteres!
-			</span>
-		</div>
-		<div class="form-group">
-			<label>Foto</label>
-			<input name="thumbnail" class="form-control" ng-model="cupom.foto" required>
-
-			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
-				class="form-control alert-danger">
-				URL obrigatória
-			</span> 
-		</div>
-        
-        <div class="form-group">
-			<label>Cidade</label>
-			<input name="cover" class="form-control" ng-model="cupom.cidade" value="{{usuario.cidade}}"required>
-
-			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
-				class="form-control alert-danger">
-				Cidade obrigatória
-			</span> 
-		</div>
-        
-        <div class="form-group">
-			<label>endereço</label>
-			<textarea name="testimonial" class="form-control" ng-model="cupom.endereco">
-			</textarea>
-		</div>
-		<div class="form-group">
-			<label>Descrição</label>
-			<textarea name="descricao" class="form-control" ng-model="cupom.descricao">
-			</textarea>
-            <span ng-show = "formulario.$submitted && formulario.url.$error.required" 
-				class="form-control alert-danger">
-				URL obrigatória
-			</span> 
-		</div>
-
-		<div class="form-group">
-			<label>CNPJ</label>
-			<select name="categoria" ng-model="cupom.empresa" class="form-control" 
-					required>
-				<option selected value="{{usuario.cnpj}}">{{usuario.cnpj}}</option>
-			</select>
-			<span ng-show="formulario.$submitted && formulario.categoria.$error.required" 
-				class="form-control alert-danger">
-				Categoria obrigatória
-			</span>
-		</div>
-        
-        <div class="form-group">
-			<label>CNPJ</label>
-			<select name="categoria" ng-model="cupom.empresa_cnpj" class="form-control" 
-					required>
-				<option selected value="{{usuario.cnpj}}">{{usuario.cnpj}}</option>
-			</select>
-			<span ng-show="formulario.$submitted && formulario.categoria.$error.required" 
-				class="form-control alert-danger">
-				Categoria obrigatória
-			</span>
-		</div>
-        
-        <div class="form-group">
-			<label>Empresa</label>
-			<select name="categoria" ng-model="cupom.categoria" class="form-control" 
-					required ng-controller="CategoriasController" 
-					ng-options="categoria.nome as (categoria.nome | uppercase) for categoria in categorias">
-				<option value="">Escolha uma categoria</option>
-			</select>
-			<span ng-show="formulario.$submitted && formulario.categoria.$error.required" 
-				class="form-control alert-danger">
-				Categoria obrigatória
-			</span>
-		</div>
-
-		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
-			Salvar
-		</button>
-		<a href="/#/empresa" class="btn btn-primary">Voltar</a>
-		<hr>
-	</div>
-</form>

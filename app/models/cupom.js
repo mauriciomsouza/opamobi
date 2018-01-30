@@ -16,7 +16,7 @@ var schema = mongoose.Schema({
 	},
     validade: {
 		type: String,
-        required: false
+        required: true
 	},
     descricao: {
 		type: String,
@@ -24,13 +24,25 @@ var schema = mongoose.Schema({
 	},
     code: {
 		type: String,
-		required: false
+		required: true
 	},
 	categoria: {
 		type: String,
 		required: true
 	},
     empresa_cnpj: {
+        type: String,
+        required: true
+    },
+    criado: {
+        type: String,
+        required: true
+    },
+    telefone: {
+        type: String,
+        required: true
+    },
+    endereco: {
         type: String,
         required: true
     }

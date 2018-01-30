@@ -13,39 +13,57 @@
     </div>
     
     <div class="row top-buffer justify-content-center">
-        <input type="button" class="opa-button col-md-6" value="GERENCIAR MEUS CUPONS" ng-click="manager=true">
-        <input type="button" class="opa-button col-md-6" value="EDITAR MEUS DADOS">
-        <input type="button" class="opa-button col-md-6" value="MUDAR MINHA SENHA">
-        <input type="button" ng-click="logout()" class="opa-button col-md-6" value="SAIR">
+        <div class="mensagem col-md-4" ng-show="usuario.situacao == 'irregular'">
+        Favor regularizar sua situação<br>Envie um e-mail para atendimento@opamobi.com.br
+        </div>
+    </div>
+    
+    <div class="row top-buffer justify-content-center">
+        <div class="col-md-4">
+            <button ng-disabled="usuario.situacao == 'irregular'" class="opa-button top-buffer" ng-click="manager=true"><i class="fa fa-files-o" aria-hidden="true"></i>
+ GERENCIAR CUPONS</button>
+            <button class="opa-button top-buffer"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+ EDITAR CADASTRO</button>
+            <button class="opa-button top-buffer"><i class="fa fa-key" aria-hidden="true"></i>
+ MUDAR SENHA</button>
+            <button ng-click="logout()" class="opa-ghost-button top-buffer"><i class="fa fa-sign-out" aria-hidden="true"></i>
+ SAIR</button>
+        </div>
     </div>
 </div>
 
 <div ng-show="manager" class="cupom-manager container">
-        <div class="row justify-content-center top-buffer">
-            <h2>Seus Cupons</h2>
-        </div>
-        <div class="row justify-content-center top-buffer">
-            <div class="cupom-adm col-sm-6 col-md-4 col-lg-3" ng-repeat="cupom in cupoms  | filter : {empresa_cnpj: usuario.cnpj}">
-                <img class="img-fluid rounded" ng-src="{{cupom.foto}}">
-                <p class="text-center top-buffer">{{cupom.titulo}}</p>
-                <div class="button-adm-wrapper row no-gutters">
-                    <div class="col-md-6">
-                        <a id="edit" class="opa-button-adm col-md-12" href="/#/cupoms/edit/{{cupom._id}}"><i class="fa fa-pencil" aria-hidden="true"></i>
+    <div class="row justify-content-center top-buffer">
+        <h2>Seus Cupons</h2>
+    </div>
+    <div class="row justify-content-center top-buffer">
+        <div class="cupom-adm col-sm-6 col-md-4 col-lg-3" ng-repeat="cupom in cupoms  | filter : {empresa_cnpj: usuario.cnpj}">
+            <img class="img-fluid rounded" ng-src="{{cupom.foto}}">
+            <p class="text-center top-buffer">{{cupom.titulo}}</p>
+            <div class="button-adm-wrapper row no-gutters">
+                <div class="col-md-6">
+                    <a id="edit" class="opa-button-adm col-md-12" href="/#/cupoms/edit/{{cupom._id}}"><i class="fa fa-pencil" aria-hidden="true"></i>
                         Editar
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <button id="delete" class="opa-button-adm col-md-12" ng-click="remover(cupom)"><i class="fa fa-trash" aria-hidden="true"></i>
-                        Excluir</button>
-                    </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <button id="delete" class="opa-button-adm col-md-12" ng-click="remover(cupom)"><i class="fa fa-trash" aria-hidden="true"></i>
+                        Excluir
+                    </button>
                 </div>
             </div>
-            
-        </div>
-       <div class="row justify-content-center">
-           <a href="#/cupoms/new" class="opa-button col-md-6" type="button">
-                CRIAR CUPOM
+        </div>    
+    </div>
+    <div class="row justify-content-center top-buffer">
+        <div class="col-md-4">
+           <a href="#/cupoms/new" class="opa-button">
+                <i class="fa fa-file" aria-hidden="true"></i>
+               CRIAR CUPOM
             </a>
-    <input type="button" class="opa-button col-md-6" value="VOLTAR" ng-click="manager=false">
+           <button class="opa-ghost-button top-buffer" ng-click="manager=false">
+               <i class="fa fa-arrow-left" aria-hidden="true"></i>
+               VOLTAR
+           </button>
+        </div>
     </div> 
 </div>
