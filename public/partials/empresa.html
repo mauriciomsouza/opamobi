@@ -1,10 +1,5 @@
-<div class="container cupom-manager" ng-hide="manager">   
-    
-    <p ng-show="mensagem.length" class="alert alert-info">
-        {{mensagem}}
-    </p>
-
-    <div class="row top-buffer">
+<div class="container cupom-manager" ng-hide="manager || data || pass">   
+    <div class="row top-buffer ">
         <h2 class="col-md-12 text-center">Bem-vindo, <span>{{usuario.razao}}</span></h2>
     </div>
     
@@ -22,9 +17,9 @@
         <div class="col-md-4">
             <button ng-disabled="usuario.situacao == 'irregular'" class="opa-button top-buffer" ng-click="manager=true"><i class="fa fa-files-o" aria-hidden="true"></i>
  GERENCIAR CUPONS</button>
-            <button class="opa-button top-buffer"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <button class="opa-button top-buffer" ng-click="data=true"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
  EDITAR CADASTRO</button>
-            <button class="opa-button top-buffer"><i class="fa fa-key" aria-hidden="true"></i>
+            <button class="opa-button top-buffer" ng-click="pass=true"><i class="fa fa-key" aria-hidden="true"></i>
  MUDAR SENHA</button>
             <button ng-click="logout()" class="opa-ghost-button top-buffer"><i class="fa fa-sign-out" aria-hidden="true"></i>
  SAIR</button>
@@ -66,4 +61,322 @@
            </button>
         </div>
     </div> 
+</div>
+
+<div ng-show="data" class="data-manager container">
+    <div class="row justify-content-center top-buffer">
+        <h2>Atualizar Dados</h2>
+    </div>
+    <div class="row justify-content-center top-buffer">
+        
+        <div class="container signup-box top-buffer">
+    <div class="row justify-content-center">
+        <div class="col-10">
+
+        <p ng-show="mensagem.length" class="mensagem">{{mensagem}}</p>
+            
+        <div ng-show="signupsuccess.length" class="signup-success text-center"><p class="text-center">{{signupsuccess}}</p></div>
+        <form novalidate name="formulario" ng-submit="submeter()">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">CNPJ</label>
+                    <input name="cnpj" class="form-control opa-field" ng-model="usuario.cnpj" placeholder="CNPJ" required mask="99.999.999/9999-99" mask-clean='true' disabled>
+                </div>
+                <span ng-show = "formulario.$submitted && formulario.cnpj.$error.required"
+                        class="mensagem">
+                        DIGITE O CNPJ
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+              <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">RAZÃO SOCIAL OU NOME FANTASIA</label>
+                    <input name="razao" class="form-control opa-field" ng-model="usuario.razao" required placeholder="NOME DA EMPRESA" disabled>  
+
+                    
+                </div>
+               <span ng-show = "formulario.$submitted && formulario.razao.$error.required"
+                        class="mensagem">
+                        DIGITE A RAZÃO SOCIAL OU NOME FANTASIA
+                </span>
+            </div>
+          </div>
+        <div class="form-row">
+          <div class="form-group col-md-7">
+            <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">LOGRADOURO</label>
+                    <input name="logradouro" class="form-control opa-field" ng-model="usuario.logradouro" placeholder="LOGRADOURO">
+                     
+                </div>
+              
+              <small class="form-text text-muted form-help">Ex. Rua Real Grandeza</small>
+              <div class="input-group-prepend">
+            
+                    </div>
+          </div>
+            <div class="form-group col-md-2">
+            <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">NÚMERO</label>
+                    <input name="numero" class="form-control opa-field" ng-model="usuario.numero" placeholder="Nº">
+                </div>
+          </div>
+          <div class="form-group col-md-3">
+            <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">COMPLEMENTO</label>
+                    <input name="complemento" class="form-control opa-field" ng-model="usuario.complemento" placeholder="COMPLEMENTO">
+                    
+                </div>
+              <small class="form-text text-muted form-help">Ex. Quadra, Lote, Casa</small>
+          </div>
+        </div>
+          <div class="form-row">
+            
+            
+            <div class="form-group col-md-3">
+              <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">BAIRRO</label>
+                    <input name="bairro" class="form-control opa-field" ng-model="usuario.bairro" required placeholder="BAIRRO">
+
+                    
+                </div>
+               <span ng-show = "formulario.$submitted && formulario.bairro.$error.required"
+                        class="mensagem">
+                        DIGITE O BAIRRO
+                </span>
+            </div>
+              <div class="form-group col-md-4">
+              <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">CIDADE</label>
+                    <input name="cidade" class="form-control opa-field" ng-model="usuario.cidade" required placeholder="CIDADE">
+
+                    
+                </div>
+                  <span ng-show = "formulario.$submitted && formulario.cidade.$error.required"
+                        class="mensagem">
+                        DIGITE A CIDADE
+                </span>
+            </div>
+              <div class="form-group col-md-2">
+              <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">ESTADO</label>
+                    <select id="estado" name="estado" ng-model="usuario.estado" required class="form-control opa-field">
+                        <option value="" disabled selected>UF</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                    </select>
+                    
+                </div>
+                 <span ng-show = "formulario.$submitted && formulario.estado.$error.required"
+                        class="mensagem">
+                        ESCOLHA UM ESTADO
+                </span>
+            </div>
+              <div class="form-group col-md-3">
+              <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">CEP</label>
+                    <input name="cep" class="form-control opa-field" ng-model="usuario.cep" required placeholder="CEP" mask="99999-999">
+
+                    
+                </div>
+                  <span ng-show = "formulario.$submitted && formulario.cep.$error.required"
+                        class="mensagem">
+                        DIGITE O CEP
+                    </span>
+            </div>
+          </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">TELEFONE</label>
+                    <input name="telefone" class="form-control opa-field" ng-model="usuario.telefone" required placeholder="TELEFONE" mask="(99) 9?9999-9999">
+
+                    
+                </div>
+                    <span ng-show = "formulario.$submitted && formulario.telefone.$error.required"
+                        class="mensagem">
+                        DIGITE UM TELEFONE
+                </span>
+                </div> 
+                <div class="form-group col-md-6">
+                    
+                    <div class="input-group">
+                     <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">EMAIL</label>
+                    <input type="email" name="email" class="form-control opa-field" ng-model="usuario.email" required placeholder="EMAIL">
+
+                    
+            </div>
+                    <span ng-show = "formulario.$submitted && formulario.cnpj.$error.required"
+                        class="mensagem">
+                        DIGITE UM EMAIL VÁLIDO
+                </span>
+                </div> 
+            </div>
+
+                <div class="form-row">
+                    <div class="col-md-3">
+                       <button class="opa-ghost-button" ng-click="data=false">
+                           <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                           VOLTAR
+                       </button>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button type="submit" class="opa-button submit">
+                            ENVIAR
+                        </button>
+                    </div>
+                </div>
+        </form>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="row justify-content-center top-buffer">
+        
+    </div> 
+</div>
+
+<div ng-show="pass" class="pass-manager container">
+    <div class="row justify-content-center top-buffer">
+        <h2>Mudar Senha</h2>
+    </div>
+    <div class="row justify-content-center top-buffer">
+        <div class="container signup-box top-buffer">
+    <div class="row justify-content-center">
+        <div class="col-12">
+        <p ng-show="mensagem.length" class="mensagem">{{mensagem}}</p>
+        <div class="row justify-content-center">
+        <p ng-show="autorizado.length" class="col-md-4 autorizado">{{autorizado}}</p>
+            </div>
+            
+        <form novalidate name="formulario" ng-submit="mudarSenha()">
+             <div class="form-row justify-content-center">
+                 <div class="form-group col-md-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                             <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                        </div>
+                        <label class="sr-only">SENHA ATUAL</label>
+                        <input type="password" name="senha" class="form-control opa-field" ng-model="atualsenha" required placeholder="SENHA ATUAL" minlength="6">
+                    </div>
+                   <span ng-show = "formulario.$submitted && formulario.atualsenha.$error.required"
+                        class="mensagem">
+                        DIGITE SUA SENHA ATUAL
+                    </span>
+                </div> 
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                             <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                        </div>
+                        <label class="sr-only">NOVA SENHA</label>
+                        <input type="password" name="senha" class="form-control opa-field" ng-model="novasenha" required placeholder="NOVA SENHA" minlength="6" ng-disabled="atualsenha != usuario.senha">
+                    </div>
+                   <span ng-show = "formulario.$submitted && formulario.novasenha.$error.required"
+                        class="mensagem">
+                        DIGITE UMA SENHA
+                    </span>
+                    <small class="form-text text-muted form-help">No mínimo 6 caracteres</small>
+                </div> 
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-4">
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                    </div>
+                    <label class="sr-only">CONFIRME A NOVA SENHA</label>
+                    <input type="password" class="form-control opa-field" ng-model="novaconfirm" placeholder="CONFIRME A NOVA SENHA" ng-disabled="atualsenha != usuario.senha">
+                    
+                    
+                </div>
+                    <span ng-show="novasenha != novaconfirm" class="mensagem">
+                        AS SENHAS NÃO CONFEREM
+                    </span> 
+                 </div>
+                 
+                </div> 
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-4">
+                        <button type="submit" class="opa-button submit" ng-disabled="atualsenha != usuario.senha">
+                            SALVAR
+                        </button>
+                    </div>
+                </div>
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-4">
+                       <button class="opa-ghost-button" ng-click="pass=false">
+                           <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                           VOLTAR
+                       </button>
+                    </div>
+                </div> 
+        </form>
+        </div>
+    </div>
+</div>
+    </div>
+    
 </div>

@@ -26,4 +26,19 @@ angular.module('minhasDiretivas', [])
         ddo.templateUrl = 'js/directives/meu-menu.html';
 
 		return ddo;
+    }).directive('meuRodape', function() {
+
+		var ddo = {};
+
+		ddo.restrict = "AE";
+        ddo.transclude = true;
+
+
+		ddo.scope = {
+            titulo: '@'
+        };
+
+        ddo.templateUrl = 'js/directives/meu-rodape.html';
+
+		return ddo;
     });

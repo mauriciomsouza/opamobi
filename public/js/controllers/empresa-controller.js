@@ -30,6 +30,22 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
         $location.path('/login');
     };
     
+    $scope.mudarSenha = function() {
+        
+        
+			if ($scope.formulario.$valid) {        
+                $http.put('v1/usuarios/' + $scope.usuario.cnpj,
+                         {'senha': $scope.novasenha}, {'senha': $scope.novasenha})
+                    .success(function(status, headers) {
+                    $scope.autorizado = 'Senha modificada com sucesso.';
+                })
+                .error(function(status) {
+                    console.log('falhou');
+                    console.log(status);
+                })
+            }
+		};
+    
 	$scope.remover = function(cupom) {
 		recursoCupom.delete({cupomId: cupom._id}, function() {
 			var indiceDoCupom = $scope.cupoms.indexOf(cupom);

@@ -1,9 +1,9 @@
-angular.module('opa').controller('PrincipalController', function($scope, recursoCupom, $routeParams, $http) {
+angular.module('opa').controller('PrincipalController', function($scope, acessoCupom, $routeParams, $http) {
 
     $scope.cupoms = [];
     $scope.cupom = {};
     
-    recursoCupom.query(function(cupoms) {
+    acessoCupom.query(function(cupoms) {
         var visitedCheck = localStorage.getItem("lista");
         if (visitedCheck == null) {
             $scope.cupoms = cupoms;

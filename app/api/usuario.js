@@ -5,8 +5,8 @@ module.exports = function(app) {
 	var api = {};
 
 	var model = mongoose.model('Usuario');
-    
-    api.listaUser = function(req, res) {
+
+	api.lista = function(req, res) {
 		model.find()
 		.then(function(usuarios) {
 			res.json(usuarios);
@@ -16,11 +16,11 @@ module.exports = function(app) {
 		});
 
 	};
-	
-    api.buscaPorCNPJ = function(req, res) {
+
+	api.buscaPorCNPJ = function(req, res) {
 		model.findOne({'cnpj' : req.params.cnpj})
 		.then(function(usuario) {
-			if (!usuario) throw new Error('Empresa não encontrada');
+			if (!usuario) throw new Error('Projeto não encontrado');
 			res.json(usuario);
 		}, function(error) {
 			console.log(error);
@@ -28,13 +28,22 @@ module.exports = function(app) {
 		});
 	};
 
-	api.adicionaUser = function(req, res) {
+	api.atualiza = function(req, res) {
 		model.create(req.body)
 		.then(function(usuario) {
 			res.json(usuario);
 		}, function(error) {
 			console.log('não conseguiu');
 			console.log(error);
+			res.sendStatus(500);
+		});
+	};
+    
+    api.mudarSenha = function(req, res) {
+		model.findOneAndUpdate({'cnpj' : req.params.cnpj}, {$set: {'senha': req.body.senha}})
+		.then(function(usuario) {
+			res.json(usuario);
+		}, function(error) {
 			res.sendStatus(500);
 		});
 	};

@@ -12,7 +12,7 @@ angular.module('opa')
                         $scope.usuario = usuario;
                          $scope.cupom.endereco = $scope.usuario.logradouro + ', ' + $scope.usuario.numero + ' ' + $scope.usuario.complemento + ' ' + $scope.usuario.bairro + ' - ' + $scope.usuario.cidade + ' / ' + $scope.usuario.estado;
                         $scope.cupom.telefone = $scope.usuario.telefone;
-                        $scope.cupom.razao = $scope.usuario.razao;
+                        $scope.cupom.empresa = $scope.usuario.razao;
                         $scope.cupom.empresa_cnpj = $scope.usuario.cnpj;
                         var text = "";
                         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
