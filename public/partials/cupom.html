@@ -60,7 +60,7 @@
                     </div>
                       <input type="text" class="form-control opa-field" uib-datepicker-popup="{{format}}" ng-model="cupom.validade" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" placeholder="DATA DE VALIDADE"/>
                       <span class="input-group-btn">
-                        <button type="button" class="btn btn-default calendar-button" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i>
+                        <button type="button" class="mini-opa-button calendar-button" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i>
                         </button>
                       </span>
                     </div>
@@ -98,9 +98,9 @@
             </div>
         </form>
         
-        <div class="col-md-4">
+        <div class="col-sm-5 col-lg-4">
             <div class="cupom-body top-buffer">
-            <img class="cupom-thumb img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
+            <img class="cupom-thumb rounded img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
                 <p class="cupom-descricao">{{cupom.descricao}}</p>
                 <p class="category-label" id="{{cupom.categoria}}"title="{{cupom.categoria}}"></p>
                 <div class="cupom-data" ng-hide="showdata">

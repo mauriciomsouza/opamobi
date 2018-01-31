@@ -2,7 +2,6 @@ body {
     background-color: #007db3;
     font-family: Rubik, sans-serif;
     width: 100%;
-    height: 100%;
 }
 
   .full button span {
@@ -15,6 +14,10 @@ body {
     border-radius: 32px;
     color: black;
   }
+
+h2 {
+    color: #fff;
+}
 
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
@@ -53,6 +56,14 @@ body.home-page {
 .opa-field::placeholder {
     color: #ccf0ff;
     transition: 0.2s ease;
+}
+
+.opa-field:disabled {
+    background-color: #aaa;
+}
+
+.opa-field:disabled:hover {
+    background-color: #aaa;
 }
 
 .opa-ghost-button {
@@ -117,6 +128,37 @@ body.home-page {
     color: #fff;
 }
 
+.mini-opa-button {
+    text-align: center;
+    background-color: #ff9999;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-left: 5px;
+    color: #fff;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.2s ease;
+    height: 50px;
+    width: 50px;
+}
+
+.mini-opa-button:disabled {
+    background-color:  #aaa;
+}
+
+.mini-opa-button:disabled:hover {
+    background-color:  #aaa;
+}
+
+.mini-opa-button:hover {
+    background-color:  #ff6666;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
 .opa-button-adm {
     text-align: center;
     display:block;
@@ -156,6 +198,17 @@ body.home-page {
     box-shadow: 0px 0px 10px 2px #ff758e;
 }
 
+.autorizado {
+    font-size: 0.7em;
+    text-align: center;
+    display: block;
+    background-color:limegreen;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 2px #98e698;
+}
+
 .signup-success {
     position: absolute;
     top: 40px;
@@ -185,6 +238,15 @@ body.home-page {
     margin: 15px;
 }
 /*--------------------meuMenu-----------------------*/
+
+/*--------------------meuRodape-----------------------*/
+#footer {
+    background-color: #007db3;
+    color: #fff;
+    height: 150px;
+    margin-top: 50px;
+}
+/*--------------------meuRodape-----------------------*/
 
 /*--------------------meuFiltro-----------------------*/
 
@@ -252,7 +314,6 @@ textarea:focus, input:focus{
     background-color: #fff;
     padding: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
-    transition: max-height 0.5s ease;
 }
 
 .cupom-field {
@@ -267,7 +328,7 @@ textarea:focus, input:focus{
     position: relative;
     top: 0px;
     left: 0px;
-    height: 100px;
+    height: 130px;
 }
 
 .code-cover {
@@ -278,14 +339,13 @@ textarea:focus, input:focus{
     border-top: 2px solid #ccc;
     border-style: dashed;
     margin: 0;
-    height: 100px;
+    height: 130px;
     background-color: #fff;
     border-radius: 0px 10px 10px 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
 }
 
 .cupom-thumb{
-    border-radius: 5px 5px 2px 2px;
     width: 100%;
     margin-bottom: 10px;
 }
@@ -318,6 +378,7 @@ textarea:focus, input:focus{
 .cupom-code {
     font-size: 1.5em;
     font-weight: bold;
+    width: 100%;
 }
 
 @keyframes catchCode {
@@ -329,23 +390,6 @@ textarea:focus, input:focus{
         transform: translateY(70px);
         opacity: 0;
     }
-}
-
-@keyframes codeShow {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.code-cover.ng-hide {
-    animation: 0.5s catchCode ease;
-}
-
-.code-data.ng-hide-remove {
-    animation: 0.5s codeShow ease;
 }
 
 .show-code-button {
@@ -418,6 +462,7 @@ textarea:focus, input:focus{
     color: #fff;
     transform: scale(1.2);
     transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .category-label:before {
@@ -453,6 +498,10 @@ textarea:focus, input:focus{
     padding: 20px 35px 35px 35px;
     color: #fff;
     border-radius: 5px;
+    animation: appear 0.8s ease;
+}
+
+.animateAppear {
     animation: appear 0.8s ease;
 }
 

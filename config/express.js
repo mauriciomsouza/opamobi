@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 consign({cwd: 'app'})
     .include('models')
     .then('api')
-    .then('routes/cupom.js')
+    .then('routes/access.js')
     .then('routes/cadastro.js')
     .then('routes/auth.js')
     .then('routes')

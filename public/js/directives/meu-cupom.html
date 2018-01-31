@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3  top-buffer" ng-repeat="cupom in cupoms | orderBy:propertyName:reverse | filter:search:strict | filter:city:strict">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3  top-buffer" ng-repeat="cupom in cupoms | orderBy:propertyName:reverse | filter:search:strict | filter:endereco:strict">
         <div class="cupom-body top-buffer">
-            <img class="cupom-thumb img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
+            <img class="cupom-thumb rounded img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
                 <p class="cupom-descricao">{{cupom.descricao}}</p>
-                <p class="category-label" id="{{cupom.categoria}}"title="{{cupom.categoria}}"></p>
+                <p class="category-label" id="{{cupom.categoria}}" title="{{cupom.categoria}}"></p>
                 <div class="cupom-data" ng-hide="showdata">
                     <div class="cupom-field">
                         <p class="cupom-label">Item em promoção </p>
@@ -15,7 +15,7 @@
                     </div>
                     <div  class="cupom-field">
                         <p class="cupom-label">Oferecido por</p>
-                        <p class="cupom-empresa">{{cupom.razao}}</p>
+                        <p class="cupom-empresa">{{cupom.empresa}}</p>
                     </div>    
                     <a type="button" class="showdata-button" ng-click="showdata=true">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -28,7 +28,7 @@
                 </div>
                 <div  class="cupom-field">
                     <p class="cupom-label">TELEFONE</p>
-                    <p class="cupom-validade">{{usuario.telefone}}</p>
+                    <p class="cupom-validade">{{cupom.telefone}}</p>
                 </div>
                 <a type="button" class="showdata-button" ng-click="showdata=false">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -37,10 +37,12 @@
         </div>
         <div class="code-container">
             <div class="code-cover" ng-if="cupom.catchstatus == null">
-                <button type="button" class="btn btn-info show-code-button" ng-click="pegarCupom(cupom)">Pegar Cupom</button>
-                <p>{{cupom.pego}}</p>
+                    <p>{{cupom.pego}} pessoas pegaram este cupom.</p>
+
+                    <button type="button" class="btn btn-info show-code-button" ng-click="pegarCupom(cupom)">Pegar Cupom</button>
+
             </div>
-            <div class="code-data animate-if" ng-if="cupom.catchstatus == 'pego'">
+            <div class="code-data">
                 <p class="cupom-message top-buffer">APRESENTE AO CAIXA</p>
                 <p class="cupom-label">Nº DO CUPOM:</p>
                 <p class="cupom-code text-center">{{cupom.code}}</p>

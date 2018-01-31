@@ -1,6 +1,6 @@
 angular.module('meusServicos', ['ngResource'])
     .factory('recursoEmpresa', function($resource) {
-		return $resource('/v1/usuarios/:usuarioCNPJ', null, {
+		return $resource('/v1/cadastro/:usuarioCNPJ', null, {
 			'save' : { 
 				method: 'POST'
 			}
@@ -10,6 +10,12 @@ angular.module('meusServicos', ['ngResource'])
 		return $resource('/v1/cupoms/:cupomId', null, {
 			'update' : { 
 				method: 'PUT'
+			}
+		});
+	}).factory('acessoCupom', function($resource) {
+		return $resource('/v1/lista/:cupomId', null, {
+			'read' : { 
+				method: 'GET'
 			}
 		});
 	})
@@ -23,8 +29,10 @@ angular.module('meusServicos', ['ngResource'])
 							inclusao: true
 						});
 					}, function(erro) {
+                        console.log(erro);
 						reject({
 							mensagem: 'NÃO FOI POSSÍVEL REALIZAR O CADASTRO.'
+                            
 						});
 					});
 			});
