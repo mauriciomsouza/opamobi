@@ -1,6 +1,6 @@
 {
   "name": "opamobi",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "ferramenta de cupom de descontos e promoções",
   "main": "server.js",
   "dependencies": {
