@@ -4,47 +4,49 @@ var schema = mongoose.Schema({
 
 	titulo: {
 		type: String,
-		required: true
+		required: false
 	},
 	foto: {
 		type: String,
-		required: true
+		required: false
 	},
     empresa: {
 		type: String,
-		required: true
+		required: false
 	},
     validade: {
 		type: String,
-        required: true
+        required: false
 	},
     descricao: {
 		type: String,
-		required: true
+		required: false
 	},
     code: {
 		type: String,
-		required: true
+		required: false
 	},
 	categoria: {
 		type: String,
-		required: true
+		required: false
 	},
     empresa_cnpj: {
         type: String,
-        required: true
+        required: false
     },
     criado: {
-        type: String,
-        required: true
+        type: Date, default: Date.now
     },
     telefone: {
         type: String,
-        required: true
+        required: false
     },
     endereco: {
         type: String,
-        required: true
+        required: false
+    }, pego: {
+        type: Number,
+        default: 0
     }
 });
 

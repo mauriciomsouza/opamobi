@@ -39,7 +39,7 @@ angular.module('meusServicos', ['ngResource'])
 				if(cupom._id) {
 					recursoCupom.update({cupomId: cupom._id}, cupom, function() {
 						resolve({
-							mensagem: 'cupom ' + cupom.titulo + ' atualizado com sucesso',
+							mensagem: 'CUPOM ' + cupom.titulo + ' ATUALIZADO COM SUCESSO',
 							inclusao: false
 						});
 					}, function(erro) {
@@ -52,7 +52,7 @@ angular.module('meusServicos', ['ngResource'])
 				} else {
 					recursoCupom.save(cupom, function() {
 						resolve({
-							mensagem: 'cupom ' + cupom.titulo + ' incluída com sucesso',
+							mensagem: 'CUPOM ' + cupom.titulo + ' INCLUÍDO COM SUCESSO',
 							inclusao: true
 						});
 					}, function(erro) {

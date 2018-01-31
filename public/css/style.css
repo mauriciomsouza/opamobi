@@ -293,7 +293,6 @@ textarea:focus, input:focus{
 .cupom-message {
     text-align: center;
     color: #999;
-    
 }
 
 .code-data {
@@ -304,7 +303,7 @@ textarea:focus, input:focus{
     border: 2px solid #ddd;
     border-style: dashed;
     margin: 0;
-    height: 100px;
+    height: 130px;
     background-color: #eee;
     border-radius: 0px 10px 10px 10px;
     width: 100%;

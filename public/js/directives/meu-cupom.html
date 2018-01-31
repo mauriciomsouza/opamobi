@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3  top-buffer" ng-repeat="cupom in cupoms | orderBy:propertyName:reverse | filter:search:strict | filter:city:strict">
-        <div class="cupom-body">
+        <div class="cupom-body top-buffer">
             <img class="cupom-thumb img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
                 <p class="cupom-descricao">{{cupom.descricao}}</p>
                 <p class="category-label" id="{{cupom.categoria}}"title="{{cupom.categoria}}"></p>
@@ -15,7 +15,7 @@
                     </div>
                     <div  class="cupom-field">
                         <p class="cupom-label">Oferecido por</p>
-                        <p class="cupom-empresa">{{cupom.empresa}}</p>
+                        <p class="cupom-empresa">{{cupom.razao}}</p>
                     </div>    
                     <a type="button" class="showdata-button" ng-click="showdata=true">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -23,16 +23,12 @@
                 </div>
             <div class="company-data" ng-show="showdata">
                 <div class="cupom-field">
-                    <p class="cupomlabel">Endereço</p>
+                    <p class="cupom-label">Endereço</p>
                     <p class="cupom-titulo">{{cupom.endereco}}</p>
                 </div>
-                <div class="cupom-field">
-                    <p class="cupom-label">Cidade</p>
-                    <p class="cupom-titulo">{{cupom.cidade}}</p>
-                </div>
                 <div  class="cupom-field">
-                    <p class="cupom-label">Funcionamento</p>
-                    <p class="cupom-validade">8hrs às 19hrs</p>
+                    <p class="cupom-label">TELEFONE</p>
+                    <p class="cupom-validade">{{usuario.telefone}}</p>
                 </div>
                 <a type="button" class="showdata-button" ng-click="showdata=false">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -40,15 +36,15 @@
             </div>    
         </div>
         <div class="code-container">
-            <div class="code-cover" ng-hide="showcode">
-                <button type="button" class="btn btn-info show-code-button" ng-click="showcode=true">Pegar Cupom</button>
+            <div class="code-cover" ng-if="cupom.catchstatus == null">
+                <button type="button" class="btn btn-info show-code-button" ng-click="pegarCupom(cupom)">Pegar Cupom</button>
                 <p>{{cupom.pego}}</p>
             </div>
-            <div class="code-data" ng-show="showcode">
-                <p class="cupom-message">APRESENTE AO CAIXA</p>
+            <div class="code-data animate-if" ng-if="cupom.catchstatus == 'pego'">
+                <p class="cupom-message top-buffer">APRESENTE AO CAIXA</p>
                 <p class="cupom-label">Nº DO CUPOM:</p>
-                <p class="cupom-code">{{cupom.code}}</p>
+                <p class="cupom-code text-center">{{cupom.code}}</p>
             </div>
-        </div> 
+        </div>
     </div>  
 </div>

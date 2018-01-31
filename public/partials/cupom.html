@@ -1,6 +1,6 @@
 <div class="container top-buffer">
     <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
-    <div class="row top-buffer">
+    <div class="row top-buffer justify-content-center">
         <form novalidate name="formulario" class="col-md-6" ng-submit="submeter()">
             <div >
                 <div class="form-group">
@@ -10,17 +10,16 @@
                     </div>
                     <label class="sr-only">NOME DO CUPOM</label>
                     <input name="titulo" class="form-control opa-field" ng-model="cupom.titulo" required maxlength="20" placeholder="NOME DO CUPOM">  
-
-                    <span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
-                        class="form-control alert-danger">
+                    </div>
+                    <small class="form-text text-muted form-help">Ex. Copo Promocional, Refrigerente 2L, Estojo de Maquiagem, etc.</small>
+                     <span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
+                        class="mensagem">
                         NOME DO CUPOM OBRIGATÓRIO
                     </span>
                     <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" 
-                        class="form-control alert-danger">
+                        class="mensagem">
                         NO MÁXIMO 20 CARACTERES
                     </span>
-                        </div>
-                    <small class="form-text text-muted form-help">Ex. Copo Promocional, Refrigerente 2L, Estojo de Maquiagem, etc.</small>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
@@ -30,11 +29,12 @@
                     </div>
                     <input name="thumbnail" class="form-control opa-field" ng-model="cupom.foto" required placeholder="LINK DA IMAGEM">
 
-                    <span ng-show = "formulario.$submitted && formulario.url.$error.required" 
-                        class="form-control alert-danger">
-                        LINK DA FOTO OBRIGATÓRIO
-                    </span> 
+                     
                     </div>
+                    <span ng-show = "formulario.$submitted && formulario.foto.$error.required" 
+                        class="mensagem">
+                        LINK DA FOTO OBRIGATÓRIO
+                    </span>
                 </div>
 
                 <div class="form-group">
@@ -44,13 +44,12 @@
                     </div>
                     <label class="sr-only">TIPO DE PROMOÇÃO</label>
                     <input type="text" name="descricao" class="form-control opa-field" ng-model="cupom.descricao" placeholder="TIPO DE PROMOÇÃO">
-                    <span ng-show = "formulario.$submitted && formulario.url.$error.required" 
-                        class="form-control alert-danger">
-                        DESCRIÇÃO OBRIGATÓRIA
-                    </span>
-                    
                     </div>
                     <small class="form-text text-muted form-help">Ex. Pague 1 leve 2, 25% off, Ganhe nas compras acima de R$ 150,00, etc.</small>
+                    <span ng-show = "formulario.$submitted && formulario.descricao.$error.required" 
+                        class="mensagem">
+                        DESCRIÇÃO OBRIGATÓRIA
+                    </span>
                 </div>
                 
                 <div class="form-group" ng-controller="validadeController">
@@ -65,6 +64,10 @@
                         </button>
                       </span>
                     </div>
+                    <span ng-show = "formulario.$submitted && formulario.validade.$error.required" 
+                        class="mensagem">
+                        VALIDADE OBRIGATÓRIA
+                    </span>
                 </div>
 
                 <div class="form-group">
@@ -78,11 +81,12 @@
                             ng-options="categoria.nome as (categoria.nome | uppercase) for categoria in categorias">
                         <option value="">CATEGORIA</option>
                     </select>
-                    <span ng-show="formulario.$submitted && formulario.categoria.$error.required" 
-                        class="form-control alert-danger">
-                        Categoria obrigatória
+                   
+                    </div>
+                     <span ng-show="formulario.$submitted && formulario.categoria.$error.required" 
+                        class="mensagem">
+                        CATEGORIA OBRIGATÓRIA
                     </span>
-                        </div>
                 </div>
                     
                 <button type="submit" class="opa-button" ng-disabled="formulario.$invalid">
@@ -94,7 +98,7 @@
             </div>
         </form>
         
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="cupom-body top-buffer">
             <img class="cupom-thumb img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
                 <p class="cupom-descricao">{{cupom.descricao}}</p>
@@ -132,7 +136,7 @@
         </div>
         <div class="code-container">
             <div class="code-data">
-                <p class="cupom-message">APRESENTE AO CAIXA</p>
+                <p class="cupom-message top-buffer">APRESENTE AO CAIXA</p>
                 <p class="cupom-label">Nº DO CUPOM:</p>
                 <input type="text" class="cupom-code text-center" disabled ng-model="cupom.code">
             </div>

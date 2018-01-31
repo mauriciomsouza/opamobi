@@ -43,7 +43,6 @@ module.exports = function(app) {
 	};
 
 	api.adiciona = function(req, res) {
-
 		model.create(req.body)
 		.then(function(cupom) {
 			res.json(cupom);
@@ -55,7 +54,6 @@ module.exports = function(app) {
 	};
 
 	api.atualiza = function(req, res) {
-
 		model.findByIdAndUpdate(req.params.id, req.body)
 		.then(function(cupom) {
 			res.json(cupom);
@@ -64,6 +62,13 @@ module.exports = function(app) {
 			res.sendStatus(500);
 		})
 	};
-
+    
+    api.pegar = function(req,res) {
+        model.findByIdAndUpdate(req.params.id, {$inc: {pego:1}})
+        .then(function(cupom) {
+            res.json(cupom);
+        })
+    };
+    
 	return api;
 };

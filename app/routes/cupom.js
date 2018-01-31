@@ -10,4 +10,7 @@ module.exports = function(app) {
 		.get(api.buscaPorId)
 		.delete(api.removePorId)
 		.put(api.atualiza);
+    
+    app.route('/v1/pega/:id')
+		.put(api.pegar);
 };
