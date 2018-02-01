@@ -75,8 +75,7 @@
 
         <p ng-show="mensagem.length" class="mensagem">{{mensagem}}</p>
             
-        <div ng-show="signupsuccess.length" class="signup-success text-center"><p class="text-center">{{signupsuccess}}</p></div>
-        <form novalidate name="formulario" ng-submit="submeter()">
+        <form novalidate name="formulario" ng-submit="atualizarDados()">
           <div class="form-row">
             <div class="form-group col-md-6">
                 <div class="input-group">
@@ -84,12 +83,10 @@
                          <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">CNPJ</label>
-                    <input name="cnpj" class="form-control opa-field" ng-model="usuario.cnpj" placeholder="CNPJ" required mask="99.999.999/9999-99" mask-clean='true' disabled>
+                    <input name="cnpj" class="form-control opa-field" ng-model="usuario.cnpj" placeholder="CNPJ" mask="99.999.999/9999-99" mask-clean='true' disabled>
+                    <input name="id" class="form-control opa-field" ng-model="usuario._id" disabled>
                 </div>
-                <span ng-show = "formulario.$submitted && formulario.cnpj.$error.required"
-                        class="mensagem">
-                        DIGITE O CNPJ
-                </span>
+               
             </div>
             <div class="form-group col-md-6">
               <div class="input-group">
@@ -97,14 +94,11 @@
                          <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">RAZÃO SOCIAL OU NOME FANTASIA</label>
-                    <input name="razao" class="form-control opa-field" ng-model="usuario.razao" required placeholder="NOME DA EMPRESA" disabled>  
+                    <input name="razao" class="form-control opa-field" ng-model="usuario.razao" placeholder="NOME DA EMPRESA" disabled>  
 
                     
                 </div>
-               <span ng-show = "formulario.$submitted && formulario.razao.$error.required"
-                        class="mensagem">
-                        DIGITE A RAZÃO SOCIAL OU NOME FANTASIA
-                </span>
+               
             </div>
           </div>
         <div class="form-row">
@@ -263,7 +257,7 @@
 
                     
             </div>
-                    <span ng-show = "formulario.$submitted && formulario.cnpj.$error.required"
+                    <span ng-show = "formulario.$submitted && formulario.email.$error.required"
                         class="mensagem">
                         DIGITE UM EMAIL VÁLIDO
                 </span>

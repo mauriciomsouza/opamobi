@@ -31,6 +31,7 @@ module.exports = function(app) {
 	api.atualiza = function(req, res) {
 		model.create(req.body)
 		.then(function(usuario) {
+            console.log('deu certo');
 			res.json(usuario);
 		}, function(error) {
 			console.log('não conseguiu');

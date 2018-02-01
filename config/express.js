@@ -1,6 +1,8 @@
 var express = require('express');
 var consign = require('consign');
 var bodyParser = require('body-parser');
+var exphbs = require('express-handlebars');
+var nodemailer = require('nodemailer');
 var path = require('path');
 
 var app = express();

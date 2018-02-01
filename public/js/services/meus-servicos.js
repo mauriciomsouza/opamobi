@@ -6,6 +6,13 @@ angular.module('meusServicos', ['ngResource'])
 			}
 		});
 	})
+    .factory('recursoUsuario', function($resource) {
+		return $resource('/v1/usuarios/:usuarioCNPJ', null, {
+            'update' : { 
+				method: 'PATCH'
+			}
+		});
+	})
     .factory('recursoCupom', function($resource) {
 		return $resource('/v1/cupoms/:cupomId', null, {
 			'update' : { 
@@ -35,6 +42,27 @@ angular.module('meusServicos', ['ngResource'])
                             
 						});
 					});
+			});
+		};
+		return service;
+}).factory("atualizaDadosDaEmpresa", function(recursoUsuario, $q) {
+		var service = {};
+		service.atualizar = function(usuario) {
+			return $q(function(resolve, reject) {
+
+				if(usuario.cnpj) {
+					recursoUsuario.update({usuarioCNPJ: usuario.cnpj}, usuario, function() {
+						resolve({
+							mensagem: 'Dados atualizados com sucesso',
+							inclusao: false
+						});
+					}, function(erro) {
+						console.log(erro);
+						reject({
+							mensagem: 'Não foi possível atualizar os dados'
+						});
+					});
+				}
 			});
 		};
 		return service;
