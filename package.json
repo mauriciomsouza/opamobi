@@ -9,8 +9,10 @@
     "bootstrap": "^3.3.7",
     "consign": "^0.1.2",
     "express": "^4.13.3",
+    "express-handlebars": "^3.0.0",
     "jsonwebtoken": "^5.4.1",
-    "mongoose": "^4.3.1"
+    "mongoose": "^4.3.1",
+    "nodemailer": "^4.4.2"
   },
   "devDependencies": {},
   "scripts": {

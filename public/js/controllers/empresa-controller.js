@@ -1,4 +1,4 @@
-angular.module('opa').controller('EmpresaController', function($scope, recursoCupom, $http, $resource, $window, $sessionStorage, $localStorage, $location) {
+angular.module('opa').controller('EmpresaController', function($scope, recursoCupom, $http, $resource, $window, $sessionStorage, $localStorage, $location, recursoUsuario, atualizaDadosDaEmpresa) {
     
     $http.get('/usuario')
         .success(function(usuario) {
@@ -31,8 +31,6 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
     };
     
     $scope.mudarSenha = function() {
-        
-        
 			if ($scope.formulario.$valid) {        
                 $http.put('v1/usuarios/' + $scope.usuario.cnpj,
                          {'senha': $scope.novasenha}, {'senha': $scope.novasenha})
@@ -44,6 +42,17 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
                     console.log(status);
                 })
             }
+    };
+    
+    $scope.atualizarDados = function() {
+			 atualizaDadosDaEmpresa.atualizar($scope.usuario)
+				.then(function(dados) {
+					$scope.sucesso = dados.sucesso;
+					if (dados.inclusao) $scope.usuario = {};
+				})
+				.catch(function(erro) {
+					$scope.mensagem = erro.mensagem;
+				});
 		};
     
 	$scope.remover = function(cupom) {

@@ -9,5 +9,5 @@ module.exports = function(app) {
 	app.route('/v1/usuarios/:cnpj')
 		.get(api.buscaPorCNPJ)
         .put(api.mudarSenha)
-        .put(api.atualiza);
+        .patch(api.atualiza);
 };
