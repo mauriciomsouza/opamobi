@@ -99,48 +99,76 @@
         </form>
         
         <div class="col-sm-5 col-lg-4">
-            <div class="cupom-body top-buffer">
-            <img class="cupom-thumb rounded img-responsive" src="../img/loader.gif" ng-src="{{cupom.foto}}">
-                <p class="cupom-descricao">{{cupom.descricao}}</p>
-                <p class="category-label" id="{{cupom.categoria}}"title="{{cupom.categoria}}"></p>
-                <div class="cupom-data" ng-hide="showdata">
-                    <div class="cupom-field">
-                        <p class="cupom-label">Item em promoção </p>
-                        <p class="cupom-titulo">{{cupom.titulo}}</p>
+            <div class="cupom-container">
+<div class="cupom-body">
+            <img class="cupom-img" src="../img/loader.gif" ng-src="{{cupom.foto}}">
+            <div class="cupom-description-wrapper">
+                <div class="btn cupom-description btn-lg">
+                {{cupom.descricao}}
+                </div>
+            </div>
+    <div class="cupom-tabs padding-default">    
+        <div class="btn-group btn-group-toggle text-center" data-toggle="buttons">
+          <label class="btn btn-outline-secondary active btn-sm" ng-click="showdata = false">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked ><i class="fa fa-info"></i>&nbsp;&nbsp;INFO
+          </label>
+          <label class="btn btn-outline-secondary btn-sm" ng-click="showdata = true">
+            <input type="radio" name="options" id="option2" autocomplete="off" ><i class="fa fa-map-marker"></i>&nbsp;&nbsp;LOCAL
+          </label>
+        </div>
+     </div>
+
+    <div>
+        <div class="cupom-data padding-default" ng-hide="showdata">
+                    <div>
+                        <p class="cupom-label"><i class="fa fa-tag"></i>&nbsp;Item em promoção</p>
+                        <p class="cupom-title">{{cupom.titulo}}</p>
                     </div>
-                    <div  class="cupom-field">
-                        <p class="cupom-label">Válido até </p>
-                        <p class="cupom-validade">{{cupom.validade | date:'dd/MM/yyyy'}}</p>
+                    <div>
+                        <p class="cupom-label"><p class="cupom-label"><i class="fa fa-hourglass-end"></i>&nbsp;Válido até</p>
+                        <p>{{cupom.validade | date:'dd/MM/yyyy'}}</p>
                     </div>
-                    <div  class="cupom-field">
-                        <p class="cupom-label">Oferecido por</p>
-                        <p class="cupom-empresa">{{cupom.razao}}</p>
-                    </div>    
-                    <a type="button" class="showdata-button" ng-click="showdata=true">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    </a>        
+                    <div>
+                        <span class="cupom-label"><i class="fa fa-building"></i>&nbsp;Oferecido por &nbsp;</span><span class="badge badge-pill badge-secondary">{{cupom.empresa}}</span>
+                        
+                    </div>         
+            </div>
+            <div class="cupom-data padding-default" ng-show="showdata">
+                <div>
+                    <p class="cupom-label"><i class="fa fa-map-marker"></i>&nbsp;Endereço</p>
+                    <p>{{cupom.endereco}}</p>
                 </div>
-            <div class="company-data" ng-show="showdata">
-                <div class="cupom-field">
-                    <p class="cupom-label">Endereço</p>
-                    <p class="cupom-titulo">{{cupom.endereco}}</p>
+                <div>
+                    <p class="cupom-label"><i class="fa fa-phone"></i>&nbsp;Telefone</p>
+                    <p>{{cupom.telefone}}</p>
                 </div>
-                <div  class="cupom-field">
-                    <p class="cupom-label">TELEFONE</p>
-                    <p class="cupom-validade">{{usuario.telefone}}</p>
-                </div>
-                <a type="button" class="showdata-button" ng-click="showdata=false">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                </a>
             </div>    
         </div>
+    </div>
         <div class="code-container">
-            <div class="code-data">
-                <p class="cupom-message top-buffer">APRESENTE AO CAIXA</p>
-                <p class="cupom-label">Nº DO CUPOM:</p>
-                <input type="text" class="cupom-code text-center" disabled ng-model="cupom.code">
+            <div class="code-cover text-center padding-default" ng-if="cupom.catchstatus == null">
+                    <div class="top-buffer-sm"></div>
+                    <p class="cupom-label">CLIQUE PARA PEGAR O CUPOM<br> E VER O CÓDIGO PROMOCIONAL</p>
+                    <button type="button" class="btn btn-warning top-buffer-sm" ng-if="cupom.pego == 1" ng-click="pegarCupom(cupom)" data-toggle="tooltip" data-placement="top" title="{{cupom.pego}} PESSOA PEGOU" tooltip><i class="fa fa-hand-paper-o"></i>&nbsp;
+                    PEGAR CUPOM
+                    </button>
+
+                
+                    <button type="button" class="btn btn-warning top-buffer-sm" ng-if="cupom.pego == 0" ng-click="pegarCupom(cupom)" data-toggle="tooltip" data-placement="top" title="NINGUÉM PEGOU AINDA" tooltip><i class="fa fa-hand-paper-o"></i>&nbsp;
+                    PEGAR CUPOM
+                    </button>
+
+                    
+                    <button type="button" class="btn btn-warning top-buffer-sm" ng-if="cupom.pego > 1" ng-click="pegarCupom(cupom)" data-toggle="tooltip" data-placement="top" title="{{cupom.pego}} PESSOAS PEGARAM" tooltip><i class="fa fa-hand-paper-o"></i>&nbsp;
+                    PEGAR CUPOM
+                    </button>
+
+            </div>
+            <div class="code-data padding-default">
+                <p>APRESENTE AO CAIXA</p>
+                <p class="cupom-label">Nº DO CUPOM</p>
+                <p class="cupom-code">{{cupom.code}}</p>
             </div>
         </div>
-        </div>
-    </div>
+</div>
 </div>

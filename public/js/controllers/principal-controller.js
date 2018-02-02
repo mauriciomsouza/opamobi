@@ -74,10 +74,8 @@ angular.module('opa').controller('PrincipalController', function($scope, acessoC
                       
         $http.put('v1/pega/' + cupom._id)
             .success(function(data) {
-              console.log('sucesso');
             })
             .error(function(data, status) {
-              console.error('errou');
             })
         
     }

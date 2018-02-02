@@ -1,7 +1,63 @@
 body {
-    background-color: #007db3;
-    font-family: Rubik, sans-serif;
     width: 100%;
+	color: #fff;
+	background: linear-gradient(-45deg, #007db3, #00a1e6, #007db3, cornflowerblue);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+.top-buffer { 
+    margin-top:20px; 
+}
+
+.top-buffer-sm { 
+    margin-top:10px; 
+}
+
+.padding-default {
+    padding: 10px;
+}
+
+.margin-default {
+    margin: 10px;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
 }
 
   .full button span {
@@ -228,20 +284,15 @@ body.home-page {
     transform: translateY(-50%);
 }
 /*--------------------meuMenu-----------------------*/
-#topbar {
-    background-color: #FFF;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
-}
-
 #logo {
-    height: 40px;
-    margin: 15px;
+    margin: 25px;
+    height: 50px;
+    filter: brightness(0) invert(1);
 }
 /*--------------------meuMenu-----------------------*/
 
 /*--------------------meuRodape-----------------------*/
 #footer {
-    background-color: #007db3;
     color: #fff;
     height: 150px;
     margin-top: 50px;
@@ -289,39 +340,86 @@ textarea:focus, input:focus{
 }
 
 .filter-bar {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-color: #007db3;
+    border-radius: 5px;
+    background-color:#0070a0;
     padding-top: 20px;
-    transition: all 0.2s ease;
+    -webkit-box-shadow: 0 7px 12px rgba(0,50,205,0.35);
+    -moz-box-shadow: 0 7px 12px rgba(0,50,205,0.35);
+    box-shadow: 0 7px 12px rgba(0,50,205,0.35);
 }
 
 
 /*--------------------meuFiltro-----------------------*/
 /*--------------------Cupom-----------------------*/
 .cupom-container {
-    padding: 10px;
-    font-family: 'Rubik', sans-serif;
-}
-
-.top-buffer { 
-    margin-top:20px; 
+    color: black;
+    overflow: hidden;
+    text-transform: uppercase;
 }
 
 .cupom-body {
-    border-radius: 10px 10px 10px 0px;
-    overflow: hidden;
     background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
+    border-radius: 5px 5px 5px 0;
+    overflow: hidden;
+    -webkit-box-shadow: 0 7px 12px rgba(0,50,205,0.35);
+    -moz-box-shadow: 0 7px 12px rgba(0,50,205,0.35);
+    box-shadow: 0 7px 12px rgba(0,50,205,0.35);
 }
 
-.cupom-field {
-    margin-bottom: 5px;
+.cupom-img {
+    width: 100%;
+    height: auto;
 }
 
-.cupom-body p {
+.btn-group {
+    width: 100%;
+}
+
+.btn-group label {
+    width: 100%;
+}
+
+.cupom-description-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 23px;
+    font-weight: bold;
+}
+
+.cupom-description {
+    background-color: #ff9999;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cupom-category {
+    background-color: red;
+    color: #fff;
+    font-size: 
+}
+
+.cupom-label {
     margin: 0;
+    padding: 0;
+    font-weight: bolder;
+    font-size: 0.7em;
+    opacity: 0.3;
+}
+
+.btn-primary {
+    background-color: #008ECA;
+}
+
+.cupom-title {
+    font-weight: bolder;
+    color: #008ECA;
+}
+
+.cupom-code {
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+    font-size: 1.8em;
 }
 
 .code-container {
@@ -341,44 +439,24 @@ textarea:focus, input:focus{
     margin: 0;
     height: 130px;
     background-color: #fff;
-    border-radius: 0px 10px 10px 10px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
-}
-
-.cupom-thumb{
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.cupom-message {
-    text-align: center;
-    color: #999;
+    border-radius: 0px 5px 5px 5px;
+    -webkit-box-shadow: 0 7px 12px rgba(0,50,205,0.35);
+    -moz-box-shadow: 0 7px 12px rgba(0,50,205,0.35);
+    box-shadow: 0 7px 12px rgba(0,50,205,0.35);
 }
 
 .code-data {
     text-align: center;
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 0;
-    border: 2px solid #ddd;
+    color: #fff;
+    border: 2px solid #fff;
     border-style: dashed;
-    margin: 0;
     height: 130px;
-    background-color: #eee;
     border-radius: 0px 10px 10px 10px;
     width: 100%;
-    z-index: -1;
-    
-}
-
-.code-data .cupom-label{
-    margin: 0;
-}
-
-.cupom-code {
-    font-size: 1.5em;
-    font-weight: bold;
-    width: 100%;
+    z-index: -1;  
 }
 
 @keyframes catchCode {
@@ -390,95 +468,6 @@ textarea:focus, input:focus{
         transform: translateY(70px);
         opacity: 0;
     }
-}
-
-.show-code-button {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 30px;
-}
-
-.cupom-titulo {
-    font-size: 1em;
-    text-transform: uppercase;
-    font-weight:bold;
-}
-
-.cupom-descricao {
-    position: absolute;
-    padding: 10px;
-    top: -5px;
-    left: 25px;
-    background-color: #008ECA;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 10px;
-    text-transform: uppercase;
-    max-width: 160px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
-    overflow-wrap: break-word;
-}
-
-.cupom-label {
-    color: #aaa;
-    font-size: 0.6em;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.cupom-validade {
-    font-size: 1em;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.cupom-empresa {
-    font-size: 1em;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.showdata-button {
-    font-size: 1.4em;
-    position: absolute;
-    top:  40px;
-    right: 25px;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    background-color: chartreuse;
-    text-align: center;
-    padding-top: 3px;
-    transition: 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
-}
-
-.showdata-button i {
-    color: #fff;
-}
-
-.showdata-button:hover {
-    color: #fff;
-    transform: scale(1.2);
-    transition: 0.3s ease;
-    cursor: pointer;
-}
-
-.category-label:before {
-    position: absolute;
-    right: 25px;
-    top: -5px;
-    width: 40px;
-    height: 40px;
-    background-color: coral;
-    color: #fff;
-    font-family: FontAwesome;
-    border-radius: 50%;
-    text-align: center;
-    padding: 4px;
-    font-size: 1.3em;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.05);
 }
 
 #alimentacao:before {
