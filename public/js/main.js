@@ -1,4 +1,4 @@
-angular.module('opa', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos', 'ui.bootstrap', 'ngMask', 'ngStorage'])
+angular.module('opa', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos', 'ui.bootstrap', 'ngMask', 'ngStorage', 'ngGeolocation'])
 	.config(function($routeProvider, $locationProvider, $httpProvider) {
     
      $httpProvider.interceptors.push('tokenInterceptor');

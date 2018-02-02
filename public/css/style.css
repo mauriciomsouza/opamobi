@@ -8,6 +8,33 @@ body {
 	animation: Gradient 15s ease infinite;
 }
 
+.fade.in {
+    opacity: 1;
+}
+
+.modal-header {
+    background-color:  #00a1e6 !important;
+}
+
+.modal-body {
+    background-color:  #00a1e6 !important;
+}
+
+.modal-footer {
+    background-color:  #00a1e6 !important;
+}
+
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+       -o-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+
 .top-buffer { 
     margin-top:20px; 
 }

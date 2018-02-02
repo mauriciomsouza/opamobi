@@ -1,5 +1,5 @@
 angular.module('opa')
-	.controller('cadastroController', function($scope, recursoEmpresa, cadastroDeEmpresas, $routeParams, $http, $location, $timeout) {
+	.controller('cadastroController', function($scope, recursoEmpresa, cadastroDeEmpresas, $routeParams, $http, $location, $timeout, $uibModal) {
 		$scope.usuario = {};
 		$scope.mensagem = '';
         $scope.signupsuccess = '';
@@ -14,6 +14,14 @@ angular.module('opa')
     
     $scope.usuario.situacao = 'irregular';
     
+    $scope.showModal = function() {
+        $uibModal.open({
+                animation: true,
+                templateUrl: 'terms.html',
+                controller: 'ModalCtrl',
+            });
+    }
+            
     $scope.submeter = function() {
 			if ($scope.formulario.$valid) {        
             cadastroDeEmpresas.cadastrar($scope.usuario)

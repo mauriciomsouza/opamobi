@@ -1,4 +1,11 @@
-angular.module('opa').controller('PrincipalController', function($scope, acessoCupom, $routeParams, $http, $rootScope) {
+angular.module('opa').controller('PrincipalController', function($scope, acessoCupom, $routeParams, $http, $rootScope, $geolocation) {
+    
+    $geolocation.getCurrentPosition({
+            timeout: 60000
+         }).then(function(position) {
+            console.log(position);
+            $scope.myPosition = position;
+         });
 
     $scope.cupoms = [];
     $scope.cupom = {};
