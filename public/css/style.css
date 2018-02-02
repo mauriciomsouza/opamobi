@@ -382,7 +382,7 @@ textarea:focus, input:focus{
 .cupom-description-wrapper {
     position: absolute;
     top: 10px;
-    left: 23px;
+    left: 25px;
     font-weight: bold;
 }
 
@@ -390,12 +390,19 @@ textarea:focus, input:focus{
     background-color: #ff9999;
     color: #fff;
     font-weight: bold;
+    cursor:default;
+}
+
+.cupom-category-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-weight: bold;
 }
 
 .cupom-category {
-    background-color: red;
+    background-color: #ff9999;
     color: #fff;
-    font-size: 
 }
 
 .cupom-label {

@@ -2,10 +2,16 @@
 <div class="cupom-body">
             <img class="cupom-img" src="../img/loader.gif" ng-src="{{cupom.foto}}">
             <div class="cupom-description-wrapper">
-                <div class="btn cupom-description btn-lg">
+                <div class="cupom-description btn-lg">
                 {{cupom.descricao}}
                 </div>
             </div>
+            <div class="cupom-category-wrapper" ng-controller="categoryIconController">
+                <div class="{{cupom.categoria}} cupom-category btn-lg" data-toggle="tooltip" data-placement="top" title="{{categoria}}" tooltip>
+                <i class="fa fa-{{icon}}"></i>
+                </div>
+            </div>
+            
     <div class="cupom-tabs padding-default">    
         <div class="btn-group btn-group-toggle text-center" data-toggle="buttons">
           <label class="btn btn-outline-secondary active btn-sm" ng-click="showdata = false">
@@ -45,7 +51,7 @@
         </div>
     </div>
         <div class="code-container">
-            <div class="code-cover text-center padding-default" ng-if="cupom.catchstatus == null">
+            <div class="code-cover text-center padding-default" ng-if="cupom.catchstatus == null" ng-hide="newcupom == true">
                     <div class="top-buffer-sm"></div>
                     <p class="cupom-label">CLIQUE PARA PEGAR O CUPOM<br> E VER O CÓDIGO PROMOCIONAL</p>
                     <button type="button" class="btn btn-warning top-buffer-sm" ng-if="cupom.pego == 1" ng-click="pegarCupom(cupom)" data-toggle="tooltip" data-placement="top" title="{{cupom.pego}} PESSOA PEGOU" tooltip><i class="fa fa-hand-paper-o"></i>&nbsp;

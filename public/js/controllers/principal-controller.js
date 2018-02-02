@@ -1,7 +1,8 @@
-angular.module('opa').controller('PrincipalController', function($scope, acessoCupom, $routeParams, $http) {
+angular.module('opa').controller('PrincipalController', function($scope, acessoCupom, $routeParams, $http, $rootScope) {
 
     $scope.cupoms = [];
     $scope.cupom = {};
+    $rootScope.newcupom = false;
     
     acessoCupom.query(function(cupoms) {
         var visitedCheck = localStorage.getItem("lista");
@@ -84,7 +85,7 @@ angular.module('opa').controller('PrincipalController', function($scope, acessoC
 
    $scope.sortBy = function(propertyName) {
    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : true;
-    $scope.propertyName = propertyName;
+   $scope.propertyName = propertyName;
   };
 });
 

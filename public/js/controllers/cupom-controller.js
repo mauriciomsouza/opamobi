@@ -1,8 +1,9 @@
 angular.module('opa')
-	.controller('cupomController', function($scope, recursoCupom, $routeParams, cadastroDeCupoms, $http) {
+	.controller('cupomController', function($scope, recursoCupom, $routeParams, cadastroDeCupoms, $http, $rootScope) {
          $scope.cupom = {};
          $scope.cupom.code = '';
          $scope.usuario = {};
+         $rootScope.newcupom = true;
     
          $http.get('/usuario')
             .success(function(usuario) {
