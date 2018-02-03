@@ -1,5 +1,18 @@
 angular.module('opa').controller('PrincipalController', function($scope, acessoCupom, $routeParams, $http, $rootScope, $geolocation) {
     
+    if (!("Notification" in window)) {
+        alert("Esse browser não suporta notificações");
+    } else if (Notification.permission === "granted") {
+        var notification = new Notification("Bem-vindo ao Opa!",{body: 'Você será notificado de novos cupoms.',icon: '/img/opalogo.png', dir:'auto'});
+    } else {
+        Notification.requestPermission(function (permission) {
+            if (permission === "granted") {
+                var notification = new Notification("Opa! Informa",{body: 'Encontre promoções pertinho de você', icon: 'http://www.opamobi.com.br/img/logo.png', dir:'auto'});
+            }
+        });
+        
+    };
+    
     $geolocation.getCurrentPosition({
             timeout: 60000
          }).then(function(position) {
@@ -12,24 +25,14 @@ angular.module('opa').controller('PrincipalController', function($scope, acessoC
     $rootScope.newcupom = false;
     
     $scope.notificar = function(cupom) {
-        if (!("Notification" in window)) {
-    alert("Esse browser não suporta notificações");
-  }
-
-  // Let's check whether notification permissions have already been granted
-  else if (Notification.permission === "granted") {
-    var notification = new Notification("Opa! Informa:",{body: cupom.titulo + ' pego com sucesso!',icon: cupom.foto, dir:'auto'});
-  }
-
-  // Otherwise, we need to ask the user for permission
-  else if (Notification.permission !== 'denied') {
-    Notification.requestPermission(function (permission) {
-      // If the user accepts, let's create a notification
-      if (permission === "granted") {
-        var notification = new Notification("Bem-vindo ao Opa!",{body: 'Você será notificado de novos cupoms.',icon: '/img/opalogo.png', dir:'auto'});
-      }
-    });
-  }
+        if (Notification.permission !== 'denied') {
+        Notification.requestPermission(function (permission) {
+              if (permission === "granted") {
+                  var notification = new Notification("Opa! Informa",{body: cupom.titulo + ' pego com sucesso!',icon: cupom.foto, dir:'auto'});
+                
+              }
+            });
+        }
     }
     
     acessoCupom.query(function(cupoms) {
