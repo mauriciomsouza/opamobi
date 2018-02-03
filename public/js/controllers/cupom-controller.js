@@ -11,7 +11,13 @@ angular.module('opa')
     
         $scope.openPicker = function() {
             client.pick({
-              fromSources:["local_file_system","url","googledrive","instagram"]
+              fromSources:["local_file_system","url","imagesearch","facebook","instagram","googledrive"],
+              lang:"pt",
+              transformations:{
+              crop:{      force:true,
+              aspectRatio:1}},
+              maxFiles:1,
+              accept:["image/*"]
             }).then(function(pic) {
                var picUrl = pic.filesUploaded[0].url; 
                console.log(picUrl);
