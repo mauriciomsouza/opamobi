@@ -1,7 +1,6 @@
 var https = require('https');
 var http = require('http');
 var app = require('./config/express');
-var fs = require('fs');
 
 require('./config/database')('mongodb://opamobi:123@ds249787.mlab.com:49787/heroku_jnjgbv0t');
 
@@ -12,4 +11,7 @@ http.createServer(app)
 	console.log('Servidor Opa! [ON]');
 });
 
-https.createServer(app).listen(443);
+https.createServer(app)
+.listen(443, function() {
+	console.log('Servidor SSL Opa! [ON]');
+});
