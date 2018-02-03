@@ -1,7 +1,9 @@
-angular.module('opa', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos', 'ui.bootstrap', 'ngMask', 'ngStorage', 'ngGeolocation'])
-	.config(function($routeProvider, $locationProvider, $httpProvider) {
+angular.module('opa', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos', 'ui.bootstrap', 'ngMask', 'ngStorage', 'ngGeolocation', 'angular-filepicker'])
+	.config(function($routeProvider, $locationProvider, $httpProvider, filepickerProvider) {
     
      $httpProvider.interceptors.push('tokenInterceptor');
+
+        filepickerProvider.setKey('A0apDjnlJTqGoq1DbSkSIz');
 
         $routeProvider.when('/home', {
 			templateUrl: 'partials/home.html',

@@ -20,6 +20,14 @@ onde estiver, quando quiser!"/>
         <link rel="stylesheet" href="css/ui-bootstrap.csp.css">
 		<link rel="stylesheet" href="css/style.css">
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+        <script src="https://static.filestackapi.com/v3/filestack.js"></script>
+        <script type="text/javascript">
+         const client = filestack.init('A0apDjnlJTqGoq1DbSkSIz', {lang: 'pt'});
+        </script>
+
+
+        <script type="text/javascript" src="js/lib/filepicker.js"></script>
+        <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
         <script src="js/lib/angular-locale_pt-br.js"></script>
         <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
@@ -46,7 +54,6 @@ onde estiver, quando quiser!"/>
 	<body class="{{bodyClass}} foo bar" ng-controller="GlobalCtrl">
         <meu-menu></meu-menu>
         <ng-view></ng-view>
-        <meu-rodape></meu-rodape>
 	</body>
     
 </html>

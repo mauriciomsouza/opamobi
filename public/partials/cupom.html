@@ -6,7 +6,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                         <span class="input-group-text opa-prepend"><i class='fa fa-tag fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">NOME DO CUPOM</label>
                     <input name="titulo" class="form-control opa-field" ng-model="cupom.titulo" required maxlength="20" placeholder="NOME DO CUPOM">  
@@ -25,10 +25,13 @@
                     <div class="input-group">
                     <label class="sr-only">Foto</label>
                     <div class="input-group-prepend">
-                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                         <span class="input-group-text opa-prepend"><i class='fa fa-picture-o fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <input name="thumbnail" class="form-control opa-field" ng-model="cupom.foto" required placeholder="LINK DA IMAGEM">
-
+                    <span class="input-group-btn">
+                        <button type="button" class="mini-opa-button calendar-button" ng-click="openPicker()" filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,box" on-success="onSuccess(event.fpfile)"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                        </button>
+                    </span>
                      
                     </div>
                     <span ng-show = "formulario.$submitted && formulario.foto.$error.required" 
@@ -40,7 +43,7 @@
                 <div class="form-group">
                     <div class="input-group">
                     <div class="input-group-prepend">
-                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                         <span class="input-group-text opa-prepend"><i class='fa fa-list-ul fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">TIPO DE PROMOÇÃO</label>
                     <input type="text" name="descricao" class="form-control opa-field" ng-model="cupom.descricao" placeholder="TIPO DE PROMOÇÃO">
@@ -56,7 +59,7 @@
                     <div class="input-group">
                     <label class="sr-only">VALIDADE</label>
                     <div class="input-group-prepend">
-                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                         <span class="input-group-text opa-prepend"><i class='fa fa-hourglass-end fa-lg' aria-hidden='true'></i></span>
                     </div>
                       <input type="text" class="form-control opa-field" uib-datepicker-popup="{{format}}" ng-model="cupom.validade" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" placeholder="DATA DE VALIDADE"/>
                       <span class="input-group-btn">
@@ -74,7 +77,7 @@
                     <div class="input-group">
                     <label class="sr-only">CATEGORIA</label>
                     <div class="input-group-prepend">
-                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
+                         <span class="input-group-text opa-prepend"><i class='fa fa-filter fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <select id="categoria" name="categoria" ng-model="cupom.categoria" class="form-control opa-field" 
                             required ng-controller="CategoriasController" 

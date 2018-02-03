@@ -1,10 +1,24 @@
 angular.module('opa')
-	.controller('cupomController', function($scope, recursoCupom, $routeParams, cadastroDeCupoms, $http, $rootScope) {
+	.controller('cupomController', function($scope, recursoCupom, $routeParams, cadastroDeCupoms, $http, $rootScope, filepicker) {
+    
+         $scope.files = [];
+         $scope.fullData = {};
          $scope.cupom = {};
          $scope.cupom.code = '';
          $scope.usuario = {};
          $rootScope.newcupom = true;
+         
     
+        $scope.openPicker = function() {
+            client.pick({
+              fromSources:["local_file_system","url","googledrive","instagram"]
+            }).then(function(pic) {
+               var picUrl = pic.filesUploaded[0].url; 
+               console.log(picUrl);
+               $scope.cupom.foto = picUrl;
+            });
+          }
+        
          $http.get('/usuario')
             .success(function(usuario) {
                 $scope.usuario = usuario;

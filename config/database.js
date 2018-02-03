@@ -3,10 +3,11 @@ module.exports = function(uri) {
 	let mongoose = require('mongoose');
     mongoose.Promise = Promise;
 
-	mongoose.connect(uri);
+	mongoose.connect(uri, {
+    useMongoClient: true});
 
 	mongoose.connection.on('connected', function() {
-		console.log('Conectado ao MongoDB')
+		console.log('Conectado à Opa! Data')
 	});
 
 	mongoose.connection.on('error', function(error) {
@@ -14,7 +15,7 @@ module.exports = function(uri) {
 	});	
 
 	mongoose.connection.on('disconnected', function() {
-		console.log('Desconectado do MongoDB')
+		console.log('Desconectado da Opa! Data')
 	});
 
 	process.on('SIGINT', function() {
