@@ -11,6 +11,27 @@ angular.module('opa').controller('PrincipalController', function($scope, acessoC
     $scope.cupom = {};
     $rootScope.newcupom = false;
     
+    $scope.notificar = function(cupom) {
+        if (!("Notification" in window)) {
+    alert("Esse browser não suporta notificações");
+  }
+
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+    var notification = new Notification("Opa! Informa:",{body: cupom.titulo + ' pego com sucesso!',icon: cupom.foto, dir:'auto'});
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        var notification = new Notification("Bem-vindo ao Opa!",{body: 'Você será notificado de novos cupoms.',icon: '/img/opalogo.png', dir:'auto'});
+      }
+    });
+  }
+    }
+    
     acessoCupom.query(function(cupoms) {
         var visitedCheck = localStorage.getItem("lista");
         if (visitedCheck == null) {
@@ -85,6 +106,8 @@ angular.module('opa').controller('PrincipalController', function($scope, acessoC
             })
             .error(function(data, status) {
             })
+        
+        $scope.notificar(cupom);
         
     }
 
