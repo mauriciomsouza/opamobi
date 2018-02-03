@@ -1,4 +1,3 @@
-var https = require('https');
 var http = require('http');
 var app = require('./config/express');
 
@@ -9,9 +8,4 @@ var port = process.env.PORT || 80;
 http.createServer(app)
 .listen(port, function() {
 	console.log('Servidor Opa! [ON]');
-});
-
-https.createServer(app)
-.listen(443, function() {
-	console.log('Servidor SSL Opa! [ON]');
 });
