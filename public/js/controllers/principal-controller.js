@@ -3,7 +3,7 @@ angular.module('opa').controller('PrincipalController', function($scope, acessoC
     if (!("Notification" in window)) {
         alert("Esse browser não suporta notificações");
     } else if (Notification.permission === "granted") {
-        var notification = new Notification("Bem-vindo ao Opa!",{body: 'Você será notificado de novos cupoms.',icon: '/img/opalogo.png', dir:'auto'});
+        var notification = new Notification("Bem-vindo ao Opa!",{body: 'Vai economizar quanto hoje?',icon: 'http://www.opamobi.com.br/img/logo.png', dir:'auto'});
     } else {
         Notification.requestPermission(function (permission) {
             if (permission === "granted") {

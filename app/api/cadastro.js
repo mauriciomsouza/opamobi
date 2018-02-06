@@ -46,11 +46,12 @@ module.exports = function(app) {
 
             // setup email data with unicode symbols
             var mailOptions = {
-                from: '"Opa! Admin" <no-reply@opamobi.com.br>', // sender address
+                from: '"Opa! Admin" <no-reply@mauriciomelo.design>', // sender address
                 to: 'romulo@2ml.design, mauricio@2ml.design', // list of receivers
                 subject: 'Novo Usuário Cadastrado', // Subject line
                 text: 'Opa! Temos um novo usuário.', // plain text body
-                html: '<b>Alguém se cadastrou</b>' // html body
+                html: '<h1>Alguém se cadastrou</h1><br><h3>Dados do usuário</h3>'+
+                        req.body.usuario.cnpj// html body
             };
 
             // send mail with defined transport object

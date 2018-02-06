@@ -76,31 +76,7 @@
         <p ng-show="mensagem.length" class="mensagem">{{mensagem}}</p>
             
         <form novalidate name="formulario" ng-submit="atualizarDados()">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
-                    </div>
-                    <label class="sr-only">CNPJ</label>
-                    <input name="cnpj" class="form-control opa-field" ng-model="usuario.cnpj" placeholder="CNPJ" mask="99.999.999/9999-99" mask-clean='true' disabled>
-                    <input name="id" class="form-control opa-field" ng-model="usuario._id" disabled>
-                </div>
-               
-            </div>
-            <div class="form-group col-md-6">
-              <div class="input-group">
-                    <div class="input-group-prepend">
-                         <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
-                    </div>
-                    <label class="sr-only">RAZÃO SOCIAL OU NOME FANTASIA</label>
-                    <input name="razao" class="form-control opa-field" ng-model="usuario.razao" placeholder="NOME DA EMPRESA" disabled>  
-
-                    
-                </div>
-               
-            </div>
-          </div>
+          
         <div class="form-row">
           <div class="form-group col-md-7">
             <div class="input-group">
@@ -263,8 +239,41 @@
                 </span>
                 </div> 
             </div>
+            
+            <div class="form-row">
+                    <div ng-click="planCheck('popular')" class="col-md-4 text-center plans">
+                        <div class="plan-content" ng-class="popular" >
+                            <h5>POPULAR</h5>
+                            <p>4 cupons simultâneos</p>
+                            <p>Manual de produção de imagens</p>
+                            <p class="price">R$ 60,00<span class="price-month">/mês</span></p>
+                        </div>
+                    </div>
+                    <div ng-click="planCheck('amigo')" class="col-md-4 text-center plans">
+                        <div class="plan-content" ng-class="amigo" >
+                            <h5>AMIGO DA VIZINHANÇA</h5>
+                            <p>7 cupons simultâneos</p>
+                            <p>Prioridade na pesquisa</p>
+                            <p>Manual de produção de imagens</p>
+                            <p>Guia de melhores práticas de anúncio</p>
+                            <p>1 post por mês no Instagram e Facebook</p>
+                            <p class="price">R$ 90,00<span class="price-month">/mês</span></p>
+                        </div>
+                    </div>
+                    <div ng-click="planCheck('rei')" class="col-md-4 text-center plans">
+                        <div class="plan-content" ng-class="rei">
+                            <h5>REI DO PEDAÇO</h5>
+                            <p>12 cupons simultâneos</p>
+                            <p>Prioridade na pesquisa ainda maior</p>
+                            <p>Manual de produção de imagens</p>
+                            <p>Guia de melhores práticas de anúncio</p>
+                            <p>2 posts por mês no Instagram e Facebook</p>
+                            <p class="price">R$ 150,00<span class="price-month">/mês</span></p>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="form-row">
+                <div class="form-row top-buffer">
                     <div class="col-md-3">
                        <button class="opa-ghost-button" ng-click="data=false">
                            <i class="fa fa-arrow-left" aria-hidden="true"></i>

@@ -219,17 +219,53 @@
                          <span class="input-group-text opa-prepend"><i class='fa fa-lock fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">CONFIRME A SENHA</label>
-                    <input type="password" class="form-control opa-field" ng-model="usuario.confirm" placeholder="CONFIRME A SENHA" >
+                    <input type="password" class="form-control opa-field" ng-model="confirm" placeholder="CONFIRME A SENHA" >
                     
                     
                 </div>
-                    <span ng-show="usuario.senha != usuario.confirm" class="mensagem">
+                    <span ng-show="usuario.senha != confirm" class="mensagem">
                         AS SENHAS NÃO CONFEREM
                     </span> 
                  </div>
                  
                 </div> 
                 <div class="form-row">
+                    <h5 class="login-title text-center col-12">Selecione seu plano</h5>
+                </div>
+                <div class="form-row">
+                    <div ng-click="planCheck('popular')" class="col-md-4 text-center plans">
+                        <div class="plan-content" ng-class="popular" >
+                            <h5>POPULAR</h5>
+                            <p>4 cupons simultâneos</p>
+                            <p>Manual de produção de imagens</p>
+                            <p class="price">R$ 60,00<span class="price-month">/mês</span></p>
+                        </div>
+                    </div>
+                    <div ng-click="planCheck('amigo')" class="col-md-4 text-center plans">
+                        <div class="plan-content" ng-class="amigo" >
+                            <h5>AMIGO DA VIZINHANÇA</h5>
+                            <p>7 cupons simultâneos</p>
+                            <p>Prioridade na pesquisa</p>
+                            <p>Manual de produção de imagens</p>
+                            <p>Guia de melhores práticas de anúncio</p>
+                            <p>1 post por mês no Instagram e Facebook</p>
+                            <p class="price">R$ 90,00<span class="price-month">/mês</span></p>
+                        </div>
+                    </div>
+                    <div ng-click="planCheck('rei')" class="col-md-4 text-center plans">
+                        <div class="plan-content" ng-class="rei">
+                            <h5>REI DO PEDAÇO</h5>
+                            <p>12 cupons simultâneos</p>
+                            <p>Prioridade na pesquisa ainda maior</p>
+                            <p>Manual de produção de imagens</p>
+                            <p>Guia de melhores práticas de anúncio</p>
+                            <p>2 posts por mês no Instagram e Facebook</p>
+                            <p class="price">R$ 150,00<span class="price-month">/mês</span></p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="form-row top-buffer">
                     <div id="terms" class="form-group col-md-9">
                        <div>
                           <input id="check" type="checkbox" value="" ng-model="usuario.check" id="check" name="check" required>
@@ -242,7 +278,7 @@
                        
                     </div>
                     <div class="form-group col-md-3">
-                        <button type="submit" class="opa-button submit">
+                        <button type="submit" class="opa-button submit" ng-disabled="formulario.$invalid">
                             ENVIAR
                         </button>
                     </div>

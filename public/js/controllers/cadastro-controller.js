@@ -3,6 +3,29 @@ angular.module('opa')
 		$scope.usuario = {};
 		$scope.mensagem = '';
         $scope.signupsuccess = '';
+        $scope.popular = 'inativo';
+        $scope.amigo = 'inativo';
+        $scope.rei = 'inativo';
+    
+  
+    $scope.planCheck = function(plano){ 
+        if (plano == 'popular') {
+            $scope.usuario.plano = plano;
+            $scope.popular = 'ativo';
+            $scope.amigo = 'inativo';
+            $scope.rei = 'inativo';
+        } else if (plano == 'amigo') {
+            $scope.usuario.plano = plano;
+            $scope.amigo = 'ativo';
+            $scope.rei = 'inativo';
+            $scope.popular = 'inativo';
+        } else {
+            $scope.usuario.plano = plano;
+            $scope.rei = 'ativo';
+            $scope.amigo = 'inativo';
+            $scope.popular = 'inativo';
+        }
+    }
     
     var sucesso = function() {
         $timeout(function() {

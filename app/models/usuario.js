@@ -50,14 +50,15 @@ var schema = mongoose.Schema({
         type: String,
         required: true
     },
-    confirm: {
+    plano: {
         type: String,
         required: false
     },
     situacao: {
         type: String,
         required: false
-    }
+    },
+    
 });
 
 mongoose.model('Usuario', schema);

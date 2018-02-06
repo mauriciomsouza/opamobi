@@ -1,5 +1,7 @@
 angular.module('opa').controller('EmpresaController', function($scope, recursoCupom, $http, $resource, $window, $sessionStorage, $localStorage, $location, recursoUsuario, atualizaDadosDaEmpresa) {
     
+    $scope.usuario = {};
+    
     $http.get('/usuario')
         .success(function(usuario) {
             $scope.usuario = usuario;
@@ -44,6 +46,44 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
             }
     };
     
+    var plano = $scope.usuario.plano;
+    
+    console.log(plano);
+    
+    if (plano == 'popular') {
+         $scope.popular = 'ativo';
+         $scope.amigo = 'inativo';
+         $scope.rei = 'inativo';
+    } else if (plano == 'amigo') {
+         $scope.amigo = 'ativo';
+         $scope.rei = 'inativo';
+         $scope.popular = 'inativo';
+    } else {
+         $scope.rei = 'ativo';
+         $scope.amigo = 'inativo';
+         $scope.popular = 'inativo';
+    }
+  
+    $scope.planCheck = function(plano){ 
+        if (plano == 'popular') {
+            $scope.usuario.plano = plano;
+            $scope.popular = 'ativo';
+            $scope.amigo = 'inativo';
+            $scope.rei = 'inativo';
+        } else if (plano == 'amigo') {
+            $scope.usuario.plano = plano;
+            $scope.amigo = 'ativo';
+            $scope.rei = 'inativo';
+            $scope.popular = 'inativo';
+        } else {
+            $scope.usuario.plano = plano;
+            $scope.rei = 'ativo';
+            $scope.amigo = 'inativo';
+            $scope.popular = 'inativo';
+        }
+    }
+    
+    
     $scope.atualizarDados = function() {
 			 atualizaDadosDaEmpresa.atualizar($scope.usuario)
 				.then(function(dados) {
@@ -53,7 +93,7 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
 				.catch(function(erro) {
 					$scope.mensagem = erro.mensagem;
 				});
-		};
+    };
     
 	$scope.remover = function(cupom) {
 		recursoCupom.delete({cupomId: cupom._id}, function() {
