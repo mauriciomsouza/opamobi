@@ -1,14 +1,35 @@
-angular.module('opa').controller('EmpresaController', function($scope, recursoCupom, $http, $resource, $window, $sessionStorage, $localStorage, $location, recursoUsuario, atualizaDadosDaEmpresa) {
+angular.module('opa').controller('EmpresaController', function($scope, recursoCupom, $http, $resource, $window, $sessionStorage, $localStorage, $location, recursoUsuario, atualizaDadosDaEmpresa, $filter) {
     
+    $scope.cupoms = [];
+	$scope.filtro = '';
+	$scope.mensagem = '';
     $scope.usuario = {};
-    var plano = $scope.usuario.plano;
-    
+
     $http.get('/usuario')
         .success(function(usuario) {
             $scope.usuario = usuario;
             $http.get('v1/usuarios/'+usuario.cnpj)
                 .success(function(usuario) {
                     $scope.usuario = usuario;
+                    recursoCupom.query(function(cupoms) {
+                        if ($scope.usuario.plano == 'popular') {
+                        $scope.permitidos = 4;
+                        } else if ($scope.usuario.plano == 'amigo') {
+                            $scope.permitidos = 7;
+                        } else if ($scope.usuario.plano == 'rei') {
+                            $scope.permitidos = 12;
+                        };
+                        $scope.cupoms = cupoms;
+                        $scope.cupomsFiltrados = $filter('filter')(cupoms, {empresa_cnpj: $scope.usuario.cnpj});
+                        $scope.ativos = $scope.cupomsFiltrados.length;
+                        $scope.disponiveis = $scope.permitidos - $scope.ativos;
+                    }, function(erro) {
+                        console.log(erro);
+                    });
+                    
+                
+                
+                
                 })
                 .error(function(erro) {
                     console.log(erro);
@@ -17,16 +38,6 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
         .error(function(erro) {
 			console.log(erro);
     });
-    
-    $scope.cupoms = [];
-	$scope.filtro = '';
-	$scope.mensagem = '';
-
-	recursoCupom.query(function(cupoms) {
-		$scope.cupoms = cupoms;
-	}, function(erro) {
-		console.log(erro);
-	});
     
     $scope.logout = function($scope){
         delete $window.sessionStorage.token; 
@@ -79,39 +90,17 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
                     console.log(status);
                 })
     };
-    
-    if (plano == 'popular') {
-         $scope.popular = 'ativo';
-         $scope.amigo = 'inativo';
-         $scope.rei = 'inativo';
-    } else if (plano == 'amigo') {
-         $scope.amigo = 'ativo';
-         $scope.rei = 'inativo';
-         $scope.popular = 'inativo';
-    } else {
-         $scope.rei = 'ativo';
-         $scope.amigo = 'inativo';
-         $scope.popular = 'inativo';
-    }
-  
-    $scope.planCheck = function(plano){ 
-        if (plano == 'popular') {
-            $scope.usuario.plano = plano;
-            $scope.popular = 'ativo';
-            $scope.amigo = 'inativo';
-            $scope.rei = 'inativo';
-        } else if (plano == 'amigo') {
-            $scope.usuario.plano = plano;
-            $scope.amigo = 'ativo';
-            $scope.rei = 'inativo';
-            $scope.popular = 'inativo';
-        } else {
-            $scope.usuario.plano = plano;
-            $scope.rei = 'ativo';
-            $scope.amigo = 'inativo';
-            $scope.popular = 'inativo';
-        }
-    }
+        
+    if ($scope.usuario.plano == 'popular') {
+        $scope.permitidos = 4;
+        console.log($scope.usuario.plano);
+    } else if ($scope.usuario.plano == 'amigo') {
+        $scope.permitidos = 7;
+        console.log($scope.usuario.plano);
+    } else if ($scope.usuario.plano == 'rei') {
+        $scope.permitidos = 12;
+        console.log($scope.usuario.plano);
+    };
     
 	$scope.remover = function(cupom) {
 		recursoCupom.delete({cupomId: cupom._id}, function() {

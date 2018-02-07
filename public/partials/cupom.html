@@ -9,7 +9,7 @@
                          <span class="input-group-text opa-prepend"><i class='fa fa-tag fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">NOME DO CUPOM</label>
-                    <input name="titulo" class="form-control opa-field" ng-model="cupom.titulo" required maxlength="20" placeholder="NOME DO CUPOM">  
+                    <input name="titulo" class="form-control opa-field" ng-model="cupom.titulo" required maxlength="30" placeholder="NOME DO CUPOM">  
                     </div>
                     <small class="form-text text-muted form-help">Ex. Copo Promocional, Refrigerente 2L, Estojo de Maquiagem, etc.</small>
                      <span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
@@ -18,7 +18,7 @@
                     </span>
                     <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" 
                         class="mensagem">
-                        NO MÁXIMO 20 CARACTERES
+                        NO MÁXIMO 30 CARACTERES
                     </span>
                 </div>
                 <div class="form-group">
@@ -46,7 +46,7 @@
                          <span class="input-group-text opa-prepend"><i class='fa fa-list-ul fa-lg' aria-hidden='true'></i></span>
                     </div>
                     <label class="sr-only">TIPO DE PROMOÇÃO</label>
-                    <input type="text" name="descricao" class="form-control opa-field" ng-model="cupom.descricao" placeholder="TIPO DE PROMOÇÃO">
+                    <input type="text" name="descricao" class="form-control opa-field" ng-model="cupom.descricao" placeholder="TIPO DE PROMOÇÃO" maxlenght="9">
                     </div>
                     <small class="form-text text-muted form-help">Ex. Pague 1 leve 2, 25% off, Ganhe nas compras acima de R$ 150,00, etc.</small>
                     <span ng-show = "formulario.$submitted && formulario.descricao.$error.required" 

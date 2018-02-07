@@ -1,6 +1,13 @@
 <div class="container cupom-manager" ng-hide="manager || data || pass">   
-    <div class="row top-buffer ">
+    <div class="row top-buffer">
         <h2 class="col-md-12 text-center">Bem-vindo, <span>{{usuario.razao}}</span></h2>
+    </div>
+    <div class="row top-buffer">
+        <h5 class="col-md-4" ng-if="usuario.plano == 'popular'">Plano: Popular</h5>
+        <h5 class="col-md-4" ng-if="usuario.plano == 'amigo'">Plano: Amigo da Vizinhança</h5>
+        <h5 class="col-md-4" ng-if="usuario.plano == 'rei'">Plano: Rei do Pedaço</h5>
+        <h5 class="col-md-4 text-center" ng-init="">Cupons Ativos: {{ativos}}</h5>
+        <h5 class="col-md-4 text-right">Cupons Disponíveis: {{disponiveis}}</h5>
     </div>
     
     <div class="row top-buffer">
@@ -32,7 +39,7 @@
         <h2>Seus Cupons</h2>
     </div>
     <div class="row justify-content-center top-buffer">
-        <div class="cupom-adm col-sm-6 col-md-4 col-lg-3" ng-repeat="cupom in cupoms  | filter : {empresa_cnpj: usuario.cnpj}">
+        <div class="cupom-adm col-sm-6 col-md-4 col-lg-3" ng-repeat="cupom in cupomsFiltrados">
             <img class="img-fluid rounded" ng-src="{{cupom.foto}}">
             <p class="text-center top-buffer">{{cupom.titulo}}</p>
             <div class="button-adm-wrapper row no-gutters">
@@ -51,10 +58,11 @@
     </div>
     <div class="row justify-content-center top-buffer">
         <div class="col-md-4">
-           <a href="#/cupoms/new" class="opa-button">
+           <a href="#/cupoms/new" ng-if="disponiveis > 0" class="opa-button">
                 <i class="fa fa-file" aria-hidden="true"></i>
                CRIAR CUPOM
             </a>
+            
            <button class="opa-ghost-button top-buffer" ng-click="manager=false">
                <i class="fa fa-arrow-left" aria-hidden="true"></i>
                VOLTAR
@@ -239,39 +247,7 @@
                 </span>
                 </div> 
             </div>
-            
-            <div class="form-row">
-                    <div ng-click="planCheck('popular')" class="col-md-4 text-center plans">
-                        <div class="plan-content" ng-class="popular" >
-                            <h5>POPULAR</h5>
-                            <p>4 cupons simultâneos</p>
-                            <p>Manual de produção de imagens</p>
-                            <p class="price">R$ 60,00<span class="price-month">/mês</span></p>
-                        </div>
-                    </div>
-                    <div ng-click="planCheck('amigo')" class="col-md-4 text-center plans">
-                        <div class="plan-content" ng-class="amigo" >
-                            <h5>AMIGO DA VIZINHANÇA</h5>
-                            <p>7 cupons simultâneos</p>
-                            <p>Prioridade na pesquisa</p>
-                            <p>Manual de produção de imagens</p>
-                            <p>Guia de melhores práticas de anúncio</p>
-                            <p>1 post por mês no Instagram e Facebook</p>
-                            <p class="price">R$ 90,00<span class="price-month">/mês</span></p>
-                        </div>
-                    </div>
-                    <div ng-click="planCheck('rei')" class="col-md-4 text-center plans">
-                        <div class="plan-content" ng-class="rei">
-                            <h5>REI DO PEDAÇO</h5>
-                            <p>12 cupons simultâneos</p>
-                            <p>Prioridade na pesquisa ainda maior</p>
-                            <p>Manual de produção de imagens</p>
-                            <p>Guia de melhores práticas de anúncio</p>
-                            <p>2 posts por mês no Instagram e Facebook</p>
-                            <p class="price">R$ 150,00<span class="price-month">/mês</span></p>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="form-row top-buffer">
                     <div class="col-md-3">

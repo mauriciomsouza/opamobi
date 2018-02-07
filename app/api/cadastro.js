@@ -46,12 +46,11 @@ module.exports = function(app) {
 
             // setup email data with unicode symbols
             var mailOptions = {
-                from: '"Opa! Admin" <no-reply@mauriciomelo.design>', // sender address
+                from: '"Opa! Admin" <no-reply@opamobi.com.br>', // sender address
                 to: 'romulo@2ml.design, mauricio@2ml.design', // list of receivers
                 subject: 'Novo Usuário Cadastrado', // Subject line
                 text: 'Opa! Temos um novo usuário.', // plain text body
-                html: '<h1>Alguém se cadastrou</h1><br><h3>Dados do usuário</h3>'+
-                        req.body.usuario.cnpj// html body
+                html: '<h1>Alguém se cadastrou</h1><br><h3>Dados do usuário:</h3>' + req.body.usuario.cnpj// html body
             };
 
             // send mail with defined transport object
@@ -61,7 +60,7 @@ module.exports = function(app) {
                 }
                 console.log('Message sent: %s', info.messageId);
                 // Preview only available when sending through an Ethereal account
-                console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+                nodemailer.getTestMessageUrl(info));
 
                 // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
                 // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
