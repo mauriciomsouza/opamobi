@@ -1,6 +1,7 @@
 angular.module('opa').controller('EmpresaController', function($scope, recursoCupom, $http, $resource, $window, $sessionStorage, $localStorage, $location, recursoUsuario, atualizaDadosDaEmpresa) {
     
     $scope.usuario = {};
+    var plano = $scope.usuario.plano;
     
     $http.get('/usuario')
         .success(function(usuario) {
@@ -34,10 +35,10 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
     
     $scope.mudarSenha = function() {
 			if ($scope.formulario.$valid) {        
-                $http.put('v1/usuarios/' + $scope.usuario.cnpj,
+                $http.patch('v1/usuarios/' + $scope.usuario.cnpj,
                          {'senha': $scope.novasenha}, {'senha': $scope.novasenha})
                     .success(function(status, headers) {
-                    $scope.autorizado = 'Senha modificada com sucesso.';
+                    console.log('Sucesso')
                 })
                 .error(function(status) {
                     console.log('falhou');
@@ -46,9 +47,38 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
             }
     };
     
-    var plano = $scope.usuario.plano;
-    
-    console.log(plano);
+    $scope.atualizarDados = function() {    
+                $http.put('v1/usuarios/' + $scope.usuario.cnpj, {
+                    'logradouro': $scope.usuario.logradouro,
+                    'numero': $scope.usuario.numero,
+                    'complemento' : $scope.usuario.complemento,
+                    'bairro': $scope.usuario.bairro,
+                    'cidade': $scope.usuario.cidade,
+                    'estado': $scope.usuario.estado,
+                    'cep': $scope.usuario.cep,
+                    'telefone': $scope.usuario.telefone,
+                    'email': $scope.usuario.email,
+                    'plano': $scope.usuario.plano
+                }, {
+                    'logradouro': $scope.usuario.logradouro,
+                    'numero': $scope.usuario.numero,
+                    'complemento' : $scope.usuario.complemento,
+                    'bairro': $scope.usuario.bairro,
+                    'cidade': $scope.usuario.cidade,
+                    'estado': $scope.usuario.estado,
+                    'cep': $scope.usuario.cep,
+                    'telefone': $scope.usuario.telefone,
+                    'email': $scope.usuario.email,
+                    'plano': $scope.usuario.plano
+                })
+                    .success(function(status, headers) {
+                    console.log('Sucesso');
+                })
+                .error(function(status) {
+                    console.log('falhou');
+                    console.log(status);
+                })
+    };
     
     if (plano == 'popular') {
          $scope.popular = 'ativo';
@@ -82,18 +112,6 @@ angular.module('opa').controller('EmpresaController', function($scope, recursoCu
             $scope.popular = 'inativo';
         }
     }
-    
-    
-    $scope.atualizarDados = function() {
-			 atualizaDadosDaEmpresa.atualizar($scope.usuario)
-				.then(function(dados) {
-					$scope.sucesso = dados.sucesso;
-					if (dados.inclusao) $scope.usuario = {};
-				})
-				.catch(function(erro) {
-					$scope.mensagem = erro.mensagem;
-				});
-    };
     
 	$scope.remover = function(cupom) {
 		recursoCupom.delete({cupomId: cupom._id}, function() {

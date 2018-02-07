@@ -48,6 +48,25 @@ module.exports = function(app) {
 			res.sendStatus(500);
 		});
 	};
+    
+    api.atualizarCadastro = function(req, res) {
+		model.findOneAndUpdate({'cnpj' : req.params.cnpj}, {$set: {
+            'logradouro': req.body.logradouro,
+            'numero': req.body.numero,
+            'complemento' : req.body.complemento,
+            'bairro': req.body.bairro,
+            'cidade': req.body.cidade,
+            'estado': req.body.estado,
+            'cep': req.body.cep,
+            'telefone': req.body.telefone,
+            'email': req.body.email,
+            'plano': req.body.plano}})
+		.then(function(usuario) {
+			res.json(usuario);
+		}, function(error) {
+			res.sendStatus(500);
+		});
+	};
 
 	return api;
 };

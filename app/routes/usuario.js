@@ -8,6 +8,6 @@ module.exports = function(app) {
 
 	app.route('/v1/usuarios/:cnpj')
 		.get(api.buscaPorCNPJ)
-        .put(api.mudarSenha)
-        .patch(api.atualiza);
+        .patch(api.mudarSenha)
+        .put(api.atualizarCadastro);
 };
