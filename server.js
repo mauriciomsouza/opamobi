@@ -1,7 +1,7 @@
 var http = require('http');
 var app = require('./config/express');
 
-require('./config/database')('mongodb://opamobi:123@ds249787.mlab.com:49787/heroku_jnjgbv0t');
+require('./config/database')('mongodb+srv://opamobi:123@cluster0.szmad.mongodb.net/heroku_jnjgbv0t?retryWrites=true&w=majority');
 
 var port = process.env.PORT || 80;
 
